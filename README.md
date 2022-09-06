@@ -3,7 +3,7 @@ Please go under edit and edit this file as needed for your project
 # Project Name - 
 # Batch - 
 ### Group Leader - IT21067556 - Shifan M.S.M. (QbicSquid)
-### Member 2 - 
+### Member 2 - IT21067242 - Fernando M.R.R.
 ### Member 3 - 
 ### Member 4 - 
 ### Member 5 - 
