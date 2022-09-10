@@ -21,10 +21,10 @@ const SampleSchema = new mongoose.Schema(
 
 // QuestionSchema.plugin(mongoosePaginate)
 
-QuestionSchema.index({ createdAt: 1 })
+SampleSchema.index({ createdAt: 1 })
 
-const Sample = mongoose.model('Question', SampleSchema)
+const Sample = mongoose.model('Sample', SampleSchema)
 
-Question.syncIndexes()
+Sample.syncIndexes()
 
 export default Sample
