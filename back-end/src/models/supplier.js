@@ -5,23 +5,28 @@ const SupplierSchema = new mongoose.Schema(
     business_name: {
       required: true,
       type: String,
+      unique: true,
     },
     cred_id: {
       required: true,
       type: String,
+      unique: true,
     },
     address: {
       required: true,
       type: String,
+      unique: true,
     },
     email: {
       required: true,
       type: String,
+      unique: true,
     },
     phone: [
       {
         required: true,
         type: String,
+        unique: true,
       },
     ],
     registered_products: [

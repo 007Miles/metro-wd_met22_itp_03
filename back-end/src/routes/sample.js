@@ -4,7 +4,7 @@ import { supplierAdd, supplierGet } from '../controllers/sample.js'
 
 const sampleRouter = express.Router()
 
-sampleRouter.get('/add', supplierAdd)
-sampleRouter.get('/add', supplierGet)
+sampleRouter.post('/add', supplierAdd)
+sampleRouter.get('/view/:id', supplierGet)
 
 export default sampleRouter

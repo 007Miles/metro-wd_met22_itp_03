@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+// import 'dotenv/config'
 
 const connectDB = async () => {
   console.log(process.env.MONGO_URI)
@@ -7,6 +8,8 @@ const connectDB = async () => {
     .connect(process.env.MONGO_URI, { keepAlive: true, connectTimeoutMS: 3000 })
     .catch((error) => {
       console.log('Error')
+      console.log(error)
+
       //logger.error('Error connecting to database')
       // logger.error(`Error connecting to MongoDB: ${error}`)
     })
