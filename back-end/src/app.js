@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 import express from 'express'
 
-import DBcon from "./config/DB_connection.js";
+import DBcon from './config/DB_connection.js'
 
 import router from './routes/index.js'
 import buyeracc from './routes/buyer.js'
@@ -11,14 +11,15 @@ dotenv.config()
 const app = express()
 
 app.use(express.json({ limit: '1mb' }))
+//app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (req, res) =>
   res.status(200).json({ message: 'Server Up and Running' })
 )
 app.use('/api', router)
-app.use(buyeracc);
+app.use(buyeracc)
 
-DBcon();
+DBcon()
 
 const port = process.env.PORT || 3000
 
