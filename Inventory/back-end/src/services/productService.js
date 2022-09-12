@@ -1,4 +1,9 @@
-import { createProduct, getSingleProduct } from '../repository/productRepo.js'
+import {
+  createProduct,
+  getSingleProduct,
+  deleteSingleProduct,
+  updateSingleProduct,
+} from '../repository/productRepo.js'
 
 export const createProductSrc = async ({
   name,
@@ -20,4 +25,12 @@ export const createProductSrc = async ({
 
 export const getSingleProductSrc = async (id) => {
   return await getSingleProduct(id)
+}
+
+export const deleteSingleProductSrc = async (id, pr) => {
+  return await deleteSingleProduct(id, pr)
+}
+
+export const updateSingleProductSrc = async (id, body) => {
+  return await updateSingleProduct(id, body)
 }
