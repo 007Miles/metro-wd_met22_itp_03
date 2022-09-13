@@ -1,10 +1,28 @@
 import express from 'express'
 
-import { supplierAdd, supplierGet } from '../controllers/supplier.js'
+import {
+  supplierAdd,
+  supplierGet,
+  deleteSupplier,
+  updateSupplier,
+  suppliersGet,
+} from '../controllers/supplier.js'
 
-const sampleRouter = express.Router()
+const router = express.Router()
 
-sampleRouter.post('/add', supplierAdd)
-sampleRouter.get('/view/:id', supplierGet)
+//Insert A New Supplier
+router.post('/add', supplierAdd)
 
-export default sampleRouter
+//Get Data Of One Supplier
+router.get('/view/:id', supplierGet)
+
+//Get Data Of All Suppliers
+router.get('/viewAll', suppliersGet)
+
+//Update Supplier Data
+router.put('/put/:id', updateSupplier)
+
+//Delete A Supplier
+router.delete('/delete/:id', deleteSupplier)
+
+export default router
