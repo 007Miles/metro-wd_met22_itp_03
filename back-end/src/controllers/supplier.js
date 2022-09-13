@@ -1,5 +1,5 @@
 import asyncHandler from '../middleware/async.js'
-import { addSupplier, getSupplierById } from '../services/sample.js'
+import { addSupplier, getSupplierById } from '../services/supplier.js'
 
 export const supplierAdd = asyncHandler(async (req, res) => {
   await addSupplier(req.body)

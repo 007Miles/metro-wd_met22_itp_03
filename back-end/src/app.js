@@ -3,7 +3,7 @@ import express from 'express'
 
 import router from './routes/index.js'
 import connectDB from './config/dbConnect.js'
-import supplier from './routes/sample.js'
+import supplier from './routes/supplier.js'
 
 dotenv.config()
 

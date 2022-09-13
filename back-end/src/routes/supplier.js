@@ -1,6 +1,6 @@
 import express from 'express'
 
-import { supplierAdd, supplierGet } from '../controllers/sample.js'
+import { supplierAdd, supplierGet } from '../controllers/supplier.js'
 
 const sampleRouter = express.Router()
 
