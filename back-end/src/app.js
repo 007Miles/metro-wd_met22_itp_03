@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 import express from 'express'
 
 import router from './routes/index.js'
+import DBconnection from "./config/DB_connection.js"
 
 dotenv.config()
 
@@ -14,8 +15,9 @@ app.get('/', (req, res) =>
 )
 app.use('/api', router)
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000 // use port 3000 or use a available port
 
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`)
+  DBconnection()
 })
