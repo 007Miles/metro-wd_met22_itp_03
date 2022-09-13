@@ -1,7 +1,10 @@
 import dotenv from 'dotenv'
 import express from 'express'
+import cors from 'cors'
+import mongoose from 'mongoose'
 
 import router from './routes/index.js'
+import connect from './config/database.connection.js'
 
 dotenv.config()
 
@@ -18,4 +21,5 @@ const port = process.env.PORT || 3000
 
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`)
+  connect()
 })
