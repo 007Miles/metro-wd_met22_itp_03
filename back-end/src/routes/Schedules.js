@@ -1,9 +1,9 @@
 import express from 'express'
-const Schedules = require('../models/Schedules')
+import { newSchedules } from '../controllers/Schedules.js'
 
 const router = express.Router()
 
 //create schedule
-router.post('/schedules/new', (req, res) => {
-  let newSchedule = new Schedules(req.body)
-})
+router.post('/schedules/new', newSchedules)
+
+export default router

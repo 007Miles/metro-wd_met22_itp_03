@@ -4,6 +4,7 @@ import cors from 'cors'
 import mongoose from 'mongoose'
 
 import router from './routes/index.js'
+import scheduleDrop from './routes/Schedules.js'
 import connect from './config/database.connection.js'
 
 dotenv.config()
@@ -16,6 +17,7 @@ app.get('/', (req, res) =>
   res.status(200).json({ message: 'Server Up and Running' })
 )
 app.use('/api', router)
+app.use(scheduleDrop)
 
 const port = process.env.PORT || 3000
 

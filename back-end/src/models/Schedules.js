@@ -2,14 +2,13 @@ import mongoose from 'mongoose'
 
 const schedulesSchema = mongoose.Schema({
   supplierID: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Supplier',
+    type: String,
     required: true,
+    unique: true,
   },
   supplier_name: {
     type: String,
     required: true,
-    unique: true,
   },
   product: {
     type: String,
@@ -19,9 +18,8 @@ const schedulesSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-
   price: {
-    type: String,
+    type: Number,
     required: true,
   },
   warehouse: {
@@ -49,9 +47,10 @@ const schedulesSchema = mongoose.Schema({
     required: false,
   },
   time: {
-    type: TimeRanges,
+    type: Date,
     required: true,
   },
 })
 
-module.exports = mongoose.model('Schedules', schedulesSchema)
+const dropSchedule = mongoose.model('schedules', schedulesSchema)
+export default dropSchedule
