@@ -4,6 +4,7 @@ import express from 'express'
 import router from './routes/index.js'
 import connectDB from './config/dbConnect.js'
 import supplier from './routes/supplier.js'
+import supplier_mail from './routes/supplier_mail.js'
 
 dotenv.config()
 
@@ -16,6 +17,7 @@ app.get('/', (req, res) =>
 )
 app.use('/api', router)
 app.use(supplier)
+app.use(supplier_mail)
 
 connectDB()
 

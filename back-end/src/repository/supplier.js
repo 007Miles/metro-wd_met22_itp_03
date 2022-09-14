@@ -7,9 +7,11 @@ export const insertSupplier = async (details) => {
     business_name: details.business_name,
   })
   // console.log(userWithsamename)
+
   if (userWithsamename) {
     return { msg: 'Suppler Already exist with the same business_name' }
   }
+
   const supplier = new Supplier({
     business_name: details.business_name,
     cred_id: details.cred_id,
