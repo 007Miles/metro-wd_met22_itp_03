@@ -29,8 +29,8 @@ export const mailSupplier = async ({
       <li>Registered products: ${details.registered_products}</li>
     </ul>
     <h3>Login Credentials</h3>
-    <p>Your Username : ${details.username}</p></br>
-    <p>Your Password : ${details.password}</p>
+    <p><b>Your Username :</b> ${details.username}</p>
+    <p><b>Your Password :</b> ${details.password}</p>
   `
 
   // create reusable transporter object using the default SMTP transport
@@ -49,21 +49,33 @@ export const mailSupplier = async ({
 
   // setup email data with unicode symbols
   let mailOptions = {
-    from: 'dinuka15v@gmail.com', // sender address
-    to: 'dinukav15@gmail.com', // list of receivers
-    subject: 'Node Contact Request', // Subject line
+    from: 'no-reply@perera.distributors.com', // sender address
+    to: '@gmail.com', // list of receivers
+    subject: 'Supplier Request Response', // Subject line
     // text: 'Hello world?', // plain text body
     html: output, // html body
   }
 
-  // send mail with defined transport object
+  //   send mail with defined transport object
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       return console.log(error)
     }
     console.log('Message sent: %s', info.messageId)
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info))
-
     return { msg: 'Email has been sent' }
   })
+
+  //   try {
+  //     transporter.sendMail(mailOptions, (error, info) => {
+  //       if (error) {
+  //         return console.log(error)
+  //       }
+  //       console.log('Message sent: %s', info.messageId)
+  //       console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info))
+  //       return { msg: 'Email has been sent' }
+  //     })
+  //   } catch (error) {
+  //     return { msg: 'Search Supplier by id failed' }
+  //   }
 }
