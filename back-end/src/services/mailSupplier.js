@@ -18,6 +18,7 @@ export const mailSupplier = async ({
     username,
     password,
   }
+  //Layout of the displayed massage to the supplier
   const output = `
     <p>You have been accepted as a Supplier for perera distribuors</p>
     <h3>Supplier Details</h3>
@@ -39,17 +40,16 @@ export const mailSupplier = async ({
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-      user: process.env.USER, // generated ethereal user
-      pass: process.env.PASS, // generated ethereal password
+      user: process.env.USER, // email account of the company
+      pass: process.env.PASS, // password
     },
   })
 
   // setup email data with unicode symbols
   let mailOptions = {
     from: 'no-reply@perera.distributors.com', // sender address
-    to: '@gmail.com', // list of receivers
-    subject: 'Supplier Request Response', // Subject line
-    // text: 'Hello world?', // plain text body
+    to: '@gmail.com', // should set to the recivers mail address
+    subject: 'Supplier Request Response',
     html: output, // html body
   }
 
