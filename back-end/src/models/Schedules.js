@@ -1,56 +1,62 @@
 import mongoose from 'mongoose'
 
-const schedulesSchema = mongoose.Schema({
-  supplierID: {
-    type: String,
-    required: true,
-    unique: true,
+const schedulesSchema = mongoose.Schema(
+  {
+    supplierID: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    supplier_name: {
+      type: String,
+      required: true,
+    },
+    product: {
+      type: String,
+      required: true,
+    },
+    quantity: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    warehouse: {
+      type: String,
+      required: true,
+    },
+    weekly: {
+      type: Boolean,
+      required: true,
+    },
+    monthly: {
+      type: Boolean,
+      required: true,
+    },
+    yearly: {
+      type: Boolean,
+      required: true,
+    },
+    date: {
+      type: Date,
+      required: false,
+    },
+    dayOfTheWeek: {
+      type: String,
+      required: false,
+    },
+    time: {
+      type: Date,
+      required: true,
+    },
   },
-  supplier_name: {
-    type: String,
-    required: true,
-  },
-  product: {
-    type: String,
-    required: true,
-  },
-  quantity: {
-    type: String,
-    required: true,
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
-  warehouse: {
-    type: String,
-    required: true,
-  },
-  weekly: {
-    type: Boolean,
-    required: true,
-  },
-  monthly: {
-    type: Boolean,
-    required: true,
-  },
-  yearly: {
-    type: Boolean,
-    required: true,
-  },
-  date: {
-    type: Date,
-    required: false,
-  },
-  dayOfTheWeek: {
-    type: String,
-    required: false,
-  },
-  time: {
-    type: Date,
-    required: true,
-  },
-})
+  {
+    versionKey: false,
+    timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
+  }
+)
 
 const dropSchedule = mongoose.model('schedules', schedulesSchema)
 export default dropSchedule

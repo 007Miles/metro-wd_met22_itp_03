@@ -1,5 +1,11 @@
-import { createSchedule } from '../repository/Schedules.js'
+import {
+  createSchedule,
+  getScheduleDrops,
+  updateScheduleDrops,
+  deleteScheduleDrops,
+} from '../repository/Schedules.js'
 
+//Add schedules
 export const addSchedules = async ({
   supplierID,
   supplier_name,
@@ -31,4 +37,20 @@ export const addSchedules = async ({
   const x = await createSchedule(data)
   //console.log('Service test', x)
   return x.msg
+}
+
+//Get Schedules
+export const getSchedulesByID = async (id) => {
+  return await getScheduleDrops(id)
+}
+
+//Update schedules
+export const updateSchedulesByID = async (id, ob) => {
+  const y = await updateScheduleDrops(id, ob)
+  return y
+}
+
+//Delete schedules
+export const deleteSchedulesByID = async (id) => {
+  return await deleteScheduleDrops(id)
 }

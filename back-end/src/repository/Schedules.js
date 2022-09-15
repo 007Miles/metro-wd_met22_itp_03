@@ -1,6 +1,7 @@
 import dropSchedule from '../models/Schedules.js'
 import mongoose from 'mongoose'
 
+//Add schedules
 export const createSchedule = async (data) => {
   try {
     const scheduleDrop = new dropSchedule({
@@ -18,8 +19,33 @@ export const createSchedule = async (data) => {
       time: data.time,
     })
     await scheduleDrop.save()
-    return { msg: 'new schedule added' }
+    return { msg: 'New schedule added' }
   } catch (error) {
-    return { msg: 'schedule not added' }
+    return { msg: 'Schedule not added' }
+  }
+}
+
+//Get schedule details
+export const getScheduleDrops = async (id) => {
+  return await dropSchedule.findById(mongoose.Types.ObjectId(id))
+}
+
+//Update schedules
+export const updateScheduleDrops = async (id, ob) => {
+  try {
+    await dropSchedule.findByIdAndUpdate(id, ob)
+    return { msg: 'Schedule updated successfully' }
+  } catch (error) {
+    return { msg: 'Schedule update failed' }
+  }
+}
+
+//Delete schedules
+export const deleteScheduleDrops = async (id) => {
+  try {
+    await dropSchedule.findByIdAndDelete(id)
+    return { msg: 'Schedule successfully deleted' }
+  } catch (error) {
+    return { msg: 'Schedule deletion failed' }
   }
 }

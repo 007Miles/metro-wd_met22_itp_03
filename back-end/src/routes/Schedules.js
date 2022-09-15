@@ -1,9 +1,16 @@
 import express from 'express'
-import { newSchedules } from '../controllers/Schedules.js'
+import {
+  newSchedules,
+  getSchedules,
+  updateSchedules,
+  deleteSchedules,
+} from '../controllers/Schedules.js'
 
 const router = express.Router()
 
-//create schedule
-router.post('/schedules/new', newSchedules)
+router.post('/new', newSchedules) //create schedules
+router.get('/:id', getSchedules) //get schedules
+router.put('/:id', updateSchedules) //update schedules
+router.delete('/:id', deleteSchedules) //delete schedules
 
 export default router
