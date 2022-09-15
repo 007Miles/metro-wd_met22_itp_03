@@ -42,9 +42,6 @@ export const mailSupplier = async ({
       user: process.env.USER, // generated ethereal user
       pass: process.env.PASS, // generated ethereal password
     },
-    // tls: {
-    //   rejectUnauthorized: false,
-    // },
   })
 
   // setup email data with unicode symbols
@@ -65,17 +62,4 @@ export const mailSupplier = async ({
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info))
     return { msg: 'Email has been sent' }
   })
-
-  //   try {
-  //     transporter.sendMail(mailOptions, (error, info) => {
-  //       if (error) {
-  //         return console.log(error)
-  //       }
-  //       console.log('Message sent: %s', info.messageId)
-  //       console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info))
-  //       return { msg: 'Email has been sent' }
-  //     })
-  //   } catch (error) {
-  //     return { msg: 'Search Supplier by id failed' }
-  //   }
 }
