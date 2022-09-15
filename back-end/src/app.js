@@ -13,7 +13,7 @@ app.use(express.json({ limit: '1mb' }))
 app.get('/', (req, res) =>
   res.status(200).json({ message: 'Server Up and Running' })
 )
-app.use('/api', router)
+app.use('/api', router) // Use This url to go "router" file
 
 const port = process.env.PORT || 3000 // use port 3000 or use a available port
 
@@ -21,3 +21,4 @@ app.listen(port, () => {
   console.log(`Server running on port: ${port}`)
   DBconnection()
 })
+
