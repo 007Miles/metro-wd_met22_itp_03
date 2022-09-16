@@ -16,7 +16,7 @@ const employeeSchema = mongoose.Schema(
       unique: true,
     },
     dob: {
-      type: String,
+      type: Date,
       require: true,
     },
     empId: {
