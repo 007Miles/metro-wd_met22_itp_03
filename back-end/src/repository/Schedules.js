@@ -16,7 +16,7 @@ export const createSchedule = async (data) => {
       yearly: data.yearly,
       date: data.date,
       dayOfTheWeek: data.dayOfTheWeek,
-      time: data.time,
+      time: { hour: data.hour, minute: data.minute }, //test
     })
     await scheduleDrop.save()
     return { msg: 'New schedule added' }

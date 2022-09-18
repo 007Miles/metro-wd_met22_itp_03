@@ -32,7 +32,7 @@ export const addSchedules = async ({
     yearly: Boolean(yearly),
     date: Date(date),
     dayOfTheWeek,
-    time: Date(time),
+    time: { hour: Number(hour), minute: Number(minute) },
   }
   const x = await createSchedule(data)
   //console.log('Service test', x)
