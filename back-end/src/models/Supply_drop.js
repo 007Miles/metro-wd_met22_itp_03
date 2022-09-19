@@ -20,8 +20,6 @@ const supplyDropSchema = mongoose.Schema(
         //Check Schedules.js repo and service files to code
         item_id: {
           type: Number,
-          min: 0,
-          max: 24,
         },
         prod_id: {
           type: String,
