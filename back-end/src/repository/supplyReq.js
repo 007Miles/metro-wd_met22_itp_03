@@ -2,17 +2,7 @@ import mongoose from 'mongoose'
 import InspectionRequest from '../models/supply_inspection_req_model.js'
 
 //Insert A New Supply Request
-export const insertSupply = async (details) => {
-  //Check if Supplier business_name Already exists
-  //   const userWithsamename = await Supplier.exists({
-  //     business_name: details.business_name,
-  //   })
-  //   // console.log(userWithsamename)
-
-  //   if (userWithsamename) {
-  //     return { msg: 'Suppler Already exist with the same business_name' }
-  //   }
-
+export const insertSupplyReq = async (details) => {
   const inspectionRequest = new InspectionRequest({
     description: details.description,
     supply_id: details.supply_id,
@@ -24,11 +14,11 @@ export const insertSupply = async (details) => {
 }
 
 //Get Data Of One Supply request
-export const getSupply = async (id) => {
-  //Check if Supplier exists
-  //   if (!mongoose.Types.ObjectId.isValid(id)) {
-  //     return { msg: 'No supplier is available with this id' }
-  //   }
+export const getSupplyReq = async (id) => {
+  //check supply request is available with the id
+  if ((await InspectionRequest.findById(mongoose.Types.ObjectId(id))) == null) {
+    return { msg: 'No supply inspection request is available with this id' }
+  }
   try {
     return await InspectionRequest.findById(mongoose.Types.ObjectId(id))
   } catch (error) {
@@ -37,7 +27,7 @@ export const getSupply = async (id) => {
 }
 
 //Get Data Of All Supply requests
-export const getSupplies = async () => {
+export const getSupplyReqs = async () => {
   try {
     return await InspectionRequest.find({}).sort({ createdAt: -1 })
   } catch (error) {
@@ -46,11 +36,11 @@ export const getSupplies = async () => {
 }
 
 //Update Supply request Data
-export const updateSupplyusingId = async (id, ob) => {
-  //Check if Supplier exists
-  //   if (!mongoose.Types.ObjectId.isValid(id)) {
-  //     return { msg: 'No supplier is available with this id' }
-  //   }
+export const updateSupplyRequsingId = async (id, ob) => {
+  //check supply request is available with the id
+  if ((await InspectionRequest.findById(mongoose.Types.ObjectId(id))) == null) {
+    return { msg: 'No supply inspection request is available with this id' }
+  }
   try {
     const res = await InspectionRequest.findById(id)
     // console.log(ob)
@@ -63,11 +53,12 @@ export const updateSupplyusingId = async (id, ob) => {
 }
 
 //Delete A Supply request
-export const deleteSupplyusingId = async (id) => {
-  //Check if Supplier exists
-  //   if (!mongoose.Types.ObjectId.isValid(id)) {
-  //     return { msg: 'No supplier is available with this id' }
-  //   }
+export const deleteSupplyRequsingId = async (id) => {
+  //check supply request is available with the id
+  if ((await InspectionRequest.findById(mongoose.Types.ObjectId(id))) == null) {
+    return { msg: 'No supply inspection request is available with this id' }
+  }
+
   try {
     await InspectionRequest.findByIdAndDelete(id)
     return { msg: 'Supply request deleted successfully' }

@@ -8,6 +8,7 @@ export const mailSupplier = async ({
   registered_products,
   username,
   password,
+  description,
 }) => {
   const details = {
     business_name,
@@ -17,10 +18,12 @@ export const mailSupplier = async ({
     registered_products,
     username,
     password,
+    description,
   }
   //Layout of the displayed massage to the supplier
   const output = `
     <p>You have been accepted as a Supplier for perera distribuors</p>
+    <p>${details.description}</p>
     <h3>Supplier Details</h3>
     <ul>  
       <li>Business name: ${details.business_name}</li>
@@ -34,7 +37,6 @@ export const mailSupplier = async ({
     <p><b>Your Password :</b> ${details.password}</p>
   `
 
-  // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
@@ -47,8 +49,8 @@ export const mailSupplier = async ({
 
   // setup email data with unicode symbols
   let mailOptions = {
-    from: 'no-reply@perera.distributors.com', // sender address
-    to: '@gmail.com', // should set to the recivers mail address
+    from: 'no-reply@perera.distributors.com', // sender's address
+    to: details.email, // should set to the recivers mail address
     subject: 'Supplier Request Response',
     html: output, // html body
   }

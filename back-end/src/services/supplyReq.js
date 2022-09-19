@@ -1,13 +1,13 @@
 import {
-  insertSupply,
-  getSupply,
-  deleteSupplyusingId,
-  updateSupplyusingId,
-  getSupplies,
+  insertSupplyReq,
+  getSupplyReq,
+  deleteSupplyRequsingId,
+  updateSupplyRequsingId,
+  getSupplyReqs,
 } from '../repository/supplyReq.js'
 
 //Insert A New Supplier
-export const addSupply = async ({
+export const addSupplyReq = async ({
   description,
   supply_id,
   priority,
@@ -19,28 +19,28 @@ export const addSupply = async ({
     priority,
     status,
   }
-  const ans = await insertSupply(details)
+  const ans = await insertSupplyReq(details)
   return ans.msg
 }
 
 //Get Data Of One Supplier
-export const getSupplyById = async (id) => {
-  return await getSupply(id)
+export const getSupplyReqById = async (id) => {
+  return await getSupplyReq(id)
 }
 
 //Get Data Of All Suppliers
-export const getAllSupplies = async () => {
-  return await getSupplies()
+export const getAllSupplyReqs = async () => {
+  return await getSupplyReqs()
 }
 
 //Update Supplier Data
-export const updateSupplyById = async (id, ob) => {
-  console.log('Changing Supplier data:', ob)
-  const ans = await updateSupplyusingId(id, ob)
+export const updateSupplyReqById = async (id, ob) => {
+  // console.log('Changing Supply data:', ob)
+  const ans = await updateSupplyRequsingId(id, ob)
   return ans
 }
 
 //Delete A Supplier
-export const deleteSupplyById = async (id) => {
-  return await deleteSupplyusingId(id)
+export const deleteSupplyReqById = async (id) => {
+  return await deleteSupplyRequsingId(id)
 }

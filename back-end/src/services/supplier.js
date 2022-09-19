@@ -42,7 +42,7 @@ export const getAllSuppliers = async () => {
 
 //Update Supplier Data
 export const updateSupplierById = async (id, ob) => {
-  console.log('Changing Supplier data:', ob)
+  // console.log('Changing Supplier data:', ob)
   const ans = await updateSupplierusingId(id, ob)
   return ans
 }

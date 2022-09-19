@@ -20,9 +20,9 @@ router.get('/viewSupplyReq/:id', supplyReqGet)
 router.get('/viewAllSupplyReq', suppliesReqGet)
 
 //Update Supply request Data
-router.put('/putSupplyReq/:id', supplyReqDelete)
+router.put('/putSupplyReq/:id', supplyReqUpdate)
 
 //Delete A Supply request
-router.delete('/deleteSupplyReq/:id', supplyReqUpdate)
+router.delete('/deleteSupplyReq/:id', supplyReqDelete)
 
 export default router
