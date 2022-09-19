@@ -11,7 +11,6 @@ import {
 export const supplierAdd = asyncHandler(async (req, res) => {
   const ans = await addSupplier(req.body)
 
-  // res.status(200).json({ msg: 'Supplier inserted' })
   res.status(200).json(ans)
 })
 

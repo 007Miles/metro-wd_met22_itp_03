@@ -1,15 +1,15 @@
 import mongoose from 'mongoose'
 
-const inspection_req_Schema = new mongoose.Schema(
+const inspectionReqSchema = new mongoose.Schema(
   {
-    discription: {
+    description: {
       required: true,
       type: String,
     },
-    supply_schedule_id: {
+    supply_id: {
       required: true,
       type: mongoose.Schema.Types.ObjectId,
-      //    unique: true,
+      // unique: true,
     },
     status: {
       required: true,
@@ -28,7 +28,7 @@ const inspection_req_Schema = new mongoose.Schema(
 
 const inspectionRequest = mongoose.model(
   'inspectionRequest',
-  inspection_req_Schema
+  inspectionReqSchema
 )
 
 export default inspectionRequest

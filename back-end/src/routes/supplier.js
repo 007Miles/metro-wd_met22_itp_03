@@ -11,18 +11,18 @@ import {
 const router = express.Router()
 
 //Insert A New Supplier
-router.post('/add', supplierAdd)
+router.post('/addSupplier', supplierAdd)
 
 //Get Data Of One Supplier
-router.get('/view/:id', supplierGet)
+router.get('/viewSupplier/:id', supplierGet)
 
 //Get Data Of All Suppliers
-router.get('/viewAll', suppliersGet)
+router.get('/viewAllSuppliers', suppliersGet)
 
 //Update Supplier Data
-router.put('/put/:id', updateSupplier)
+router.put('/putSupplier/:id', updateSupplier)
 
 //Delete A Supplier
-router.delete('/delete/:id', deleteSupplier)
+router.delete('/deleteSupplier/:id', deleteSupplier)
 
 export default router

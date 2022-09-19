@@ -15,18 +15,15 @@ const SupplierSchema = new mongoose.Schema(
     address: {
       required: true,
       type: String,
-      // unique: true,
     },
     email: {
       required: true,
       type: String,
-      // unique: true,
     },
     phone: [
       {
         required: true,
         type: String,
-        // unique: true,
       },
     ],
     registered_products: [

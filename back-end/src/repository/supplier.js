@@ -19,6 +19,7 @@ export const insertSupplier = async (details) => {
     email: details.email,
     phone: details.phone,
     registered_products: details.registered_products,
+    rating: details.rating,
   })
   await supplier.save()
   return { msg: 'Supplier Inserted Successfully' }
@@ -26,11 +27,16 @@ export const insertSupplier = async (details) => {
 
 //Get Data Of One Supplier
 export const getSupplier = async (id) => {
-  //Check if Supplier exists
+  //check for valid objectId
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return { msg: 'No supplier is available with this id' }
   }
   try {
+    //Check if Supplier exists
+    if ((await Supplier.findById(mongoose.Types.ObjectId(id))) == null) {
+      return { msg: 'No supplier is available with this id' }
+    }
+
     return await Supplier.findById(mongoose.Types.ObjectId(id))
   } catch (error) {
     return { msg: 'Search Supplier by id failed' }
@@ -38,7 +44,7 @@ export const getSupplier = async (id) => {
 }
 
 //Get Data Of All Suppliers
-export const getSuppliers = async (id) => {
+export const getSuppliers = async () => {
   try {
     return await Supplier.find({}).sort({ createdAt: -1 })
   } catch (error) {
@@ -48,8 +54,12 @@ export const getSuppliers = async (id) => {
 
 //Update Supplier Data
 export const updateSupplierusingId = async (id, ob) => {
-  //Check if Supplier exists
+  //check for valid objectId
   if (!mongoose.Types.ObjectId.isValid(id)) {
+    return { msg: 'No supplier is available with this id' }
+  }
+  //Check if Supplier exists
+  if ((await Supplier.findById(mongoose.Types.ObjectId(id))) == null) {
     return { msg: 'No supplier is available with this id' }
   }
   try {
@@ -65,10 +75,15 @@ export const updateSupplierusingId = async (id, ob) => {
 
 //Delete A Supplier
 export const deleteSupplierusingId = async (id) => {
-  //Check if Supplier exists
+  //check for valid objectId
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return { msg: 'No supplier is available with this id' }
   }
+  //Check if Supplier exists
+  if ((await Supplier.findById(mongoose.Types.ObjectId(id))) == null) {
+    return { msg: 'No supplier is available with this id' }
+  }
+
   try {
     await Supplier.findByIdAndDelete(id)
     return { msg: 'Supplier deleted successfully' }

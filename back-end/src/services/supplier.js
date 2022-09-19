@@ -14,6 +14,7 @@ export const addSupplier = async ({
   email,
   phone,
   registered_products,
+  rating,
 }) => {
   const details = {
     business_name,
@@ -22,6 +23,7 @@ export const addSupplier = async ({
     email,
     phone,
     registered_products,
+    rating,
   }
   const ans = await insertSupplier(details)
   // console.log('await for add supplier details')
