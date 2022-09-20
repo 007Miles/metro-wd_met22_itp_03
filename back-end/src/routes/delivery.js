@@ -2,7 +2,7 @@ import express from 'express'
 import { celebrate, Segments } from 'celebrate'
 
 import { viewDelivery, createDelivery } from '../controllers/delivery.js'
-import { createDeliverySchema, viewDeliverySchema } from '../validations.js/delivery.js'
+import { createDeliverySchema, viewDeliverySchema } from '../validations/delivery.js'
 
 const sampleRouter = express.Router()
 

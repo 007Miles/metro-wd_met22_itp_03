@@ -22,9 +22,20 @@ connectDB()
 app.use((err, req, res, next) => {
   if (isCelebrateError(err)) {
     for (const [key, value] of err.details.entries()) {
-      return makeResponse({ res, status: 422, message: value.details[0].message })
+      return makeResponse({
+        res,
+        status: 422,
+        message: value.details[0].message,
+      })
     }
-  }
+  } else if (err.expose) {
+    return makeResponse({ res, status: err.status, message: err.message })
+  } else
+    return makeResponse({
+      res,
+      status: 500,
+      message: 'Internal server error',
+    })
 })
 
 const port = process.env.PORT || 3000
@@ -32,4 +43,3 @@ const port = process.env.PORT || 3000
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`)
 })
-
