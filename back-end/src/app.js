@@ -7,6 +7,7 @@ import connectDB from './config/dbConnect.js'
 import supplier from './routes/supplier.js'
 import supplier_mail from './routes/supplier_mail.js'
 import supply_req from './routes/supply_req.js'
+import makeResponse from './middleware/response.js'
 
 dotenv.config()
 
@@ -33,6 +34,27 @@ app.use((err, req, res, next) => {
         message: value.details[0].message,
       })
     }
+  } else
+    return makeResponse({
+      res,
+      status: 500,
+      message: 'Internal server error',
+    })
+})
+
+connectDB()
+
+app.use((err, req, res, next) => {
+  if (isCelebrateError(err)) {
+    for (const [key, value] of err.details.entries()) {
+      return makeResponse({
+        res,
+        status: 422,
+        message: value.details[0].message,
+      })
+    }
+  } else if (err.expose) {
+    return makeResponse({ res, status: err.status, message: err.message })
   } else
     return makeResponse({
       res,
