@@ -1,30 +1,22 @@
 import dotenv from 'dotenv'
 import express from 'express'
-
-//import
-import productRouter from './routes/products.js'
-
-
 import { isCelebrateError } from 'celebrate'
 
-import router from './routes/index.js'
 import connectDB from './config/dbConnect.js'
+import router from './routes/index.js'
 import makeResponse from './middleware/response.js'
-
 
 dotenv.config()
 
 const app = express()
-app.use(express.json())
 
 app.use(express.json({ limit: '1mb' }))
 
 app.get('/', (req, res) =>
   res.status(200).json({ message: 'Server Up and Running' })
 )
-app.use('/api/products', productRouter)
 
-connectDB()
+app.use('/api', router)
 
 connectDB()
 

@@ -1,13 +1,13 @@
 import express from 'express'
 import { celebrate, Segments } from 'celebrate'
-//import productValid from '../middleware/validate.js'
+
 import {
   singleProductCreate,
   getAproduct,
   singleProductDelete,
   singleProductUpdate,
 } from '../controllers/productController.js'
-import { addProductSchema } from '../validation/productValidate.js'
+import { addProductSchema } from '../validations/productValidate.js'
 
 const productRouter = express.Router()
 

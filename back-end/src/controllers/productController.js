@@ -1,5 +1,4 @@
 import asyncHandler from '../middleware/async.js'
-import { validationResult } from 'express-validator'
 import {
   createProductSrc,
   getSingleProductSrc,
@@ -35,4 +34,3 @@ export const singleProductUpdate = asyncHandler(async (req, res) => {
 
   res.status(200).json(product)
 })
-//export const
