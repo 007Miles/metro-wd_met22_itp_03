@@ -30,13 +30,27 @@ export const createBatch = async (
   }
 }
 
-//get single batch
+//getAllBatch
+export const getAllBatch = async () => {
+  return await Batch.find()
+}
+
 export const getSingleBatch = async (id) => {
   return await Batch.findById(mongoose.Types.ObjectId(id))
 }
-
+/*
+//new
+export const getSingleBatch = async (id) => {
+  const newProdId = Batch.find({ prod_id: id })
+    .sort({ arrived_date: 1 })
+    .populate({ path: 'prod_id', select: ['prod_id'] })
+    .populate('prod_id')
+  return await Batch.findById(mongoose.Types.ObjectId(id))
+}
+*/
 //delete single batch
 export const deleteSingleBatch = async (id) => {
+  console.log('Repo ')
   return await Batch.findByIdAndDelete(id)
 }
 

@@ -2,12 +2,17 @@ import asyncHandler from '../middleware/async.js'
 
 import {
   createBatchSrc,
+  getAllBatchSrc,
   getSingleBatchSrc,
   deleteSingleBatchSrc,
   updateSingleBatchSrc,
 } from '../services/batchService.js'
 
 //GET all Batch
+export const getAllBatch = asyncHandler(async (req, res) => {
+  const batch = await getAllBatchSrc()
+  res.status(200).json(batch)
+})
 
 //GET single Batch
 export const getABatch = asyncHandler(async (req, res) => {

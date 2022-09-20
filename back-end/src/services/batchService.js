@@ -1,5 +1,6 @@
 import {
   createBatch,
+  getAllBatch,
   getSingleBatch,
   deleteSingleBatch,
   updateSingleBatch,
@@ -31,12 +32,15 @@ export const getSingleBatchSrc = async (id) => {
   return await getSingleBatch(id)
 }
 
+export const getAllBatchSrc = async () => {
+  return await getAllBatch()
+}
+
 export const deleteSingleBatchSrc = async (id, bt) => {
+  console.log('Service')
   return await deleteSingleBatch(id, bt)
 }
 
 export const updateSingleBatchSrc = async (id, body) => {
   return await updateSingleBatch(id, body)
 }
-
-console.log('Service ')

@@ -2,15 +2,14 @@ import express from 'express'
 
 import {
   getABatch,
+  getAllBatch,
   singleBatchCreate,
   singleBatchDelete,
   singleBatchUpdate,
 } from '../controllers/batchController.js'
 const batchRouter = express.Router()
 
-batchRouter.get('/', (req, res) => {
-  res.json({ msg: 'GET all batches' })
-})
+batchRouter.get('/', getAllBatch)
 
 batchRouter.get('/:id', getABatch)
 
