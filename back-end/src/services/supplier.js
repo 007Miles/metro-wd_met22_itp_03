@@ -4,6 +4,7 @@ import {
   deleteSupplierusingId,
   updateSupplierusingId,
   getSuppliers,
+  checkSupplier,
 } from '../repository/supplier.js'
 
 //Insert A New Supplier
@@ -28,6 +29,11 @@ export const addSupplier = async ({
   const ans = await insertSupplier(details)
   // console.log('await for add supplier details')
   return ans.msg
+}
+
+//Get Data Of One Supplier
+export const checkSupplierById = async (id) => {
+  return await checkSupplier(id)
 }
 
 //Get Data Of One Supplier
