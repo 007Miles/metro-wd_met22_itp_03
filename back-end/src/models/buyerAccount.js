@@ -1,19 +1,9 @@
 import mongoose from 'mongoose'
 
-const buyerSchema = mongoose.Schema(
+const buyerAccountSchema = mongoose.Schema(
   {
     businessName: {
       type: String,
-      required: true,
-      unique: true,
-    },
-    address: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    phone: {
-      type: Number,
       required: true,
       unique: true,
     },
@@ -21,6 +11,22 @@ const buyerSchema = mongoose.Schema(
       type: String,
       require: true,
       unique: true,
+    },
+    phone: {
+      type: String, //username password kohed danne??
+      required: true,
+      unique: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
+    address_line2: {
+      type: String,
+    },
+    city: {
+      type: String,
+      required: true,
     },
     credentialId: {
       type: String,
@@ -34,5 +40,5 @@ const buyerSchema = mongoose.Schema(
   }
 )
 
-const buyerAccount = mongoose.model('buyeraccount', buyerSchema)
+const buyerAccount = mongoose.model('buyeraccount', buyerAccountSchema)
 export default buyerAccount
