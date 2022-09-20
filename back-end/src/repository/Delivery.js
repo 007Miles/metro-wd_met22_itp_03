@@ -1,5 +1,7 @@
-import Delivery from '../models/delivery.js'
 import mongoose from 'mongoose'
+
+import Delivery from '../models/delivery.js'
+import { viewDeliverySchema } from '../validations.js/delivery.js'
 
 export const insertDelivery = async (delivery) => {
   const deliveryToSave = new Delivery(delivery)

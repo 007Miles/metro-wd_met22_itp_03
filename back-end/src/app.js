@@ -4,6 +4,7 @@ import { isCelebrateError } from 'celebrate'
 
 import router from './routes/index.js'
 import connectDB from './config/dbConnect.js'
+import makeResponse from './middleware/response.js'
 
 dotenv.config()
 
