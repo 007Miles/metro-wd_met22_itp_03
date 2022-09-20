@@ -1,3 +1,4 @@
+/*
 import express from 'express'
 import sampleRouter from './sample.js'
 
@@ -8,3 +9,4 @@ router.use('/sample', sampleRouter)
 //  res.status(200).json({ status: 'works' })
 
 export default router
+*/

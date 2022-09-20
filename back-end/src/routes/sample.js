@@ -1,9 +1,9 @@
-import express from 'express'
+// import express from 'express'
 
-import { sample } from '../controllers/sample.js'
+// import { sample } from '../controllers/sample.js'
 
-const sampleRouter = express.Router()
+// const sampleRouter = express.Router()
 
-sampleRouter.get('/', sample)
+// sampleRouter.get('/', sample)
 
-export default sampleRouter
+// export default sampleRouter
