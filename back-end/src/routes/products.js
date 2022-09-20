@@ -19,7 +19,7 @@ productRouter.get('/:id', getAproduct)
 
 productRouter.post(
   '/',
-  celebrate({ [Segments.PARAMS]: addProductSchema }),
+  celebrate({ [Segments.BODY]: addProductSchema }),
   singleProductCreate
 )
 

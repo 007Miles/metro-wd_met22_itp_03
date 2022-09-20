@@ -10,20 +10,16 @@ export const createProduct = async (
   type,
   description
 ) => {
-  try {
-    const productRepo = new Product({
-      name,
-      measurement_unit,
-      markupPrice,
-      storageCondition,
-      type,
-      description,
-    })
-    await productRepo.save()
-    return { msg: 'product added' }
-  } catch (error) {
-    return { msg: 'error' }
-  }
+  const productRepo = new Product({
+    name,
+    measurement_unit,
+    markupPrice,
+    storageCondition,
+    type,
+    description,
+  })
+  await productRepo.save()
+  return { msg: 'product added' }
 }
 
 //get single product
@@ -38,12 +34,8 @@ export const deleteSingleProduct = async (id) => {
 
 //update single product
 export const updateSingleProduct = async (id, pr) => {
-  try {
-    const productUpdateRepo = await Product.findByIdAndUpdate(id, pr, {
-      new: true,
-    })
-    return productUpdateRepo
-  } catch (error) {
-    return { error: 'No such product' }
-  }
+  const productUpdateRepo = await Product.findByIdAndUpdate(id, pr, {
+    new: true,
+  })
+  return productUpdateRepo
 }
