@@ -1,5 +1,6 @@
 import dotenv from 'dotenv'
 import express from 'express'
+import { isCelebrateError } from 'celebrate'
 
 import router from './routes/index.js'
 import connectDB from './config/dbConnect.js'
@@ -16,6 +17,14 @@ app.get('/', (req, res) =>
 app.use('/api', router)
 
 connectDB()
+
+app.use((err, req, res, next) => {
+  if (isCelebrateError(err)) {
+    for (const [key, value] of err.details.entries()) {
+      return makeResponse({ res, status: 422, message: value.details[0].message })
+    }
+  }
+})
 
 const port = process.env.PORT || 3000
 
