@@ -1,10 +1,11 @@
 import express from 'express'
-import sampleRouter from './sample.js'
+import samplceRouter from './Leave.js'
 
 const router = express.Router()
 
-router.use('/sample', sampleRouter)
 //  console.log('inside index.routes')
+//router.use('/sample', sampleRouter)
+router.use('/leaveReq',samplceRouter)
 //  res.status(200).json({ status: 'works' })
 
 export default router

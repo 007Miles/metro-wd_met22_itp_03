@@ -3,6 +3,7 @@ import express from 'express'
 
 import router from './routes/index.js'
 import connectDB from './config/dbConnect.js'
+//import leave from './routes/Leave.js'
 
 dotenv.config()
 
@@ -23,3 +24,4 @@ app.listen(port, () => {
   console.log(`Server running on port: ${port}`)
 })
 
+  
