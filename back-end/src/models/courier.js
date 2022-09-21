@@ -46,5 +46,3 @@ const courierSchema = mongoose.Schema(
 
 const courierAccount = mongoose.model('courieraccount', courierSchema)
 export default courierAccount
-
-console.log("connected  modles successfully");

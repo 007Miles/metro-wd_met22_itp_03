@@ -13,7 +13,6 @@ export const courierRegister = asyncHandler(async (req, res) => {
   res.send(a)
 })
 
-console.log("connected controller successfully");
 
 export const getcourier = asyncHandler(async (req, res) => {
   const ans = await getCourierById(req.params.id)
