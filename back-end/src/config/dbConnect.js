@@ -7,8 +7,7 @@ const connectDB = async () => {
     .connect(process.env.MONGO_URI, { keepAlive: true, connectTimeoutMS: 3000 })
     .catch((error) => {
       console.log(error)
-      console.log('Error connecting to database')
-      // logger.error(`Error connecting to MongoDB: ${error}`)
+      console.log(`Error connecting to MongoDB: ${error}`)
     })
   mongoose.connection.on('connected', () => {
     console.log('Connected to database successfully')
@@ -16,8 +15,7 @@ const connectDB = async () => {
   })
   mongoose.connection.on('error', (error) => {
     console.log(error)
-    console.log('Error connecting to database')
-    // logger.error(`Error connecting to database: ${error}`)
+    console.log(`Error connecting to database: ${error}`)
   })
 }
 
