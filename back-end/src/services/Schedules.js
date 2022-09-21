@@ -18,7 +18,8 @@ export const addSchedules = async ({
   yearly,
   date,
   dayOfTheWeek,
-  time,
+  hour,
+  minute,
 }) => {
   const data = {
     supplierID,

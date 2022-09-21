@@ -8,7 +8,7 @@ const supplyCancelSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
-    date: {
+    cancel_date: {
       type: Date,
       required: true,
     },
@@ -24,7 +24,6 @@ const supplyCancelSchema = mongoose.Schema(
   },
   {
     versionKey: false,
-    timestamps: { createdAt: 'created_at' },
   }
 )
 

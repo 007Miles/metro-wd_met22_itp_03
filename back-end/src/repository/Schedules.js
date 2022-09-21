@@ -1,5 +1,6 @@
 import dropSchedule from '../models/Schedules.js'
 import mongoose from 'mongoose'
+import SupplyCancel from '../models/Supply_cancel.js'
 
 //Add schedules
 export const createSchedule = async (data) => {
@@ -45,6 +46,19 @@ export const deleteScheduleDrops = async (id) => {
   try {
     await dropSchedule.findByIdAndDelete(id)
     return { msg: 'Schedule successfully deleted' }
+  } catch (error) {
+    return { msg: 'Schedule deletion failed' }
+  }
+}
+export const deleteDrops = async (id, resn) => {
+  try {
+    const d = await dropSchedule.findByIdAndDelete(id)
+    const cancelDetails = new SupplyCancel({
+      supplierID: d.supplierID,
+      cancel_date: d.date,
+      reason: resn,
+    })
+    cancelDetails.save()
   } catch (error) {
     return { msg: 'Schedule deletion failed' }
   }
