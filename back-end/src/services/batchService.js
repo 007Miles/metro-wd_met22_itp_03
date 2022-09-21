@@ -7,22 +7,22 @@ import {
 } from '../repository/batchRepo.js'
 
 export const createBatchSrc = async ({
-  prod_id,
+  prod_Name,
   quantity,
   exp_date,
   manu_date,
   arrived_date,
-  supplier_id,
+  supplier_Name,
   buy_price,
   sell_price,
 }) => {
   return await createBatch(
-    prod_id,
+    prod_Name,
     quantity,
     exp_date,
     manu_date,
     arrived_date,
-    supplier_id,
+    supplier_Name,
     buy_price,
     sell_price
   )
@@ -37,7 +37,6 @@ export const getAllBatchSrc = async () => {
 }
 
 export const deleteSingleBatchSrc = async (id, bt) => {
-  console.log('Service')
   return await deleteSingleBatch(id, bt)
 }
 

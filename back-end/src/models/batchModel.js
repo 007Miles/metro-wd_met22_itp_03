@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const batchSchema = new mongoose.Schema(
   {
-    prod_id: {
+    prod_Name: {
       type: String,
       required: true,
       unique: true,
@@ -23,7 +23,7 @@ const batchSchema = new mongoose.Schema(
       type: Date,
       required: true,
     },
-    supplier_id: {
+    supplier_Name: {
       type: String,
       required: true,
     },
@@ -36,7 +36,10 @@ const batchSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true }
+  {
+    versionKey: false,
+    timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
+  }
 )
 
 const Batch = mongoose.model('Batch', batchSchema)

@@ -3,8 +3,6 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 const connectDB = async () => {
-  console.log(process.env.MONGO_URI)
-
   mongoose
     .connect(process.env.MONGO_URI, { keepAlive: true, connectTimeoutMS: 3000 })
     .catch((error) => {

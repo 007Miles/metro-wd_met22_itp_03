@@ -16,7 +16,6 @@ batchRouter.get('/:id', getABatch)
 batchRouter.post('/', singleBatchCreate)
 
 batchRouter.delete('/:id', singleBatchDelete)
-console.log('Route')
 
 batchRouter.patch('/:id', singleBatchUpdate)
 
