@@ -47,6 +47,10 @@ const schedulesSchema = mongoose.Schema(
       type: String,
       required: false,
     },
+    dayOfTheMonth: {
+      type: Number,
+      required: false,
+    },
     time: {
       type: {
         hour: {

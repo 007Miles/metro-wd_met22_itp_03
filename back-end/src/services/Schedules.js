@@ -18,6 +18,7 @@ export const addSchedules = async ({
   yearly,
   date,
   dayOfTheWeek,
+  dayOfTheMonth,
   hour,
   minute,
 }) => {
@@ -33,6 +34,7 @@ export const addSchedules = async ({
     yearly: Boolean(yearly),
     date: Date(date),
     dayOfTheWeek,
+    dayOfTheMonth: Number(dayOfTheMonth),
     time: { hour: Number(hour), minute: Number(minute) },
   }
   const x = await createSchedule(data)
