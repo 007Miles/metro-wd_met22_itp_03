@@ -14,7 +14,7 @@ import {
   viewSupplierSchema,
   updateSupplierSchema,
   deleteSupplierSchema,
-} from '../validation/supplier.js'
+} from '../validations/supplier.js'
 // import supplier from '../models/supplier.js'
 
 const router = express.Router()

@@ -1,6 +1,7 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import { isCelebrateError } from 'celebrate'
+import cors from 'cors'
 
 import router from './routes/index.js'
 import connectDB from './config/dbConnect.js'
@@ -13,6 +14,7 @@ dotenv.config()
 
 const app = express()
 
+app.use(cors())
 app.use(express.json({ limit: '1mb' }))
 
 app.get('/', (req, res) =>
