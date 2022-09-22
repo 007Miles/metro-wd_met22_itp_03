@@ -1,36 +1,33 @@
-const BatchDetails = ({ batch }) => {
-  return (
-    <div className="batch-details">
-      <h4>{batch.prod_Name}</h4>
-      <p>
-        <strong>Quantity: </strong>
-        {batch.quantity}
-      </p>
-      <p>
-        <strong>Exp Date</strong>
-        {batch.exp_date}
-      </p>
-      <p>
-        <strong>Manu Date</strong>
-        {batch.manu_date}
-      </p>
-      <p>
-        <strong>Arrived Date</strong>
-        {batch.arrived_date}
-      </p>
-      <p>
-        <strong>Supplier Name</strong>
-        {batch.supplier_Name}
-      </p>
-      <p>
-        <strong>Buy Price</strong>
-        {batch.buy_price}
-      </p>
-      <p>
-        <strong>Sell Price</strong>
-        {batch.sell_price}
-      </p>
-    </div>
-  );
-};
-export default BatchDetails;
+// import React from "react";
+// // import { Fragment } from "react";
+// import EditRowBatch from "./EditRowBatch";
+// // import ReadOnlyRowBatch from "./readOnlyRowBatch";
+// import { useState } from "react";
+
+// const BatchDetails = ({ batch }) => {
+//   const [editBatchID, setEditBatchID] = useState(null);
+
+//   console.log("batchdetail");
+//   return (
+//     <tr border="1">
+//       <td>{batch.prod_Name}</td>
+//       <td>{batch.quantity}</td>
+//       <td>{batch.exp_date}</td>
+//       <td>{batch.manu_date}</td>
+//       <td> {batch.arrived_date}</td>
+//       <td>{batch.supplier_Name}</td>
+//       <td>{batch.buy_price}</td>
+//       <td>{batch.sell_price}</td>
+//       <td></td>
+//       <td>
+//         <button
+//           type="button"
+//           onClick={(event) => handledEditClick(event, batch)}
+//         >
+//           Edit
+//         </button>
+//       </td>
+//     </tr>
+//   );
+// };
+// export default BatchDetails;

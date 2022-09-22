@@ -16,7 +16,7 @@ app.use(cors())
 app.get('/', (req, res) =>
   res.status(200).json({ message: 'Server Up and Running' })
 )
-app.use('/api/batch', batchRouter)
+app.use('/api', router)
 
 connectDB()
 
