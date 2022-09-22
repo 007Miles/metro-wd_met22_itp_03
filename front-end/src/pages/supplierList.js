@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import "../styles/supplierList.css";
-import SupplierDetails from "../components/supplierDetails";
+import SupplierView from "../components/supplierView";
 import SupplierAddForm from "../components/supplierAddForm";
 
 const SupplierList = () => {
@@ -26,7 +26,7 @@ const SupplierList = () => {
       <div className="supplierList">
         {supplierList &&
           supplierList.map((supplier) => (
-            <SupplierDetails key={supplier._id} supplier={supplier} />
+            <SupplierView key={supplier._id} supplier={supplier} />
             //   <p key={supplier._id}>{supplier.bussiness_id}</p>
           ))}
       </div>

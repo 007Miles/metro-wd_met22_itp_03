@@ -66,6 +66,10 @@ header a {
   border-radius: 50%;
   color: #333;
 }
+h2.title{
+  color: #1aac83;
+  text-align: center;
+}
 
 /* new workout form */
 label, input {

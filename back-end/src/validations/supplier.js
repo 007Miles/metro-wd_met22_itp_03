@@ -5,7 +5,7 @@ export const addSupplierSchema = {
   cred_id: Joi.string().hex().required(),
   address: Joi.string().required(),
   email: Joi.string().required(),
-  phone: Joi.array().required(),
+  phone: Joi.string().required(),
   registered_products: Joi.required(),
   rating: Joi.number().default(0),
 

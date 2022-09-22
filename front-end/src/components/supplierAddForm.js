@@ -10,6 +10,8 @@ const SupplierAddForm = () => {
   const [rating, setRating] = useState("");
   const [error, setError] = useState("null");
 
+  // const phoneArray = ["1234567890"];
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 

@@ -3,8 +3,8 @@ const Navbar = () => {
   return (
     <header>
       <div className="conrainer">
-        <Link to="/">
-          <h1>Supplier Management</h1>
+        <Link to="/supplierList">
+          <button>Supplier Management</button>
         </Link>
       </div>
     </header>
