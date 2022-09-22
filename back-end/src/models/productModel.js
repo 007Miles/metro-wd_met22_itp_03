@@ -28,11 +28,11 @@ const productSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true }
+  {
+    versionKey: false,
+    timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
+  }
 )
-
-//module.exports = Product;
-//module.exports = mongoose.model('Product',productSchema);
 
 const Product = mongoose.model('Product', productSchema)
 

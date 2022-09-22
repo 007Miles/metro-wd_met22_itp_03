@@ -29,7 +29,7 @@ export const getSingleProduct = async (id) => {
 
 //delete single product
 export const deleteSingleProduct = async (id) => {
-  return await Product.findByIdAndDelete(id)
+  return await Product.findByIdAndDelete(mongoose.Types.ObjectId(id))
 }
 
 //update single product
