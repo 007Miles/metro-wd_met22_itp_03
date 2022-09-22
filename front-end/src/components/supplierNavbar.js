@@ -6,13 +6,15 @@ const SupplierNavbar = () => {
       <div className="sidebarConrainer">
         <div className="sidebar">
           <Link to="/supplierList">
-            <button className="btn">Supplier List</button>
+            <button className="side_btn">Supplier List</button>
           </Link>
+          <br />
           <Link to="/supplierAddForm">
-            <button className="btn">Add Supplier</button>
+            <button className="side_btn">Add Supplier</button>
           </Link>
-          <Link to="/supplierAddForm">
-            <button className="btn">Send Mail</button>
+          <br />
+          <Link to="/">
+            <button className="side_btn">Membership Requests</button>
           </Link>
         </div>
       </div>

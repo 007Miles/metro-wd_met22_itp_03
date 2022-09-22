@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <header>
-      <div className="conrainer">
+      <div className="Nav_conrainer">
         <Link to="/supplierList">
-          <button>Supplier Management</button>
+          <button className="nav_btn">Supplier Management</button>
         </Link>
         <Link to="/supplierList">
-          <button>Supply Management</button>
+          <button className="nav_btn">Supply Management</button>
         </Link>
       </div>
     </header>

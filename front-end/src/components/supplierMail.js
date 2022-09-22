@@ -1,32 +1,51 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const SupplierMail = () => {
   const [business_name, setBusiness_name] = useState("");
-  const [cred_id, setCred_id] = useState("");
+  const [description, setDescription] = useState("");
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
+  const [cred_id, setCred_id] = useState("");
   const [phone, setPhone] = useState("");
   const [registered_products, setRegistered_products] = useState("");
   const [rating, setRating] = useState("");
 
+  const [supplier, setSupplier] = useState({});
+  const { id } = useParams();
+
+  const fetchSupplier = async () => {
+    const response = await fetch(
+      `http://localhost:4000/api/supplier/viewSupplier/` + id
+    );
+    const json = await response.json();
+    if (response.ok) {
+      setSupplier(json);
+    }
+  };
+  useEffect(() => {
+    fetchSupplier();
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const supplier = {
+    const supplierMsg = {
       business_name,
       cred_id,
+      description,
       address,
       email,
       phone,
       registered_products,
       rating,
     };
-    console.log(supplier);
+    console.log(supplierMsg);
     const response = await fetch(
-      "http://localhost:4000/api/supplier/addSupplier",
+      "http://localhost:4000/api/supplierMailer/send",
       {
         method: "POST",
-        body: JSON.stringify(supplier),
+        body: JSON.stringify(supplierMsg),
         headers: {
           "Content-Type": "application/json",
         },
@@ -37,77 +56,53 @@ const SupplierMail = () => {
     if (!response.ok) {
       // setError(json.error);
     }
-    if (response.ok) {
-      // setError(null);
-      setBusiness_name("");
-      setCred_id("");
-      setAddress("");
-      setEmail("");
-      setPhone("");
-      setRegistered_products("");
-      setRating("");
+    console.log(json);
 
-      console.log("New supplier added", json);
-    }
+    setBusiness_name(supplier.business_name);
+    setCred_id(supplier.cred_id);
+    setAddress(supplier.address);
+    setEmail(supplier.email);
+    setPhone(supplier.phone);
+    setRegistered_products(supplier.registered_products);
+    setRating(supplier.rating);
   };
 
   return (
-    <form className="create" onSubmit={handleSubmit}>
-      <h3>Add a new Supplier</h3>
+    <div className="supplier-details">
+      <form className="create" onSubmit={handleSubmit}>
+        <h2 className="title">Send Mail</h2>
+        <h4>{supplier.business_name}</h4>
+        <p>
+          <strong>Address : </strong>
+          {supplier.address}
+        </p>
+        <p>
+          <strong>Email : </strong>
+          {supplier.email}
+        </p>
+        <p>
+          <strong>phone : </strong>
+          {supplier.phone}
+        </p>
+        <p>
+          <strong>registered_product : </strong>
+          {supplier.registered_products}
+        </p>
+        <p>
+          <strong>Rating : </strong>
+          {supplier.rating}
+        </p>
+        <label>Description :</label>
+        <input
+          type="text"
+          onChange={(e) => setDescription(e.target.value)}
+          value={description}
+        />
 
-      <label>setBusiness_name :</label>
-      <input
-        type="text"
-        onChange={(e) => setBusiness_name(e.target.value)}
-        value={business_name}
-      />
-
-      <label>setAddress :</label>
-      <input
-        type="text"
-        onChange={(e) => setAddress(e.target.value)}
-        value={address}
-      />
-
-      <label>setEmail:</label>
-      <input
-        type="text"
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
-      />
-
-      <label>setPhone :</label>
-      <input
-        type="text"
-        onChange={(e) => setPhone(e.target.value)}
-        value={phone}
-      />
-
-      <label>setRegistered_products :</label>
-      <input
-        type="text"
-        onChange={(e) => setRegistered_products(e.target.value)}
-        value={registered_products}
-      />
-
-      <label>setRating :</label>
-      <input
-        type="text"
-        onChange={(e) => setRating(e.target.value)}
-        value={rating}
-      />
-
-      <label>setCred_id :</label>
-      <input
-        type="text"
-        onChange={(e) => setCred_id(e.target.value)}
-        // onChange={(e) => setCred_id("12345678901234567890abcd")}
-        value={cred_id}
-      />
-
-      <button>Add Supplier</button>
-      {/* {error && <div className="error"></div>} */}
-    </form>
+        <button>Send Mail</button>
+        {/* {error && <div className="error"></div>} */}
+      </form>
+    </div>
   );
 };
 

@@ -56,7 +56,7 @@ const SupplierAddForm = () => {
 
   return (
     <form className="create" onSubmit={handleSubmit}>
-      <h3>Add a new Supplier</h3>
+      <h2 className="title">Add a new Supplier</h2>
 
       <label>setBusiness_name :</label>
       <input

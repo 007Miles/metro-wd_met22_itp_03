@@ -59,6 +59,30 @@ const SupplierDetails = () => {
           Delete Supplier
         </button>
       </Link>
+      <Link to={`/supplierUpdate/${supplier._id}`}>
+        <button
+          className="view_btn"
+          value={supplier._id}
+          onClick={(e) => {
+            console.log(e.target.value);
+            // <SupplierDetails key={supplier._id} supplier={supplier} />;
+          }}
+        >
+          Update Supplier
+        </button>
+      </Link>
+      <Link to={`/supplierMail/${supplier._id}`}>
+        <button
+          className="view_btn"
+          value={supplier._id}
+          onClick={(e) => {
+            console.log(e.target.value);
+            // <SupplierDetails key={supplier._id} supplier={supplier} />;
+          }}
+        >
+          Send Mail
+        </button>
+      </Link>
     </div>
   );
 };

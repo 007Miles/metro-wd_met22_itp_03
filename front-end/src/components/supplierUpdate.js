@@ -26,7 +26,7 @@ const SupplierUpdate = () => {
     };
     console.log(supplier);
     const response = await fetch(
-      "http://localhost:4000/api/supplier/putSupplier/",
+      "http://localhost:4000/api/supplier/putSupplier/" + id,
       {
         method: "PUT",
         body: JSON.stringify(supplier),
@@ -39,12 +39,13 @@ const SupplierUpdate = () => {
 
     if (!response.ok) {
       // setError(json.error);
+      console.log(json);
     }
   };
 
   return (
-    <form className="update" onSubmit={handleSubmit}>
-      <h3>Update Supplier Details</h3>
+    <form className="create" onSubmit={handleSubmit}>
+      <h2 className="title">Update Supplier Details</h2>
 
       <label>setBusiness_name :</label>
       <input

@@ -3,7 +3,7 @@
 
 /* layout */
 :root {
-  --primary: #1aac83;
+  --primary: #68bf92;;
   --error: #e7195a;
 }
 body {
@@ -13,6 +13,17 @@ body {
 }
 header {
   background: #fff;
+}
+.Nav_conrainer{
+background-color: rgb(55, 91, 54);
+display: flex;
+justify-content: center;
+height: 50px;
+}
+.headerConrainer{
+  background-color: rgb(146, 191, 171);
+  display: flex;
+justify-content: center;
 }
 header .container {
   max-width: 1400px;
@@ -105,11 +116,14 @@ input.error {
   border: 1px solid var(--error);
 }
 div.sidebar{
+  position: absolute;
+  right: 0%;
   height: 80px;
-  width: 100%;
+  width: 30%;
   /* display: flex; */
   justify-content:right;
   align-items: flex-end;
+  z-index: 1000;
 }
 .btn{
   background: var(--primary);
@@ -120,6 +134,40 @@ div.sidebar{
   border-radius: 4px;
   cursor: pointer;
   float: right;
+  margin: auto;
+}
+.nav_btn{
+  border: 0;
+  padding: 10px;
+  font-weight: bold;
+  font-family: "Poppins";
+  border-radius: 1px;
+  cursor: pointer;
+  margin: auto;
+}
+.nav_btn:hover{
+  background-color: #79e0ab;
+}
+.side_btn:hover{
+  background-color: #e7195a;
+}
+.view_btn:hover{
+  background-color: #e7195a;
+}
+.btn:hover{
+  background-color: #e7195a;
+}
+.side_btn{
+  background: var(--primary);
+  width: 200px;
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+  /* float: right; */
+  margin: auto;
 }
 .view_btn{
   background: var(--primary);

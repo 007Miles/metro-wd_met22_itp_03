@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import SupplierList from "./pages/supplierList";
 import Navbar from "./components/Navbar";
+import PageHeader from "./components/Header";
 import SupplierDetails from "./components/supplierDetails";
 import SupplierNavbar from "./components/supplierNavbar";
 import SupplierAddForm from "./components/supplierAddForm";
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <PageHeader />
         <Navbar />
         <SupplierNavbar />
         <div className="pages">
@@ -24,7 +26,9 @@ function App() {
             <Route path="/supplierAddForm" element={<SupplierAddForm />} />
             <Route path="/supplierRemove/:id" element={<SupplierRemove />} />
             <Route path="/supplierRemove" element={<SupplierRemove />} />
+            <Route path="/supplierUpdate/:id" element={<SupplierUpdate />} />
             <Route path="/supplierUpdate" element={<SupplierUpdate />} />
+            <Route path="/supplierMail/:id" element={<SupplierMail />} />
             <Route path="/supplierMail" element={<SupplierMail />} />
           </Routes>
         </div>
