@@ -18,7 +18,14 @@ export const createAccount = asyncHandler(async (req, res) => {
 
 export const viewAccount = asyncHandler(async (req, res) => {
   const ans = await getSpecificBuyerDetails(req.params.id)
-  res.json({ mobile: ans.phone, city: ans.city })
+  res.json({
+    businessName: ans.businessName,
+    email: ans.email,
+    mobile: ans.phone,
+    address: ans.address,
+    address_line2: ans.address_line2,
+    city: ans.city,
+  })
 })
 
 export const updateAccount = asyncHandler(async (req, res) => {

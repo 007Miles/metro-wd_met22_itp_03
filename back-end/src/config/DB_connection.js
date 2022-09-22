@@ -1,16 +1,17 @@
-import mongoose from "mongoose";
-import "dotenv/config";
+import mongoose from 'mongoose'
+import 'dotenv/config'
 
-const DBcon=()=>{
-    mongoose.connect(process.env.MONGODB_URI,{
-        useNewUrlParser:true,
-        useUnifiedTopology:true
+const DBcon = () => {
+  mongoose
+    .connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     })
-    .then(()=>{
-        console.log("Database connected successfully");
+    .then(() => {
+      console.log('Database connected successfully')
     })
-    .catch((e)=>{
-        console.log("Database connection Error",e);
-    });
+    .catch((e) => {
+      console.log('Database connection Error', e)
+    })
 }
-export default DBcon;
+export default DBcon
