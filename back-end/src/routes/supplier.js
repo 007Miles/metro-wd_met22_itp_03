@@ -45,27 +45,6 @@ router.put(
 )
 
 //Delete A Supplier
-router.delete(
-  '/deleteSupplier/:supplier_id',
-  celebrate({ [Segments.PARAMS]: deleteSupplierSchema }),
-  deleteSupplier
-)
-
-// router.get('/supCount', async (req, res) => {
-//   try {
-//     let suppcount = await supplier.aggregate([
-//       {
-//         $group: {
-//           rating: '$rating',
-//         },
-//         count: { $sum: 1 },
-//       },
-//     ])
-//     res.status(200).json(suppcount)
-//     console.log(suppcount + 'count')
-//   } catch (error) {
-//     res.status(400).json(error)
-//   }
-// })
+router.delete('/deleteSupplier/:supplier_id', deleteSupplier)
 
 export default router

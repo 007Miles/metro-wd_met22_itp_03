@@ -6,6 +6,9 @@ const Navbar = () => {
         <Link to="/supplierList">
           <button>Supplier Management</button>
         </Link>
+        <Link to="/supplierList">
+          <button>Supply Management</button>
+        </Link>
       </div>
     </header>
   );

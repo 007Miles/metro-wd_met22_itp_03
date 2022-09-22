@@ -77,6 +77,7 @@ export const updateSupplierusingId = async (id, ob) => {
   if ((await Supplier.findById(mongoose.Types.ObjectId(id))) == null) {
     return { msg: 'No supplier is available with this id' }
   }
+
   try {
     const res = await Supplier.findById(id)
     // console.log(ob)

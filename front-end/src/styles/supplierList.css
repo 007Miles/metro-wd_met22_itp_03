@@ -58,7 +58,7 @@ header a {
 }
 .supplier-details span {
   position: absolute;
-  top: 20px;
+  top: 90px;
   right: 20px;
   cursor: pointer;
   background: #f1f1f1;
@@ -103,4 +103,36 @@ div.error {
 }
 input.error {
   border: 1px solid var(--error);
+}
+div.sidebar{
+  height: 80px;
+  width: 100%;
+  /* display: flex; */
+  justify-content:right;
+  align-items: flex-end;
+}
+.btn{
+  background: var(--primary);
+  border: 1;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+.view_btn{
+  background: var(--primary);
+  border: 1;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+
+}
+.create{
+  width: 50%;
+  margin: auto;
 }

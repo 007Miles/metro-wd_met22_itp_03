@@ -12,13 +12,14 @@ const supplierViews = ({ supplier }) => {
       </p>
       <Link to={`/supplierDetails/${supplier._id}`}>
         <button
+          className="view_btn"
           value={supplier._id}
-          onClick={(e) => {
-            console.log(e.target.value);
-            // <SupplierDetails key={supplier._id} supplier={supplier} />;
-          }}
+          // onClick={(e) => {
+          //   console.log(e.target.value);
+          //   // <SupplierDetails key={supplier._id} supplier={supplier} />;
+          // }}
         >
-          View
+          View Details
         </button>
       </Link>
     </div>

@@ -15,13 +15,14 @@ const SupplierDetails = () => {
     if (response.ok) {
       setSupplier(json);
 
-      console.log("in response");
-      console.log(json);
+      // console.log("in response");
+      // console.log(json);
     }
   };
   useEffect(() => {
     fetchSupplier();
   }, []);
+  //
   return (
     <div className="supplier-details">
       <h2 className="title">Supplier Details</h2>
@@ -36,16 +37,28 @@ const SupplierDetails = () => {
       </p>
       <p>
         <strong>phone : </strong>
-        {supplier.phone[1]}
+        {supplier.phone}
       </p>
       <p>
-        <strong>registered_products : </strong>
-        {supplier.registered_products[1]}
+        <strong>registered_product : </strong>
+        {supplier.registered_products}
       </p>
       <p>
         <strong>Rating : </strong>
         {supplier.rating}
       </p>
+      <Link to={`/supplierRemove/${supplier._id}`}>
+        <button
+          className="view_btn"
+          value={supplier._id}
+          // onClick={(e) => {
+          //   console.log(e.target.value);
+          //   // <SupplierDetails key={supplier._id} supplier={supplier} />;
+          // }}
+        >
+          Delete Supplier
+        </button>
+      </Link>
     </div>
   );
 };

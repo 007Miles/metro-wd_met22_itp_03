@@ -109,7 +109,7 @@ const SupplierAddForm = () => {
       />
 
       <button>Add Supplier</button>
-      {error && <div className="error"></div>}
+      {/* {error && <div className="error"></div>} */}
     </form>
   );
 };

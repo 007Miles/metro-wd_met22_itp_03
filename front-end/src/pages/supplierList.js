@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import "../styles/supplierList.css";
 import SupplierView from "../components/supplierView";
-import SupplierAddForm from "../components/supplierAddForm";
+// import SupplierAddForm from "../components/supplierAddForm";
 
 const SupplierList = () => {
   const [supplierList, setSupplierList] = useState(null);
@@ -30,7 +30,7 @@ const SupplierList = () => {
             //   <p key={supplier._id}>{supplier.bussiness_id}</p>
           ))}
       </div>
-      <SupplierAddForm />
+      {/* <SupplierAddForm /> */}
     </div>
   );
 };
