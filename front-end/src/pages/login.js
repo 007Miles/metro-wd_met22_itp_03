@@ -4,7 +4,7 @@ import Button from '../components/common/button'
 const Login = () => {
   return (
     <Layout>
-      <div className="App">
+      <div className="login">
         <p>LOGIN</p>
         <Button></Button>
       </div>
