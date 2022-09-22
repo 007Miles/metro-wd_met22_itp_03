@@ -52,18 +52,7 @@ const schedulesSchema = mongoose.Schema(
       required: false,
     },
     time: {
-      type: {
-        hour: {
-          type: Number,
-          min: 0,
-          max: 24,
-        },
-        minute: {
-          type: Number,
-          min: 0,
-          max: 60,
-        },
-      },
+      type: Date,
       required: true,
     },
   },
