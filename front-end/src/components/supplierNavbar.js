@@ -11,6 +11,9 @@ const SupplierNavbar = () => {
           <Link to="/supplierAddForm">
             <button className="btn">Add Supplier</button>
           </Link>
+          <Link to="/supplierAddForm">
+            <button className="btn">Send Mail</button>
+          </Link>
         </div>
       </div>
     </header>

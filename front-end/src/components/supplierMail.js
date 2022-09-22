@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SupplierAddForm = () => {
+const SupplierMail = () => {
   const [business_name, setBusiness_name] = useState("");
   const [cred_id, setCred_id] = useState("");
   const [address, setAddress] = useState("");
@@ -8,9 +8,6 @@ const SupplierAddForm = () => {
   const [phone, setPhone] = useState("");
   const [registered_products, setRegistered_products] = useState("");
   const [rating, setRating] = useState("");
-  // const [error, setError] = useState("null");
-
-  // const phoneArray = ["1234567890"];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -114,4 +111,4 @@ const SupplierAddForm = () => {
   );
 };
 
-export default SupplierAddForm;
+export default SupplierMail;

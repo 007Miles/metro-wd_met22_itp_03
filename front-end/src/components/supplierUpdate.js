@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
-const SupplierAddForm = () => {
+const SupplierUpdate = () => {
   const [business_name, setBusiness_name] = useState("");
   const [cred_id, setCred_id] = useState("");
   const [address, setAddress] = useState("");
@@ -8,9 +9,8 @@ const SupplierAddForm = () => {
   const [phone, setPhone] = useState("");
   const [registered_products, setRegistered_products] = useState("");
   const [rating, setRating] = useState("");
-  // const [error, setError] = useState("null");
 
-  // const phoneArray = ["1234567890"];
+  const { id } = useParams();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,9 +26,9 @@ const SupplierAddForm = () => {
     };
     console.log(supplier);
     const response = await fetch(
-      "http://localhost:4000/api/supplier/addSupplier",
+      "http://localhost:4000/api/supplier/putSupplier/",
       {
-        method: "POST",
+        method: "PUT",
         body: JSON.stringify(supplier),
         headers: {
           "Content-Type": "application/json",
@@ -40,23 +40,11 @@ const SupplierAddForm = () => {
     if (!response.ok) {
       // setError(json.error);
     }
-    if (response.ok) {
-      // setError(null);
-      setBusiness_name("");
-      setCred_id("");
-      setAddress("");
-      setEmail("");
-      setPhone("");
-      setRegistered_products("");
-      setRating("");
-
-      console.log("New supplier added", json);
-    }
   };
 
   return (
-    <form className="create" onSubmit={handleSubmit}>
-      <h3>Add a new Supplier</h3>
+    <form className="update" onSubmit={handleSubmit}>
+      <h3>Update Supplier Details</h3>
 
       <label>setBusiness_name :</label>
       <input
@@ -114,4 +102,4 @@ const SupplierAddForm = () => {
   );
 };
 
-export default SupplierAddForm;
+export default SupplierUpdate;

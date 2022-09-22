@@ -5,6 +5,9 @@ import Navbar from "./components/Navbar";
 import SupplierDetails from "./components/supplierDetails";
 import SupplierNavbar from "./components/supplierNavbar";
 import SupplierAddForm from "./components/supplierAddForm";
+import SupplierRemove from "./components/supplierRemove";
+import SupplierMail from "./components/supplierMail";
+import SupplierUpdate from "./components/supplierUpdate";
 
 function App() {
   // const location = useLocation();
@@ -19,6 +22,10 @@ function App() {
             <Route path="/supplierDetails/:id" element={<SupplierDetails />} />
             <Route path="/supplierDetails" element={<SupplierDetails />} />
             <Route path="/supplierAddForm" element={<SupplierAddForm />} />
+            <Route path="/supplierRemove/:id" element={<SupplierRemove />} />
+            <Route path="/supplierRemove" element={<SupplierRemove />} />
+            <Route path="/supplierUpdate" element={<SupplierUpdate />} />
+            <Route path="/supplierMail" element={<SupplierMail />} />
           </Routes>
         </div>
       </BrowserRouter>
