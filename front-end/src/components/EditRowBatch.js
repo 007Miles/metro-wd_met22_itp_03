@@ -1,6 +1,10 @@
 import React from 'react'
 
-const EditRowBatch = ({ editFormData, handleEditFormChange }) => {
+const EditRowBatch = ({
+  editFormData,
+  handleEditFormChange,
+  handleCancelClick,
+}) => {
   return (
     <tr>
       <td></td>
@@ -11,7 +15,7 @@ const EditRowBatch = ({ editFormData, handleEditFormChange }) => {
           placeholder="Enter quantity"
           name="quantity"
           defaultValue={editFormData.quantity}
-          OnChange={handleEditFormChange}
+          onChange={handleEditFormChange}
         ></input>
       </td>
       <td></td>
@@ -24,7 +28,7 @@ const EditRowBatch = ({ editFormData, handleEditFormChange }) => {
           placeholder="Enter supplier name"
           name="supplierName"
           value={editFormData.supplier_Name}
-          OnChange={handleEditFormChange}
+          onChange={handleEditFormChange}
         ></input>
       </td>
       <td></td>
@@ -35,13 +39,15 @@ const EditRowBatch = ({ editFormData, handleEditFormChange }) => {
           placeholder="Enter sell price..."
           name="sellPrice"
           value={editFormData.sell_price}
-          OnChange={handleEditFormChange}
+          onChange={handleEditFormChange}
         ></input>
       </td>
       <td></td>
       <td>
         <button type="submit">Save</button>
-        <button type="button">Cancel</button>
+        <button type="button" onClick={handleCancelClick}>
+          Cancel
+        </button>
       </td>
     </tr>
   )

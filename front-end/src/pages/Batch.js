@@ -1,13 +1,18 @@
 import React from 'react'
 import axios from 'axios'
 import { useEffect, useState, Fragment } from 'react'
+//import { useParams } from 'react-router-dom'
 import ReadOnlyRowBatch from '../components/readOnlyRowBatch.js'
 import EditRowBatch from '../components/EditRowBatch.js'
-//import BatchDetails from "../components/BatchDetails.js";
-//import BatchForm from "../components/BatchForm";
 
-const Batch = () => {
-  const [batches, setBatches] = useState(null)
+export default function Batch() {
+  const [batches, setBatches] = useState([])
+
+  useEffect(() => {
+    axios.get('http://localhost:4000/api/batch').then((res) => {
+      setBatches(res.data)
+    })
+  }, [])
 
   const [editFormData, setEditFormData] = useState({
     prod_Name: '',
@@ -21,7 +26,7 @@ const Batch = () => {
   })
 
   const handleEditFormChange = (event) => {
-    event.preventDefault()
+    //event.preventDefault()
     const fieldName = event.target.getAttribute('name')
     const fieldValue = event.target.value
 
@@ -32,49 +37,49 @@ const Batch = () => {
   }
 
   function updateData(event) {
-    //event.preventDefault();
+    //event.preventDefault()
     const updateBatch = {
-      id: editBatchID,
+      id: editRowBatch,
       quantity: editFormData.quantity,
       supplier_Name: editFormData.supplier_Name,
       sell_price: editFormData.sell_price,
     }
-
-    axios
-      .patch('http://localhost:4000/api/:id', updateBatch)
-      .then(() => {
-        window.location.reload()
-      })
-      .catch((err) => {
-        alert(err)
-      })
+  }
+  // axios.patch('http://localhost:4000/api/batch/:id', updateBatch).then(() => {
+  //   window.location.reload()
+  // })
+  const updateBatch = (event) => {
+    console.log(event)
+    fetch('http://localhost:4000/api/batch/' + event.target.value, {
+      method: 'PATCH',
+    })
   }
 
-  const handleEditFormSubmit = (event) => {
-    event.preventDefault()
+  // const handleEditFormSubmit = (event) => {
+  //   event.preventDefault()
 
-    const editedBatch = {
-      id: editBatchID,
-      quantity: editFormData.quantity,
-      supplier_Name: editFormData.supplier_Name,
-      sell_price: editFormData.sell_price,
-    }
+  //   const editedBatch = {
+  //     id: editBatchID,
+  //     quantity: editFormData.quantity,
+  //     supplier_Name: editFormData.supplier_Name,
+  //     sell_price: editFormData.sell_price,
+  //   }
 
-    const newBatches = [...batch]
+  //   const newBatches = [...batches]
 
-    const index = batch.findIndex((batch) => batch.id === editBatchID)
+  //   const index = batches.findIndex((batch) => batch.id === editBatchID)
 
-    newBatches[index] = editedBatch
+  //   newBatches[index] = editedBatch
 
-    setBatches(newBatches)
-    setEditBatchID(null)
-  }
+  //   setBatches(newBatches)
+  //   setEditBatchID(null)
+  // }
 
-  const [editBatchID, setEditBatchID] = useState(null)
+  const [editRowBatch, setEditRowBatch] = useState(null)
 
   const handledEditClick = (event, batch) => {
-    // event.prventdefault();
-    setEditBatchID(batch._id)
+    //event.prventdefault()
+    setEditRowBatch(batch._id)
 
     const formValues = {
       prod_Name: batch.prod_Name,
@@ -90,31 +95,20 @@ const Batch = () => {
     setEditFormData(formValues)
   }
   const handleCancelClick = () => {
-    setEditBatchID(null)
+    setEditRowBatch(null)
   }
-  // useEffect(() => {
-  //   const fetchBatch = async () => {
-  //     const response = await fetch("http://localhost:4000/api/batch");
-  //     const json = await response.json();
 
-  //     if (response.ok) {
-  //       setBatches(json);
-  //       console.log(json);
-  //     }
-  //   };
-  //   fetchBatch();
-  // }, []);
-
-  useEffect(() => {
-    axios.get('http://localhost:4000/api/batch').then((res) => {
-      setBatches(res.data)
+  const handleDeleteClick = (event) => {
+    console.log(event)
+    fetch('http://localhost:4000/api/batch/' + event.target.value, {
+      method: 'DELETE',
     })
-  })
+  }
 
   return (
     <div className="batch">
       <div className="batches">
-        <form>
+        <form onSubmit={updateData}>
           <table>
             <thead>
               <tr border="1">
@@ -134,16 +128,18 @@ const Batch = () => {
               {batches &&
                 batches.map((batch) => (
                   <Fragment>
-                    {editBatchID === batch._id ? (
+                    {editRowBatch === batch._id ? (
                       <EditRowBatch
                         editFormData={editFormData}
                         handleEditFormChange={handleEditFormChange}
+                        handleCancelClick={handleCancelClick}
                       />
                     ) : (
                       <ReadOnlyRowBatch
-                        key={batch._id}
+                        // value={batch._id}
                         batch={batch}
                         handledEditClick={handledEditClick}
+                        handleDeleteClick={handleDeleteClick}
                       />
                     )}
                   </Fragment>
@@ -156,4 +152,3 @@ const Batch = () => {
     </div>
   )
 }
-export default Batch
