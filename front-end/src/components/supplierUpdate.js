@@ -97,7 +97,7 @@ const SupplierUpdate = () => {
         value={cred_id}
       />
 
-      <button>Add Supplier</button>
+      <button>Update Supplier</button>
       {/* {error && <div className="error"></div>} */}
     </form>
   );

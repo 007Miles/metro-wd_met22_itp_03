@@ -99,7 +99,7 @@ const SupplierMail = () => {
           value={description}
         />
 
-        <button>Send Mail</button>
+        <button className="btn">Send Mail</button>
         {/* {error && <div className="error"></div>} */}
       </form>
     </div>

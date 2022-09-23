@@ -133,7 +133,7 @@ div.sidebar{
   font-family: "Poppins";
   border-radius: 4px;
   cursor: pointer;
-  float: right;
+  /* float: right; */
   margin: auto;
 }
 .nav_btn{
