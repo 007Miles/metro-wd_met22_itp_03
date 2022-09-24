@@ -7,6 +7,7 @@ import EditRowBatch from '../components/EditRowBatch.js'
 
 export default function Batch() {
   const [batches, setBatches] = useState([])
+  const [q, setQ] = useState('')
 
   useEffect(() => {
     axios.get('http://localhost:4000/api/batch').then((res) => {
@@ -36,15 +37,15 @@ export default function Batch() {
     setEditFormData(newFormData)
   }
 
-  function updateData(event) {
-    //event.preventDefault()
-    const updateBatch = {
-      id: editRowBatch,
-      quantity: editFormData.quantity,
-      supplier_Name: editFormData.supplier_Name,
-      sell_price: editFormData.sell_price,
-    }
-  }
+  // function updateData(event) {
+  //   //event.preventDefault()
+  //   const updateBatch = {
+  //     id: editRowBatch,
+  //     quantity: editFormData.quantity,
+  //     supplier_Name: editFormData.supplier_Name,
+  //     sell_price: editFormData.sell_price,
+  //   }
+  // }
   // axios.patch('http://localhost:4000/api/batch/:id', updateBatch).then(() => {
   //   window.location.reload()
   // })
@@ -108,7 +109,16 @@ export default function Batch() {
   return (
     <div className="batch">
       <div className="batches">
-        <form onSubmit={updateData}>
+        <div className="search-container">
+          <input
+            type="text"
+            className="search"
+            placeholder="Search..."
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+          />
+        </div>
+        <form>
           <table>
             <thead>
               <tr border="1">
@@ -125,8 +135,17 @@ export default function Batch() {
               </tr>
             </thead>
             <tbody>
-              {batches &&
-                batches.map((batch) => (
+              {batches
+                .filter((batch) => {
+                  if (q === '') {
+                    return batch
+                  } else if (
+                    batch.prod_Name.toLowerCase().includes(q.toLowerCase())
+                  ) {
+                    return batch
+                  }
+                })
+                .map((batch) => (
                   <Fragment>
                     {editRowBatch === batch._id ? (
                       <EditRowBatch
