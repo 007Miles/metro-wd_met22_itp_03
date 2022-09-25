@@ -5,7 +5,6 @@ import {
   deleteSupplierById,
   updateSupplierById,
   getAllSuppliers,
-  checkSupplierById,
 } from '../services/supplier.js'
 
 //Insert A New Supplier
@@ -13,13 +12,6 @@ export const supplierAdd = asyncHandler(async (req, res) => {
   const ans = await addSupplier(req.body)
 
   res.status(200).json(ans)
-})
-
-//check Supplier id exists
-export const supplierCheck = asyncHandler(async (req, res, next) => {
-  const ans = await checkSupplierById(req.params.supplier_id)
-
-  res.status(404).json(ans)
 })
 
 //Get Data Of One Supplier

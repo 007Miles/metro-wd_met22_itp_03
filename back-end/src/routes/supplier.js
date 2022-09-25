@@ -6,7 +6,6 @@ import {
   deleteSupplier,
   updateSupplier,
   suppliersGet,
-  supplierCheck,
 } from '../controllers/supplier.js'
 import { celebrate, Segments } from 'celebrate'
 import {
@@ -15,7 +14,6 @@ import {
   updateSupplierSchema,
   deleteSupplierSchema,
 } from '../validations/supplier.js'
-// import supplier from '../models/supplier.js'
 
 const router = express.Router()
 
@@ -45,6 +43,10 @@ router.put(
 )
 
 //Delete A Supplier
-router.delete('/deleteSupplier/:supplier_id', deleteSupplier)
+router.delete(
+  '/deleteSupplier/:supplier_id',
+  celebrate({ [Segments.PARAMS]: deleteSupplierSchema }),
+  deleteSupplier
+)
 
 export default router

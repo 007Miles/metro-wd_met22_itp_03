@@ -6,7 +6,6 @@ export const insertSupplier = async (details) => {
   const userWithsamename = await Supplier.exists({
     business_name: details.business_name,
   })
-  // console.log(userWithsamename)
 
   if (userWithsamename) {
     return { msg: 'Suppler Already exist with the same business_name' }
@@ -23,20 +22,6 @@ export const insertSupplier = async (details) => {
   })
   await supplier.save()
   return { msg: 'Supplier Inserted Successfully' }
-}
-
-//Check if Supplier exists
-export const checkSupplier = async (id) => {
-  //check for valid objectId
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return { msg: 'No supplier is available with this id' }
-  }
-
-  if ((await Supplier.findById(mongoose.Types.ObjectId(id))) == null) {
-    return { msg: 'No supplier is available with this Supplier_id' }
-  } else {
-    next()
-  }
 }
 
 //Get Data Of One Supplier
@@ -73,7 +58,6 @@ export const updateSupplierusingId = async (id, ob) => {
     return { msg: 'No supplier is available with this id' }
   }
   //Check if Supplier exists
-  //this needs to be called by the service first and call the update
   if ((await Supplier.findById(mongoose.Types.ObjectId(id))) == null) {
     return { msg: 'No supplier is available with this id' }
   }

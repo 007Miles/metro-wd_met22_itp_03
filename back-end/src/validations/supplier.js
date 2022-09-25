@@ -8,10 +8,6 @@ export const addSupplierSchema = {
   phone: Joi.required(),
   registered_products: Joi.required(),
   rating: Joi.number().default(0),
-
-  // cred_id: Joi.object().required(),
-  // phone: Joi.array().length().required(),
-  // registered_products: Joi.array().required(),
 }
 
 export const viewSupplierSchema = {
