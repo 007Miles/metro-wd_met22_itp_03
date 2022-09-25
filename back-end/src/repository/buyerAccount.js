@@ -5,6 +5,8 @@ export const insertBuyerDetails = async (details) => {
   try {
     const buyerAcc = new buyerAccount({
       businessName: details.businessName,
+      username: details.username,
+      password: details.password,
       email: details.email,
       phone: details.phone,
       address: details.address,
@@ -12,8 +14,8 @@ export const insertBuyerDetails = async (details) => {
       city: details.city,
       credentialId: details.credentialId,
     })
-    await buyerAcc.save()
-    return { msg: 'account created' }
+    return await buyerAcc.save()
+    //return { msg: 'account created' }
   } catch (error) {
     return { msg: 'account not created' }
   }

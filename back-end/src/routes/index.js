@@ -7,7 +7,4 @@ const router = express.Router()
 router.use('/sample', sampleRouter)
 router.use('/Buyer', buyerAccount)
 
-//  console.log('inside index.routes')
-//  res.status(200).json({ status: 'works' })
-
 export default router

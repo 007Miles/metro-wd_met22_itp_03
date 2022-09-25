@@ -7,6 +7,8 @@ import {
 
 export const addBuyerDetails = async ({
   businessName,
+  username,
+  password,
   email,
   phone,
   address,
@@ -16,6 +18,8 @@ export const addBuyerDetails = async ({
 }) => {
   const details = {
     businessName,
+    username,
+    password,
     email,
     phone,
     address,

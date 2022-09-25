@@ -7,13 +7,23 @@ const buyerAccountSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     email: {
       type: String,
       require: true,
       unique: true,
     },
     phone: {
-      type: String, //username password kohed danne??
+      type: String,
       required: true,
       unique: true,
     },
@@ -30,7 +40,6 @@ const buyerAccountSchema = mongoose.Schema(
     },
     credentialId: {
       type: String,
-      require: true,
       unique: true,
     },
   },
