@@ -1,16 +1,20 @@
 import dotenv from 'dotenv'
 import express from 'express'
+
+import { isCelebrateError } from 'celebrate'
 import cors from 'cors'
 
-import DBcon from './config/DB_connection.js'
-
 import router from './routes/index.js'
+import connectDB from './config/dbConnect.js'
+import makeResponse from './middleware/response.js'
 
 dotenv.config()
 
 const app = express()
 
-app.use(cors({ origin: 'http://localhost:3001' }))
+app.use(cors())
+
+
 app.use(express.json({ limit: '1mb' }))
 //app.use(express.urlencoded({ extended: true }))
 
@@ -20,7 +24,26 @@ app.get('/', (req, res) =>
 
 app.use('/api', router)
 
-DBcon()
+connectDB()
+
+app.use((err, req, res, next) => {
+  if (isCelebrateError(err)) {
+    for (const [key, value] of err.details.entries()) {
+      return makeResponse({
+        res,
+        status: 422,
+        message: value.details[0].message,
+      })
+    }
+  } else if (err.expose) {
+    return makeResponse({ res, status: err.status, message: err.message })
+  } else
+    return makeResponse({
+      res,
+      status: 500,
+      message: 'Internal server error',
+    })
+})
 
 const port = process.env.PORT || 3000
 
