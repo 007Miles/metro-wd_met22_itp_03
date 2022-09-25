@@ -6,7 +6,7 @@ import {
   suppliesReqGet,
   supplyReqDelete,
   supplyReqUpdate,
-} from '../controllers/supply_req_controller.js'
+} from '../controllers/supplyReqController.js'
 
 const router = express.Router()
 

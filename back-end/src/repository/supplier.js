@@ -64,7 +64,6 @@ export const updateSupplierusingId = async (id, ob) => {
 
   try {
     const res = await Supplier.findById(id)
-    // console.log(ob)
     Object.assign(res, ob)
     await res.save()
     return { msg: 'Supplier updated successfully' }

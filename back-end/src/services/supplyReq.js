@@ -35,7 +35,6 @@ export const getAllSupplyReqs = async () => {
 
 //Update Supplier Data
 export const updateSupplyReqById = async (id, ob) => {
-  // console.log('Changing Supply data:', ob)
   const ans = await updateSupplyRequsingId(id, ob)
   return ans
 }
