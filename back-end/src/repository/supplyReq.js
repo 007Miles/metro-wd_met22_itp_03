@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import InspectionRequest from '../models/supply_inspection_req_model.js'
+import InspectionRequest from '../models/supplyInspectionReqModel.js'
 
 //Insert A New Supply Request
 export const insertSupplyReq = async (details) => {
@@ -43,7 +43,6 @@ export const updateSupplyRequsingId = async (id, ob) => {
   }
   try {
     const res = await InspectionRequest.findById(id)
-    // console.log(ob)
     Object.assign(res, ob)
     await res.save()
     return { msg: 'Supply request updated successfully' }
