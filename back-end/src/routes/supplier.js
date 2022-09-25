@@ -1,4 +1,5 @@
 import express from 'express'
+import { celebrate, Segments } from 'celebrate'
 
 import {
   supplierAdd,
@@ -7,13 +8,14 @@ import {
   updateSupplier,
   suppliersGet,
 } from '../controllers/supplier.js'
-import { celebrate, Segments } from 'celebrate'
+
 import {
   addSupplierSchema,
   viewSupplierSchema,
   updateSupplierSchema,
   deleteSupplierSchema,
 } from '../validations/supplier.js'
+import { supplierMailer } from '../controllers/supplierMailController.js'
 
 const router = express.Router()
 
@@ -48,5 +50,8 @@ router.delete(
   celebrate({ [Segments.PARAMS]: deleteSupplierSchema }),
   deleteSupplier
 )
+
+//Send supplier membership request response
+router.post('/send', supplierMailer)
 
 export default router
