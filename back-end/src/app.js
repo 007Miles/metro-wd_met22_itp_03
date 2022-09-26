@@ -1,6 +1,7 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import { isCelebrateError } from 'celebrate'
+//const cors = require('cors');
 
 import router from './routes/index.js'
 import connectDB from './config/dbConnect.js'
@@ -8,7 +9,6 @@ import connectDB from './config/dbConnect.js'
 //import leave from './routes/Leave.js'
 
 import makeResponse from './middleware/response.js'
-
 
 dotenv.config()
 

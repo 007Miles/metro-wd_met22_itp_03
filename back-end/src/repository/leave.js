@@ -11,7 +11,7 @@ export const createleavesheet = async(details)=>{  // crating a arrow funtion to
             approval:details.approval,
             reason:details.reason
         })
-console.log("this is repo file and this object ok",addleave);
+console.log("this is repo file and this object",addleave);
         await addleave.save() 
         return {msg: 'leave has been submmited'}
     }catch(error){
