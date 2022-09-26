@@ -3,7 +3,7 @@ Please go under edit and edit this file as needed for your project
 # Project Name - 
 # Batch - 
 ### Group Leader - IT21067556 - Shifan M.S.M. (QbicSquid)
-### Member 2 - IT21067242 - Fernando M.R.R. (RivinduFernando)
+### Member 2 - IT21067242 - Fernando M.R.R. (Mr-RiVi)
 ### Member 3 - IT21104862 - Fernandopulle J.M. (007Miles)
 ### Member 4 - IT21036620 - Kariyawasam K.P.W.D.V. (IT21036620)
 ### Member 5 - IT21020094 - Kumarasiri D.K.N (DKxNK)
