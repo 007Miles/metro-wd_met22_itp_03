@@ -36,13 +36,13 @@ import {
   }
 
   export const updateCourierById = async (id, ob) => {
-    //   const details = {
-    //     businessName,
-    //     address,
-    //     phone: Number(phone),
-    //     email,
-    //     credentialId,
-    //   }
+      // const details = {
+      //   businessName,
+      //   address,
+      //   phone: Number(phone),
+      //   email,
+      //   credentialId,
+      // }
     console.log(ob)
     const ans = await updateCourierusingId(id, ob)
     return ans

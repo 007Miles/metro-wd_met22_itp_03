@@ -11,6 +11,7 @@ export const courierRegister = asyncHandler(async (req, res) => {
   const a = await addCourier(req.body)
   console.log('this is controller', a)
   res.send(a)
+  return makeResponse({ a, status:200, data: delivery, message : "bla bla bla bla" })
 })
 
 

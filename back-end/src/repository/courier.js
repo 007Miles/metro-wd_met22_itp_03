@@ -29,12 +29,12 @@ export const getCourierAccount = async (id) => {
 export const updateCourierusingId = async (id, ob) => {
   try {
     const res = await courierAccount.findById(id)
-    //console.log(ob)
+    console.log(ob)
     Object.assign(res, ob)
     await res.save()
     return { msg: 'update successfull' }
   } catch (error) {
-    return { msg: 'updation not successfull' }
+    return { msg: 'updation not successfull'+ error }
   }
 }
 
