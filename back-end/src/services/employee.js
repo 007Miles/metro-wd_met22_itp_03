@@ -2,6 +2,7 @@ import { createEmployeeAccount, getEmployeeAccount, updateEmployeeAccount, delet
 
 //Add New Employee
 export const addEmployee = async ({ empName, address, phone, dob, empId, nic, gender, wareId, role, email }) => {
+
   const details = { empName, address, phone: Number(phone), dob: Date(dob), empId, nic, gender, wareId, role, email }
 
   const b = await createEmployeeAccount(details)

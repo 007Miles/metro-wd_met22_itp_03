@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 
 //Add New Employee
 export const createEmployeeAccount = async (details) => {
+  console.log(details)
   try {
     const employee = new Employee({
       empName: details.empName,
