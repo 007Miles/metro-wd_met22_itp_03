@@ -1,3 +1,4 @@
+import { Link, useLocation } from 'react-router-dom'
 import { twMerge } from 'tailwind-merge'
 
 export const Button1 = ({ children, ...props }) => {
@@ -19,15 +20,19 @@ export const Button1 = ({ children, ...props }) => {
 }
 
 export const HeaderButton = ({ children, ...props }) => {
+  const location = useLocation()
+  const isCurrent = (props.pathname == location.pathname)
+
   return (
-    <div className='w-20'>
+    <a href={props.pathname} className={"focus:outline-none active:outline-none" + (isCurrent && " pointer-events-none")}>
+    <div className='p-1 mt-4 mr-10 rounded hover:shadow-lg hover:cursor-pointer active:scale-95'>
     <button
-      {...props}
-      className={twMerge('w-20 m-auto font-sans font-thin text-3xl text-white', props.className)}
+      className={twMerge('m-auto font-sans font-thin text-2xl text-center text-white pointer-events-none', props.className)}
     >
       {children}
     </button>
-    <hr className='w-16 mx-auto mt-1 rounded'/>
+    <hr className={'mx-auto mt-1 rounded' + (isCurrent ? ' w-auto' : ' w-0')}/>
     </div>
+    </a>
   )
 }

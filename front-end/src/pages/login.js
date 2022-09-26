@@ -4,7 +4,7 @@ import { Button1 } from '../components/common/buttons'
 const Login = () => {
   return (
     <Layout>
-      <div className="login">
+      <div>
         <p>LOGIN</p>
         <Button1>a</Button1>
       </div>

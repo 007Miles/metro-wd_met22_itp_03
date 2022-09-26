@@ -1,14 +1,15 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
+
 import Login from '../pages/login'
+import About from '../pages/about'
 import Axiostest from '../pages/axiostest'
 import CraeteDelivery from '../pages/delivery'
 
 const IndexRoutes = () => {
-  const location = useLocation()
-
   return (
-      <Routes location={location}>
+      <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<About />} />
         <Route path="/axiostest" element={<Axiostest />} />
         <Route path="/delivery" element={<CraeteDelivery />} />
       </Routes>
