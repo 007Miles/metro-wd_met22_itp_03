@@ -1,19 +1,19 @@
 import express from 'express'
-
 import samplceRouter from './Leave.js'
+import deliveryRouter from './delivery.js'
+import supplierRouter from './supplier.js'
+import supplyReqRouter from './supplyReq.js'
+import deliveryRouter from './delivery.js'
+import batchRouter from './batch.js'
+import employee_router from './employee.js'
 
 const router = express.Router()
 
-//  console.log('inside index.routes')
-//router.use('/sample', sampleRouter)
-router.use('/leaveReq',samplceRouter)
-//  res.status(200).json({ status: 'works' })
-
-import deliveryRouter from './delivery.js'
-
-
-
+router.use('/leaveReq', samplceRouter)
+router.use('/employee', employee_router)
 router.use('/delivery', deliveryRouter)
-
+router.use('/batch', batchRouter)
+router.use('/supplier', supplierRouter)
+router.use('/supplyReq', supplyReqRouter)
 
 export default router
