@@ -10,7 +10,7 @@ export const createScheduleSchema = {
   weekly: Joi.boolean(),
   monthly: Joi.boolean(),
   yearly: Joi.boolean(),
-  date: Joi.date(),
+  date: Joi.date().required(),
   dayOfTheWeek: Joi.string(),
   dayOfTheMonth: Joi.number(),
   time: Joi.date().required(),

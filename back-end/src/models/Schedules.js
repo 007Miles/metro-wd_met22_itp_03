@@ -41,7 +41,7 @@ const schedulesSchema = mongoose.Schema(
     },
     date: {
       type: Date,
-      required: false,
+      required: true,
     },
     dayOfTheWeek: {
       type: String,

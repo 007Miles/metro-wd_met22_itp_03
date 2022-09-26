@@ -19,7 +19,11 @@ router.post(
   newSchedules
 ) //create schedules
 router.get('/:id', getSchedules) //get schedules
-router.put('/:id', updateSchedules) //update schedules
+router.put(
+  '/:id',
+  celebrate({ [Segments.BODY]: createScheduleSchema }),
+  updateSchedules
+) //update schedules
 router.delete('/:id', deleteSchedules) //delete schedules
 router.delete('/cancel/:id', cancelSchedule) //delete schedules
 
