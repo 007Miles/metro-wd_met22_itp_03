@@ -12,6 +12,7 @@ const app = express()
 
 app.use(cors()) //open for other application
 app.use(express.json({ limit: '1mb' }))
+app.use(cors())
 
 app.get('/', (req, res) =>
   res.status(200).json({ message: 'Server Up and Running' })
