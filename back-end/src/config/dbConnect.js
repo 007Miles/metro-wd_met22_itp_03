@@ -1,5 +1,4 @@
-import mongoose from "mongoose";
-import "dotenv/config";
+import mongoose from 'mongoose'
 
 const connectDB = async () => {
   mongoose
@@ -13,6 +12,6 @@ const connectDB = async () => {
   mongoose.connection.on('error', (error) => {
     console.log(`Error connecting to database: ${error}`)
   })
-
 }
-export default connectDB;
+
+export default connectDB

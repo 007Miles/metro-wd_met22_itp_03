@@ -1,7 +1,8 @@
 import dotenv from 'dotenv'
 import express from 'express'
-import { isCelebrateError } from 'celebrate'
 import cors from 'cors'
+
+import { isCelebrateError } from 'celebrate'
 import router from './routes/index.js'
 import connectDB from './config/dbConnect.js'
 import makeResponse from './middleware/response.js'
