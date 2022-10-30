@@ -1,7 +1,6 @@
 import express from 'express'
 
 import samplceRouter from './Leave.js'
-import deliveryRouter from './delivery.js'
 import schedule_router from './Schedules.js'
 import supplierRouter from './supplier.js'
 import supplyReqRouter from './supplyReq.js'
