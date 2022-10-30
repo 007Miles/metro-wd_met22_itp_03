@@ -22,6 +22,11 @@ export const createProduct = async (
   return { msg: 'product added' }
 }
 
+//get all products
+export const getAllProduct = async () => {
+  return await Product.find()
+}
+
 //get single product
 export const getSingleProduct = async (id) => {
   return await Product.findById(mongoose.Types.ObjectId(id))

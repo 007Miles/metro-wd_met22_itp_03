@@ -2,12 +2,17 @@ import asyncHandler from '../middleware/async.js'
 import Product from '../models/productModel.js'
 import {
   createProductSrc,
+  getAllProductSrc,
   getSingleProductSrc,
   deleteSingleProductSrc,
   updateSingleProductSrc,
 } from '../services/productService.js'
 
 //GET all products
+export const getAllProduct = asyncHandler(async (req, res) => {
+  const product = await getAllProductSrc()
+  res.status(200).json(product)
+})
 
 //GET single product
 export const getAproduct = asyncHandler(async (req, res) => {

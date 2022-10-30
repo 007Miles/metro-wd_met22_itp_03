@@ -4,24 +4,18 @@ import { celebrate, Segments } from 'celebrate'
 import {
   singleProductCreate,
   getAproduct,
+  getAllProduct,
   singleProductDelete,
   singleProductUpdate,
 } from '../controllers/productController.js'
-import { addProductSchema } from '../validations/productValidate.js'
 
 const productRouter = express.Router()
 
-productRouter.get('/', (req, res) => {
-  res.json({ msg: 'GET all products' })
-})
+productRouter.get('/', getAllProduct)
 
 productRouter.get('/:id', getAproduct)
 
-productRouter.post(
-  '/',
-  celebrate({ [Segments.BODY]: addProductSchema }),
-  singleProductCreate
-)
+productRouter.post('/', singleProductCreate)
 
 productRouter.delete('/:id', singleProductDelete)
 

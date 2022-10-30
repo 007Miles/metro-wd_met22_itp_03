@@ -1,5 +1,6 @@
 import {
   createProduct,
+  getAllProduct,
   getSingleProduct,
   deleteSingleProduct,
   updateSingleProduct,
@@ -21,6 +22,10 @@ export const createProductSrc = async ({
     type,
     description
   )
+}
+
+export const getAllProductSrc = async () => {
+  return await getAllProduct()
 }
 
 export const getSingleProductSrc = async (id) => {
