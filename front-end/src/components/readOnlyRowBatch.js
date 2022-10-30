@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ReadOnlyRowBatch = ({ batch, handledEditClick, handleDeleteClick }) => {
+const ReadOnlyRowBatch = ({ batch, handleEditClick, handleDeleteClick }) => {
   return (
     <tr border="1" value={batch._id}>
       <td>{batch.prod_Name}</td>
@@ -43,8 +43,8 @@ const ReadOnlyRowBatch = ({ batch, handledEditClick, handleDeleteClick }) => {
       <td>
         <button
           type="button"
-          onClick={(event) => handledEditClick(event, batch)}
-          value={batch._id}
+          onClick={(event) => handleEditClick(event, batch)}
+          // value={batch._id}
         >
           Edit
         </button>

@@ -37,24 +37,35 @@ export default function Batch() {
     setEditFormData(newFormData)
   }
 
-  // function updateData(event) {
-  //   //event.preventDefault()
-  //   const updateBatch = {
-  //     id: editRowBatch,
-  //     quantity: editFormData.quantity,
-  //     supplier_Name: editFormData.supplier_Name,
-  //     sell_price: editFormData.sell_price,
-  //   }
-  // }
-  // axios.patch('http://localhost:4000/api/batch/:id', updateBatch).then(() => {
-  //   window.location.reload()
-  // })
-  const updateBatch = (event) => {
-    console.log(event)
-    fetch('http://localhost:4000/api/batch/' + event.target.value, {
-      method: 'PATCH',
-    })
+  function updateData(event) {
+    //event.preventDefault()
+    const updateBatch = {
+      id: editRowBatch,
+      quantity: editFormData.quantity,
+      supplier_Name: editFormData.supplier_Name,
+      sell_price: editFormData.sell_price,
+    }
+
+    axios
+      .patch(
+        'http://localhost:4000/api/batch/:id',
+        {
+          method: 'PATCH',
+        },
+        updateBatch
+      )
+      .then(() => {
+        alert('Batch updated')
+        window.location.reload()
+      })
   }
+
+  // # const updateBatch = (event) => {
+  //   console.log(event)
+  //   fetch('http://localhost:4000/api/batch/' + event.target.value, {
+  //     method: 'PATCH',
+  //   })
+  // }
 
   // const handleEditFormSubmit = (event) => {
   //   event.preventDefault()
@@ -76,9 +87,9 @@ export default function Batch() {
   //   setEditBatchID(null)
   // }
 
-  const [editRowBatch, setEditRowBatch] = useState(null)
+  const [editRowBatch, setEditRowBatch] = useState([])
 
-  const handledEditClick = (event, batch) => {
+  const handleEditClick = (event, batch) => {
     //event.prventdefault()
     setEditRowBatch(batch._id)
 
@@ -95,6 +106,7 @@ export default function Batch() {
 
     setEditFormData(formValues)
   }
+
   const handleCancelClick = () => {
     setEditRowBatch(null)
   }
@@ -118,7 +130,7 @@ export default function Batch() {
             onChange={(e) => setQ(e.target.value)}
           />
         </div>
-        <form>
+        <form onSubmit={updateData}>
           <table>
             <thead>
               <tr border="1">
@@ -157,7 +169,7 @@ export default function Batch() {
                       <ReadOnlyRowBatch
                         // value={batch._id}
                         batch={batch}
-                        handledEditClick={handledEditClick}
+                        handleEditClick={handleEditClick}
                         handleDeleteClick={handleDeleteClick}
                       />
                     )}
