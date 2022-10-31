@@ -17,8 +17,6 @@ export const supplyReqAdd = asyncHandler(async (req, res) => {
     data: ans,
     massage: 'Supply inspection request successfully created',
   })
-
-  // res.status(200).json(ans)
 })
 
 //Get Data Of One Supply Request
@@ -30,8 +28,6 @@ export const supplyReqGet = asyncHandler(async (req, res) => {
     data: ans,
     massage: 'Single Supply inspection request successfully fetched',
   })
-
-  // res.status(200).json(ans)
 })
 
 //Get Data Of All Supply Requests

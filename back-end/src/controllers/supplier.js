@@ -18,7 +18,6 @@ export const supplierAdd = asyncHandler(async (req, res) => {
     data: ans,
     massage: 'Supplier successfully created',
   })
-  // res.status(200).json(ans)
 })
 
 //Get Data Of One Supplier
@@ -30,8 +29,6 @@ export const supplierGet = asyncHandler(async (req, res) => {
     data: ans,
     massage: 'Supplier detail successfully fetched',
   })
-
-  // res.status(200).json(ans)
 })
 
 //Get Data Of All Suppliers
