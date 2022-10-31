@@ -5,10 +5,12 @@ import supplyReqRouter from './supplyReq.js'
 import deliveryRouter from './delivery.js'
 import batchRouter from './batch.js'
 import employee_router from './employee.js'
+import warehouse_router from './warehouse.js'
 
 const router = express.Router()
 
 router.use('/employee', employee_router)
+router.use('/warehouse', warehouse_router)
 router.use('/delivery', deliveryRouter)
 router.use('/batch', batchRouter)
 router.use('/supplier', supplierRouter)
