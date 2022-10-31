@@ -8,15 +8,16 @@ const EditRowBatch = ({
   return (
     <tr>
       <td></td>
+      <th></th>
       <td>
         <input
           type="text"
           required="required"
           placeholder="Enter quantity"
           name="quantity"
-          defaultValue={editFormData.quantity}
+          value={editFormData.quantity}
           onChange={handleEditFormChange}
-        ></input>
+        />
       </td>
       <td></td>
       <td></td>
@@ -29,7 +30,7 @@ const EditRowBatch = ({
           name="supplierName"
           value={editFormData.supplier_Name}
           onChange={handleEditFormChange}
-        ></input>
+        />
       </td>
       <td></td>
       <td>
@@ -40,7 +41,7 @@ const EditRowBatch = ({
           name="sellPrice"
           value={editFormData.sell_price}
           onChange={handleEditFormChange}
-        ></input>
+        />
       </td>
       <td></td>
       <td>

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import '../styles/batchForm.css'
 const BatchForm = () => {
   const [prod_Name, setProd_Name] = useState('')
+  const [warehouse_id, setwarehouse_id] = useState('')
   const [quantity, setProd_qnty] = useState('')
   const [exp_date, setProd_expdate] = useState('')
   const [manu_date, setProd_ManuDate] = useState('')
@@ -16,6 +17,7 @@ const BatchForm = () => {
 
     const batch = {
       prod_Name,
+      warehouse_id,
       quantity,
       exp_date,
       manu_date,
@@ -24,13 +26,16 @@ const BatchForm = () => {
       buy_price,
       sell_price,
     }
-    const response = await fetch('http://localhost:4000/api/batch', {
-      method: 'POST',
-      body: JSON.stringify(batch),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+    const response = await fetch(
+      'http://localhost:4000/api/batchcreateABatch',
+      {
+        method: 'POST',
+        body: JSON.stringify(batch),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
     const json = await response.json()
     if (!response.ok) {
       setError(json.error)
@@ -38,6 +43,7 @@ const BatchForm = () => {
     if (response.ok) {
       setError(null)
       setProd_Name('')
+      setwarehouse_id('')
       setProd_qnty('')
       setProd_expdate('')
       setProd_ManuDate('')
@@ -56,6 +62,12 @@ const BatchForm = () => {
         type="text"
         onChange={(e) => setProd_Name(e.target.value)}
         value={prod_Name}
+      />
+      <label>Warehouse</label>
+      <input
+        type="text"
+        onChange={(e) => setwarehouse_id(e.target.value)}
+        value={warehouse_id}
       />
       <label>Quantity</label>
       <input

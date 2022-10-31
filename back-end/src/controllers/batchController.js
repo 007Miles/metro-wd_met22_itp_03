@@ -1,4 +1,5 @@
 import asyncHandler from '../middleware/async.js'
+import makeResponse from '../middleware/response.js'
 
 import {
   createBatchSrc,
@@ -6,34 +7,65 @@ import {
   getSingleBatchSrc,
   deleteSingleBatchSrc,
   updateSingleBatchSrc,
+  removeBatchFromInvSrc,
 } from '../services/batchService.js'
 
 //GET all Batch
 export const getAllBatch = asyncHandler(async (req, res) => {
   const batch = await getAllBatchSrc()
-  res.status(200).json(batch)
+  return makeResponse({
+    res,
+    status: 200,
+    data: batch,
+  })
 })
 
 //GET single Batch
 export const getABatch = asyncHandler(async (req, res) => {
   const batch = await getSingleBatchSrc(req.params.id)
-  res.status(200).json(batch)
+  return makeResponse({
+    res,
+    status: 200,
+    data: batch,
+  })
 })
 
 //CREATE single batch
 export const singleBatchCreate = asyncHandler(async (req, res) => {
   const batch = await createBatchSrc(req.body)
-  res.status(200).json(batch)
+  return makeResponse({
+    res,
+    status: 201,
+    data: batch,
+  })
 })
 
 //Delete single batch
 export const singleBatchDelete = asyncHandler(async (req, res) => {
   const batch = await deleteSingleBatchSrc(req.params.id)
-  res.status(200).json(batch)
+  return makeResponse({
+    res,
+    status: 204,
+    data: batch,
+  })
 })
 
 //UPDATE single batch
 export const singleBatchUpdate = asyncHandler(async (req, res) => {
   const batch = await updateSingleBatchSrc(req.params.id, req.body)
-  res.status(200).json(batch)
+  return makeResponse({
+    res,
+    status: 200,
+    data: batch,
+    message: 'Update single Batch',
+  })
+})
+
+export const RemoveSingleBatch = asyncHandler(async (req, res) => {
+  const batch = await removeBatchFromInvSrc(req.params.id)
+  return makeResponse({
+    res,
+    status: 200,
+    data: batch,
+  })
 })

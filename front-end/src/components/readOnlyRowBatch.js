@@ -4,6 +4,7 @@ const ReadOnlyRowBatch = ({ batch, handleEditClick, handleDeleteClick }) => {
   return (
     <tr border="1" value={batch._id}>
       <td>{batch.prod_Name}</td>
+      <th>{batch.warehouse_id}</th>
       <td>{batch.quantity}</td>
       <td>{batch.exp_date}</td>
       <td>{batch.manu_date}</td>
@@ -44,7 +45,7 @@ const ReadOnlyRowBatch = ({ batch, handleEditClick, handleDeleteClick }) => {
         <button
           type="button"
           onClick={(event) => handleEditClick(event, batch)}
-          // value={batch._id}
+          value={batch._id}
         >
           Edit
         </button>

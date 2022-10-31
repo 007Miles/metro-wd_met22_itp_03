@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 import { useEffect, useState, Fragment } from 'react'
-//import { useParams } from 'react-router-dom'
 import ReadOnlyRowBatch from '../components/readOnlyRowBatch.js'
 import EditRowBatch from '../components/EditRowBatch.js'
 
@@ -10,13 +9,14 @@ export default function Batch() {
   const [q, setQ] = useState('')
 
   useEffect(() => {
-    axios.get('http://localhost:4000/api/batch').then((res) => {
+    axios.get('http://localhost:4000/api/batch/getAllBatch').then((res) => {
       setBatches(res.data)
     })
   }, [])
 
   const [editFormData, setEditFormData] = useState({
     prod_Name: '',
+    warehouse_id: '',
     quantity: '',
     exp_date: '',
     manu_date: '',
@@ -27,7 +27,8 @@ export default function Batch() {
   })
 
   const handleEditFormChange = (event) => {
-    //event.preventDefault()
+    event.preventDefault()
+
     const fieldName = event.target.getAttribute('name')
     const fieldValue = event.target.value
 
@@ -38,22 +39,18 @@ export default function Batch() {
   }
 
   function updateData(event) {
-    //event.preventDefault()
+    event.preventDefault()
+
     const updateBatch = {
       id: editRowBatch,
       quantity: editFormData.quantity,
       supplier_Name: editFormData.supplier_Name,
       sell_price: editFormData.sell_price,
     }
+    //console.log(event)
 
     axios
-      .patch(
-        'http://localhost:4000/api/batch/:id',
-        {
-          method: 'PATCH',
-        },
-        updateBatch
-      )
+      .patch('http://localhost:4000/api/batch/updateBatch/:id', updateBatch)
       .then(() => {
         alert('Batch updated')
         window.location.reload()
@@ -95,6 +92,7 @@ export default function Batch() {
 
     const formValues = {
       prod_Name: batch.prod_Name,
+      warehouse_id: batch.warehouse_id,
       quantity: batch.quantity,
       exp_date: batch.exp_date,
       manu_date: batch.manu_date,
@@ -113,9 +111,12 @@ export default function Batch() {
 
   const handleDeleteClick = (event) => {
     console.log(event)
-    fetch('http://localhost:4000/api/batch/' + event.target.value, {
-      method: 'DELETE',
-    })
+    fetch(
+      'http://localhost:4000/api/batch/deleteABatch/' + event.target.value,
+      {
+        method: 'DELETE',
+      }
+    )
   }
 
   return (
@@ -130,11 +131,13 @@ export default function Batch() {
             onChange={(e) => setQ(e.target.value)}
           />
         </div>
+
         <form onSubmit={updateData}>
           <table>
             <thead>
               <tr border="1">
                 <th>Product Name</th>
+                <th>Warehouse</th>
                 <th>Quantity</th>
                 <th>Expiry Date</th>
                 <th>Manufacture Date</th>
