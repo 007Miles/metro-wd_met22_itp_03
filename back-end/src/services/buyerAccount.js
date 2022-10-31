@@ -1,8 +1,10 @@
+import mongoose from 'mongoose'
 import {
   insertBuyerDetails,
   readSpecificBuyerDetails,
   updateBuyer,
   deleteBuyer,
+  insertCredentialDetails,
 } from '../repository/buyerAccount.js'
 
 export const addBuyerDetails = async ({
@@ -14,20 +16,22 @@ export const addBuyerDetails = async ({
   address,
   address_line2,
   city,
-  credentialId,
 }) => {
   const details = {
     businessName,
-    username,
-    password,
     email,
     phone,
     address,
     address_line2,
     city,
-    credentialId,
+    credentialId: null,
   }
-  return await insertBuyerDetails(details)
+  const bDet = await insertBuyerDetails(details)
+  const buyerID = bDet._id
+  const credentialDetails = { username, password, buyerID }
+  const res = await insertCredentialDetails(credentialDetails)
+  const x = await updateBuyer(buyerID, { credentialId: res._id })
+  return x
 }
 
 export const getSpecificBuyerDetails = async (id) => {

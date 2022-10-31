@@ -1,12 +1,12 @@
-import buyerAccount from '../models/buyerAccount.js'
 import mongoose from 'mongoose'
+
+import buyerAccount from '../models/buyerAccount.js'
+import Credential from '../models/credential.js'
 
 export const insertBuyerDetails = async (details) => {
   try {
     const buyerAcc = new buyerAccount({
       businessName: details.businessName,
-      username: details.username,
-      password: details.password,
       email: details.email,
       phone: details.phone,
       address: details.address,
@@ -15,9 +15,23 @@ export const insertBuyerDetails = async (details) => {
       credentialId: details.credentialId,
     })
     return await buyerAcc.save()
-    //return { msg: 'account created' }
   } catch (error) {
-    return { msg: 'account not created' }
+    return error
+  }
+}
+
+export const insertCredentialDetails = async (credDetails) => {
+  console.log(credDetails)
+  try {
+    const cred = new Credential({
+      user_id: credDetails.buyerID,
+      role: 'buyer',
+      username: credDetails.username,
+      password: credDetails.password,
+    })
+    return await cred.save()
+  } catch (error) {
+    return error
   }
 }
 
@@ -36,7 +50,6 @@ export const updateBuyer = async (id, ob) => {
 export const deleteBuyer = async (id) => {
   try {
     return await buyerAccount.findByIdAndDelete(id)
-    //return { msg: 'deletion successfull' }
   } catch (error) {
     return { msg: 'deletion not successfull' }
   }
