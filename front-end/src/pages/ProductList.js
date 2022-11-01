@@ -42,7 +42,7 @@ const ProductList = () => {
     <div className="Product">
       <div className="products">
         <form>
-          <table>
+          <table className="container bg-gray-200 rounded-xl shadow border p-8 m-10">
             <thead>
               <tr border="1">
                 <th>Product Name</th>
