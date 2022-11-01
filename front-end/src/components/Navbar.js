@@ -5,7 +5,10 @@ const Navbar = () => {
     <header>
       <div className="container">
         <Link to="/">
-          <h1> Add Product</h1>
+          <button className="view_btn">View Products</button>
+        </Link>
+        <Link to="/ProductForm">
+          <button className="view_btn">Add a Product</button>
         </Link>
       </div>
     </header>

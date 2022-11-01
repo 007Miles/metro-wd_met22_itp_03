@@ -1,31 +1,81 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
-
-import ProductDetails from '../components/ProductDetails.js'
+import axios from 'axios'
+import { useEffect, useState, Fragment } from 'react'
+import ReadOnlyRowProduct from '../components/ProductDetails.js'
 
 const ProductList = () => {
-  const [products, setProducts] = useState(null)
+  const [products, setProducts] = useState([])
+  const [q] = useState('')
+
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     const response = await fetch('http://localhost:4001/api/product')
+  //     const json = await response.json()
+
+  //     if (response.ok) {
+  //       setProducts(json)
+  //     }
+  //   }
+
+  //   fetchProducts()
+  // }, [])
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await fetch('http://localhost:4001/api/product')
-      const json = await response.json()
-
-      if (response.ok) {
-        setProducts(json)
-      }
-    }
-
-    fetchProducts()
+    axios
+      .get('http://localhost:4001/api/product/getAllProducts/')
+      .then((res) => {
+        setProducts(res.data.data)
+      })
   }, [])
+
+  const handleDeleteClick = (event) => {
+    console.log(event)
+    fetch(
+      'http://localhost:4001/api/product/deleteProduct/' + event.target.value,
+      {
+        method: 'DELETE',
+      }
+    )
+  }
 
   return (
     <div className="Product">
       <div className="products">
-        {products &&
-          products.map((product) => (
-            <ProductDetails product={product} key={product._id} />
-          ))}
+        <form>
+          <table>
+            <thead>
+              <tr border="1">
+                <th>Product Name</th>
+                <th>Measurement Unit</th>
+                <th>Markup Price</th>
+                <th>Storage Condition</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {products
+                .filter((product) => {
+                  if (q === '') {
+                    return product
+                  } else if (
+                    product.prod_Name.toLowerCase().includes(q.toLowerCase())
+                  )
+                    return product
+                })
+                .map((product) => (
+                  <Fragment>
+                    <ReadOnlyRowProduct
+                      //s key={product._id}
+                      product={product}
+                      handleDeleteClick={handleDeleteClick}
+                    />
+                  </Fragment>
+                ))}
+            </tbody>
+          </table>
+        </form>
       </div>
     </div>
   )
