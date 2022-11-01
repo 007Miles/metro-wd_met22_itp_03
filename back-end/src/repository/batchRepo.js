@@ -1,4 +1,5 @@
 import Batch from '../models/batchModel.js'
+// import Product from '../models/productModel.js'
 import mongoose from 'mongoose'
 
 //create product

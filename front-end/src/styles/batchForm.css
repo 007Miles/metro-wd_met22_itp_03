@@ -1,8 +1,8 @@
 /* google font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap'); */
 
 /* layout */
-:root {
+/* :root {
     --primary: #1aac83;
     --error: #e7195a;
 }
@@ -35,10 +35,10 @@ header a {
     max-width: 1400px;
     padding: 20px;
     margin: 0 auto;
-}
+} */
 
 /* homepage */
-.home {
+/* .home {
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: 100px;
@@ -79,10 +79,10 @@ header a {
 h2.title {
     color: #1aac83;
     text-align: center;
-}
+} */
 
 /* new workout form */
-label,
+/* label,
 input {
     display: block;
 }
@@ -123,7 +123,6 @@ input.error {
 div.sidebar {
     height: 80px;
     width: 100%;
-    /* display: flex; */
     justify-content: right;
     align-items: flex-end;
 }
@@ -154,4 +153,4 @@ div.sidebar {
 .create {
     width: 50%;
     margin: auto;
-}
+} */
