@@ -5,10 +5,10 @@ import cors from 'cors'
 import { isCelebrateError } from 'celebrate'
 import router from './routes/index.js'
 
-import { isCelebrateError } from 'celebrate'
+//import { isCelebrateError } from 'celebrate'
 
 import connectDB from './config/dbConnect.js'
-import router from './routes/index.js'
+//import router from './routes/index.js'
 import makeResponse from './middleware/response.js'
 
 dotenv.config()
