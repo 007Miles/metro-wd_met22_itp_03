@@ -2,7 +2,7 @@ import { useState } from 'react'
 import '../styles/batchForm.css'
 const BatchForm = () => {
   const [prod_Name, setProd_Name] = useState('')
-  const [warehouse_id, setwarehouse_id] = useState('')
+  const [warehouse_id, setProd_warehouse_id] = useState('')
   const [quantity, setProd_qnty] = useState('')
   const [exp_date, setProd_expdate] = useState('')
   const [manu_date, setProd_ManuDate] = useState('')
@@ -27,7 +27,7 @@ const BatchForm = () => {
       sell_price,
     }
     const response = await fetch(
-      'http://localhost:4000/api/batchcreateABatch',
+      'http://localhost:4000/api/batch/createABatch/',
       {
         method: 'POST',
         body: JSON.stringify(batch),
@@ -36,6 +36,8 @@ const BatchForm = () => {
         },
       }
     )
+    console.log(response)
+
     const json = await response.json()
     if (!response.ok) {
       setError(json.error)
@@ -43,7 +45,7 @@ const BatchForm = () => {
     if (response.ok) {
       setError(null)
       setProd_Name('')
-      setwarehouse_id('')
+      setProd_warehouse_id('')
       setProd_qnty('')
       setProd_expdate('')
       setProd_ManuDate('')
@@ -66,7 +68,7 @@ const BatchForm = () => {
       <label>Warehouse</label>
       <input
         type="text"
-        onChange={(e) => setwarehouse_id(e.target.value)}
+        onChange={(e) => setProd_warehouse_id(e.target.value)}
         value={warehouse_id}
       />
       <label>Quantity</label>

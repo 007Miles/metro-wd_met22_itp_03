@@ -17,6 +17,7 @@ export const getAllBatch = asyncHandler(async (req, res) => {
     res,
     status: 200,
     data: batch,
+    message: 'Batches fetched',
   })
 })
 
@@ -27,6 +28,7 @@ export const getABatch = asyncHandler(async (req, res) => {
     res,
     status: 200,
     data: batch,
+    message: 'Batch fetched',
   })
 })
 
@@ -37,6 +39,7 @@ export const singleBatchCreate = asyncHandler(async (req, res) => {
     res,
     status: 201,
     data: batch,
+    message: 'batch successfully created',
   })
 })
 
@@ -47,6 +50,7 @@ export const singleBatchDelete = asyncHandler(async (req, res) => {
     res,
     status: 204,
     data: batch,
+    message: 'batch successfully deleted',
   })
 })
 
