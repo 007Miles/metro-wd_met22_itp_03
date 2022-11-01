@@ -1,3 +1,4 @@
+/* google font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
 /* layout */
@@ -7,6 +8,7 @@
 }
 
 .body {
+
   background: #f1f1f1;
   margin: 0;
   font-family: "Poppins";
@@ -38,10 +40,12 @@ header a {
 
 /* homepage */
 .batch {
+
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 100px;
 }
+
 
 .batch-details {
   background: #fff;
@@ -64,7 +68,9 @@ header a {
   color: #555;
 }
 
-.batch-details span {
+
+.workout-details span {
+
   position: absolute;
   top: 20px;
   right: 20px;
@@ -74,6 +80,7 @@ header a {
   border-radius: 50%;
   color: #333;
 }
+
 
 /* new workout form */
 label,
@@ -109,3 +116,4 @@ div.error {
   border-radius: 4px;
   margin: 20px 0;
 }
+

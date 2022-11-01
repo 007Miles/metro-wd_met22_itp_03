@@ -4,7 +4,11 @@ import cors from 'cors'
 
 import { isCelebrateError } from 'celebrate'
 import router from './routes/index.js'
+
+import { isCelebrateError } from 'celebrate'
+
 import connectDB from './config/dbConnect.js'
+import router from './routes/index.js'
 import makeResponse from './middleware/response.js'
 
 dotenv.config()
@@ -16,6 +20,7 @@ app.use(cors())
 app.get('/', (req, res) =>
   res.status(200).json({ message: 'Server Up and Running' })
 )
+
 app.use('/api', router)
 
 connectDB()
@@ -31,6 +36,13 @@ app.use((err, req, res, next) => {
     }
   } else if (err.expose) {
     return makeResponse({ res, status: err.status, message: err.message })
+  } else if (err.name == 'MongoServerError' && err.code === 11000) {
+    const key = Object.keys(err.keyValue)[0]
+    return makeResponse({
+      res,
+      status: 400,
+      message: `The ${key} ${err.keyValue[key]} is already taken`,
+    })
   } else
     return makeResponse({
       res,

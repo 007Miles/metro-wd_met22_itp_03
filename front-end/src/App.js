@@ -4,6 +4,10 @@ import Batch from './pages/Batch.js'
 import BatchForm from './pages/BatchForm.js'
 import Navbar from './components/Navbar.js'
 import UpdateBatch from './components/UpdateBatch.js'
+import ProductList from './pages/ProductList.js'
+import UpdateProduct from './components/UpdateProduct.js'
+import Navbar from './components/Navbar.js'
+import ProductForm from './pages/ProductForm.js'
 
 function App() {
   return (
@@ -12,9 +16,12 @@ function App() {
         <Navbar />
         <div className="pages">
           <Routes>
-            <Route path="/" element={<Batch />} />
+            <Route path="/ViewBatch" element={<Batch />} />
             <Route path="/batchForm" element={<BatchForm />} />
             <Route path="/UpdateBatch/:id" element={<UpdateBatch />} />
+            <Route path="/" element={<ProductList />} />
+            <Route path="/ProductForm" element={<ProductForm />} />
+            <Route path="/updateProduct/:id" element={<UpdateProduct />} />
           </Routes>
         </div>
       </BrowserRouter>

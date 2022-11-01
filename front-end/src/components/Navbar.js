@@ -1,13 +1,18 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
     <header>
       <div className="container">
-        <Link to="/">
-          <button className="view_btn">View batches</button>
+        <Link to="/ViewBatch">
+          <button className="view_btch_btn">View batches</button>
         </Link>
         <Link to="/BatchForm">
-          <button className="view_btn">Add a batch</button>
+          <button className="add_btch_btn">Add a batch</button>
+          <button className="view_pdct_btn">View Products</button>
+        </Link>
+        <Link to="/ProductForm">
+          <button className="add_prdct_btn">Add a Product</button>
         </Link>
       </div>
     </header>
