@@ -17,7 +17,7 @@ const SupplierNavbar = () => {
             </button>
           </Link>
           <br />
-          <Link to="/supplierMemberReqList">
+          <Link to="/supMemberReqList">
             <button className="hover:bg-red-600 text-white p-2 rounded cursor-pointer mt-1 bg-green-400 text-white p-2 rounded cursor-pointer m-auto">
               Membership Requests
             </button>
