@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
 
 const connectDB = async () => {
-
   mongoose
     .connect(process.env.MONGO_URI, { keepAlive: true, connectTimeoutMS: 3000 })
     .catch((error) => {

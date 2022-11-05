@@ -1,6 +1,7 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import cors from 'cors'
+
 import { isCelebrateError } from 'celebrate'
 import router from './routes/index.js'
 import connectDB from './config/dbConnect.js'
