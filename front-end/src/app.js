@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import SupplierList from './pages/supplierList'
+import InspecReqList from './pages/inspecReqList'
 import Navbar from './components/supplier/Navbar'
 import PageHeader from './components/supplier/Header'
 import SupplierDetails from './components/supplier/supplierDetails'
@@ -10,6 +11,7 @@ import SupplierRemove from './components/supplier/supplierRemove'
 import SupplierMail from './components/supplier/supplierMail'
 import SupplierUpdate from './components/supplier/supplierUpdate'
 import SupMemberReqList from './components/supplier/supMemberReqList'
+import MemberReqDetails from './components/supplier/memberReqDetails'
 
 function App() {
   // const location = useLocation();
@@ -22,6 +24,7 @@ function App() {
         <div className="pages">
           <Routes>
             <Route path="/supplierList" element={<SupplierList />} />
+            <Route path="/inspecReqList" element={<InspecReqList />} />
             <Route path="/supplierDetails/:id" element={<SupplierDetails />} />
             <Route path="/supplierDetails" element={<SupplierDetails />} />
             <Route path="/supplierAddForm" element={<SupplierAddForm />} />
@@ -32,6 +35,11 @@ function App() {
             <Route path="/supplierMail/:id" element={<SupplierMail />} />
             <Route path="/supplierMail" element={<SupplierMail />} />
             <Route path="/supMemberReqList" element={<SupMemberReqList />} />
+            <Route path="/memberReqDetails" element={<MemberReqDetails />} />
+            <Route
+              path="/memberReqDetails/:id"
+              element={<MemberReqDetails />}
+            />
           </Routes>
         </div>
       </BrowserRouter>

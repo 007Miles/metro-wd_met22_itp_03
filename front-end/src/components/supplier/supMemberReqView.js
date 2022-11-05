@@ -10,7 +10,7 @@ const SuppMemberReqViews = ({ supplier }) => {
         <strong>Rating : </strong>
         {supplier.rating}
       </p>
-      <Link to={`/supplierDetails/${supplier._id}`}>
+      <Link to={`/memberReqDetails/${supplier._id}`}>
         <button
           className="hover:bg-red-600 text-white p-2 rounded cursor-pointer mt-1 bg-green-400 text-white p-2 rounded cursor-pointer m-auto"
           value={supplier._id}

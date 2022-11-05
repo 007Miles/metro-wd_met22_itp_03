@@ -8,7 +8,7 @@ const Navbar = () => {
             Supplier Management
           </button>
         </Link>
-        <Link to="/supplierList">
+        <Link to="/inspecReqList">
           <button className="py-2 px-6 font-bold text-white rounded-none cursor-pointer m-auto hover:bg-green-400">
             Supply Management
           </button>

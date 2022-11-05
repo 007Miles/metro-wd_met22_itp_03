@@ -1,17 +1,15 @@
 import { useEffect, useState } from 'react'
 
-import '../../styles/supplierList.css'
-import SupMemberReqView from './supMemberReqView'
-// import SupplierView from './supplierView'
+import '../styles/supplierList.css'
+import SupplierView from '../components/supplier/supplierView'
 // import SupplierAddForm from "../components/supplierAddForm";
 
-const SupMemberReqList = () => {
+const InspecReqList = () => {
   const [supplierList, setSupplierList] = useState(null)
 
   useEffect(() => {
     const fetchSuppliers = async () => {
       const response = await fetch(
-        //api should be change into view all membership requests
         'http://localhost:4000/api/supplier/viewAllSuppliers'
       )
       const json = await response.json()
@@ -28,7 +26,7 @@ const SupMemberReqList = () => {
       <div className="supplierList">
         {supplierList &&
           supplierList.map((supplier) => (
-            <SupMemberReqView key={supplier._id} supplier={supplier} />
+            <SupplierView key={supplier._id} supplier={supplier} />
             //   <p key={supplier._id}>{supplier.bussiness_id}</p>
           ))}
       </div>
@@ -36,4 +34,4 @@ const SupMemberReqList = () => {
     </div>
   )
 }
-export default SupMemberReqList
+export default InspecReqList
