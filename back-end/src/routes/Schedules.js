@@ -5,6 +5,7 @@ import {
   getSchedules,
   updateSchedules,
   deleteSchedules,
+  getAllSchedules,
 } from '../controllers/Schedules.js'
 
 import { cancelSchedule } from '../controllers/Supply_cancel.js'
@@ -19,6 +20,9 @@ router.post(
   newSchedules
 ) //create schedules
 router.get('/:id', getSchedules) //get schedules
+
+router.get('/getAllSchedules', getAllSchedules) //get all schedules
+
 router.put(
   '/:id',
   celebrate({ [Segments.BODY]: createScheduleSchema }),

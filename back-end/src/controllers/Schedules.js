@@ -5,6 +5,7 @@ import {
   getSchedulesByID,
   updateSchedulesByID,
   deleteSchedulesByID,
+  getAllSches,
 } from '../services/Schedules.js'
 
 //Add new schedule
@@ -30,6 +31,12 @@ export const getSchedules = asyncHandler(async (req, res) => {
     data: ans,
     message: 'Supply schedule successfully retrieved',
   })
+})
+
+//Get All Schedules
+export const getAllSchedules = asyncHandler(async (req, res) => {
+  const ans = await getAllSches()
+  res.status(200).json(ans)
 })
 
 //Update schedules

@@ -3,6 +3,7 @@ import {
   getScheduleDrops,
   updateScheduleDrops,
   deleteScheduleDrops,
+  getAllScheduleDrops,
 } from '../repository/Schedules.js'
 
 //Add schedules
@@ -44,6 +45,11 @@ export const addSchedules = async ({
 //Get Schedules
 export const getSchedulesByID = async (id) => {
   return await getScheduleDrops(id)
+}
+
+//Get All Schedules
+export const getAllSches = async () => {
+  return await getAllScheduleDrops()
 }
 
 //Update schedules

@@ -13,7 +13,6 @@ router.use('/delivery', deliveryRouter)
 router.use('/batch', batchRouter)
 router.use('/supplier', supplierRouter)
 router.use('/supplyReq', supplyReqRouter)
-
 router.use('/schedules', schedule_router)
 
 export default router

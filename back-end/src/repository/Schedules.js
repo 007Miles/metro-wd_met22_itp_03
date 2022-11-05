@@ -32,6 +32,15 @@ export const getScheduleDrops = async (id) => {
   return await dropSchedule.findById(mongoose.Types.ObjectId(id))
 }
 
+//Get All Schedules
+export const getAllScheduleDrops = async () => {
+  try {
+    return await dropSchedule.find({}).sort({ createdAt: -1 })
+  } catch (error) {
+    return { msg: 'no Schedules found' }
+  }
+}
+
 //Update schedules
 export const updateScheduleDrops = async (id, ob) => {
   try {
