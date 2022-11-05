@@ -35,7 +35,8 @@ export const getScheduleDrops = async (id) => {
 //Get All Schedules
 export const getAllScheduleDrops = async () => {
   try {
-    return await dropSchedule.find({}).sort({ createdAt: -1 })
+    const a = await dropSchedule.find().sort({ createdAt: -1 })
+    return a
   } catch (error) {
     return { msg: 'no Schedules found' }
   }

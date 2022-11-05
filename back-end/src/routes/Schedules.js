@@ -19,9 +19,8 @@ router.post(
   celebrate({ [Segments.BODY]: createScheduleSchema }),
   newSchedules
 ) //create schedules
-router.get('/:id', getSchedules) //get schedules
-
 router.get('/getAllSchedules', getAllSchedules) //get all schedules
+router.get('/:id', getSchedules) //get schedules
 
 router.put(
   '/:id',

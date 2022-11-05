@@ -36,7 +36,7 @@ export const getSchedules = asyncHandler(async (req, res) => {
 //Get All Schedules
 export const getAllSchedules = asyncHandler(async (req, res) => {
   const ans = await getAllSches()
-  res.status(200).json(ans)
+  res.json(ans)
 })
 
 //Update schedules
