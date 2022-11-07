@@ -1,8 +1,8 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import cors from 'cors'
-
 import { isCelebrateError } from 'celebrate'
+
 import router from './routes/index.js'
 import connectDB from './config/dbConnect.js'
 import makeResponse from './middleware/response.js'
@@ -10,6 +10,7 @@ import makeResponse from './middleware/response.js'
 dotenv.config()
 
 const app = express()
+
 app.use(express.json({ limit: '1mb' }))
 app.use(cors())
 
