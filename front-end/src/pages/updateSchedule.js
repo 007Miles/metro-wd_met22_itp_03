@@ -1,12 +1,14 @@
 import React from 'react'
 import Layout from '../components/layout'
+import Header from '../components/layout/header'
 import UpdateSchedule from '../components/supplierFunctionalities/UpdateSchedule'
 
 const UpdateSchedules = () => {
   return (
-    <Layout>
+    <div>
+      <Header />
       <UpdateSchedule />
-    </Layout>
+    </div>
   )
 }
 

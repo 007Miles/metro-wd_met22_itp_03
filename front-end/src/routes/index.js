@@ -8,6 +8,7 @@ import ScheduleSupply from '../pages/scheduleSupply'
 import ViewSchedule from '../pages/viewSchedules'
 import UpdateSchedules from '../pages/updateSchedule'
 import CancelSchedules from '../pages/cancelSchedules'
+import SupplierMembershipRequest from '../pages/supplierMembershipRequest'
 
 const IndexRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const IndexRoutes = () => {
       <Route path="/Viewschedules" element={<ViewSchedule />} />
       <Route path="/Updateschedule" element={<UpdateSchedules />} />
       <Route path="/Cancelschedule" element={<CancelSchedules />} />
+      <Route path="/SupMemRequest" element={<SupplierMembershipRequest />} />
     </Routes>
   )
 }

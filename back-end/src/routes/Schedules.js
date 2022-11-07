@@ -24,7 +24,7 @@ router.get('/:id', getSchedules) //get schedules
 
 router.put(
   '/:id',
-  celebrate({ [Segments.BODY]: createScheduleSchema }),
+  // celebrate({ [Segments.BODY]: createScheduleSchema }),
   updateSchedules
 ) //update schedules
 router.delete('/:id', deleteSchedules) //delete schedules
