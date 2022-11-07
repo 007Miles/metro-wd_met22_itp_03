@@ -9,7 +9,7 @@ import {
 } from '../services/productService.js'
 
 //GET all products
-export const getAllProduct = asyncHandler(async (req, res) => {
+export const getAllProducts = asyncHandler(async (req, res) => {
   const product = await getAllProductSrc()
   return makeResponse({
     res,

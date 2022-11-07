@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useEffect, useState, Fragment } from 'react'
-import ReadOnlyRowBatch from '../components/ReadOnlyRowBatch.js'
+import ReadOnlyRowBatch from '../components/readOnlyRowBatch.js'
 //import EditRowBatch from '../components/EditRowBatch.js'
 
 const Batch = () => {

@@ -5,10 +5,7 @@ import cors from 'cors'
 import { isCelebrateError } from 'celebrate'
 import router from './routes/index.js'
 
-//import { isCelebrateError } from 'celebrate'
-
 import connectDB from './config/dbConnect.js'
-//import router from './routes/index.js'
 import makeResponse from './middleware/response.js'
 
 dotenv.config()
@@ -25,31 +22,31 @@ app.use('/api', router)
 
 connectDB()
 
-app.use((err, req, res, next) => {
-  if (isCelebrateError(err)) {
-    for (const [key, value] of err.details.entries()) {
-      return makeResponse({
-        res,
-        status: 422,
-        message: value.details[0].message,
-      })
-    }
-  } else if (err.expose) {
-    return makeResponse({ res, status: err.status, message: err.message })
-  } else if (err.name == 'MongoServerError' && err.code === 11000) {
-    const key = Object.keys(err.keyValue)[0]
-    return makeResponse({
-      res,
-      status: 400,
-      message: `The ${key} ${err.keyValue[key]} is already taken`,
-    })
-  } else
-    return makeResponse({
-      res,
-      status: 500,
-      message: 'Internal server error',
-    })
-})
+// app.use((err, req, res, next) => {
+//   if (isCelebrateError(err)) {
+//     for (const [key, value] of err.details.entries()) {
+//       return makeResponse({
+//         res,
+//         status: 422,
+//         message: value.details[0].message,
+//       })
+//     }
+//   } else if (err.expose) {
+//     return makeResponse({ res, status: err.status, message: err.message })
+//   } else if (err.name == 'MongoServerError' && err.code === 11000) {
+//     const key = Object.keys(err.keyValue)[0]
+//     return makeResponse({
+//       res,
+//       status: 400,
+//       message: `The ${key} ${err.keyValue[key]} is already taken`,
+//     })
+//   } else
+//     return makeResponse({
+//       res,
+//       status: 500,
+//       message: 'Internal server error',
+//     })
+// })
 
 const port = process.env.PORT || 3000
 

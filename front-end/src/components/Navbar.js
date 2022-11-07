@@ -9,6 +9,8 @@ const Navbar = () => {
         </Link>
         <Link to="/BatchForm">
           <button className="add_btch_btn">Add a batch</button>
+        </Link>
+        <Link to="/">
           <button className="view_pdct_btn">View Products</button>
         </Link>
         <Link to="/ProductForm">

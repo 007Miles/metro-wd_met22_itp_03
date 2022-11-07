@@ -5,7 +5,6 @@ const batchSchema = new mongoose.Schema(
     prod_Name: {
       type: String,
       required: true,
-      unique: true,
     },
     warehouse_id: {
       type: mongoose.Schema.Types.ObjectId,

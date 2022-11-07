@@ -6,7 +6,6 @@ import Navbar from './components/Navbar.js'
 import UpdateBatch from './components/UpdateBatch.js'
 import ProductList from './pages/ProductList.js'
 import UpdateProduct from './components/UpdateProduct.js'
-import Navbar from './components/Navbar.js'
 import ProductForm from './pages/ProductForm.js'
 
 function App() {

@@ -4,8 +4,20 @@ import {
   getSingleBatch,
   deleteSingleBatch,
   updateSingleBatch,
+  getBatches,
+  getTotalProduce,
   //removeBatch,
 } from '../repository/batchRepo.js'
+
+import {
+  createProduct,
+  getAllProduct,
+  getSingleProduct,
+  deleteSingleProduct,
+  updateSingleProduct,
+  getProducts,
+  //getMarkupPrice,
+} from '../repository/productRepo.js'
 
 export const createBatchSrc = async ({
   prod_Name,
@@ -54,3 +66,9 @@ export const removeBatchFromInvSrc = async (id) => {
     return await deleteSingleBatch(id)
   }
 }
+
+// export const setSellPriceSrc = async (name) => {
+//   const Product1 = getMarkupPrice(name)
+//   console.log(Product1.markupPrice)
+//   return await Product1.markupPrice
+// }

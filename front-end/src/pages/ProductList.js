@@ -2,27 +2,15 @@ import React from 'react'
 import axios from 'axios'
 import { useEffect, useState, Fragment } from 'react'
 import ReadOnlyRowProduct from '../components/ProductDetails.js'
+import Navbar from '../components/Navbar.js'
 
 const ProductList = () => {
   const [products, setProducts] = useState([])
   const [q] = useState('')
 
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     const response = await fetch('http://localhost:4001/api/product')
-  //     const json = await response.json()
-
-  //     if (response.ok) {
-  //       setProducts(json)
-  //     }
-  //   }
-
-  //   fetchProducts()
-  // }, [])
-
   useEffect(() => {
     axios
-      .get('http://localhost:4001/api/product/getAllProducts/')
+      .get('http://localhost:4000/api/product/getAllProducts/')
       .then((res) => {
         setProducts(res.data.data)
       })
@@ -31,7 +19,7 @@ const ProductList = () => {
   const handleDeleteClick = (event) => {
     console.log(event)
     fetch(
-      'http://localhost:4001/api/product/deleteProduct/' + event.target.value,
+      'http://localhost:4000/api/product/deleteProduct/' + event.target.value,
       {
         method: 'DELETE',
       }

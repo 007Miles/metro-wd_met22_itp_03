@@ -46,7 +46,7 @@ export default function UpdateProduct() {
 
     axios
       .patch(
-        'http://localhost:4001/api/product/updateProduct/' + z,
+        'http://localhost:4000/api/product/updateProduct/' + z,
         UpdateProduct
       )
       .then(() => {
@@ -56,21 +56,6 @@ export default function UpdateProduct() {
         console.log(err.message)
       })
   }
-
-  // const json = await response.json()
-  // if (!response.ok) {
-  //   setError(json.error)
-  // }
-  // if (response.ok) {
-  //   setError(null)
-  //   setDetail_name('')
-  //   setDetail_measurement_unit('')
-  //   setDetail_markupPrice('')
-  //   setDetail_storageCondition('')
-  //   setDetail_type('')
-  //   setDetail_description('')
-  //   console.log('product updated:', json)
-  // }
 
   return (
     <form className="createProduct" onSubmit={updateData}>

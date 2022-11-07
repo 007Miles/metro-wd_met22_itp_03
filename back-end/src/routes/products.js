@@ -4,14 +4,14 @@ import { celebrate, Segments } from 'celebrate'
 import {
   singleProductCreate,
   getAproduct,
-  getAllProduct,
+  getAllProducts,
   singleProductDelete,
   singleProductUpdate,
 } from '../controllers/productController.js'
 
 const productRouter = express.Router()
 
-productRouter.get('/getAllProducts', getAllProduct)
+productRouter.get('/getAllProducts', getAllProducts)
 
 productRouter.get('/getAProduct/:id', getAproduct)
 
