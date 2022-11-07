@@ -15,7 +15,7 @@ export const newSchedules = asyncHandler(async (req, res) => {
   // res.send(ans)
   return makeResponse({
     res,
-    status: 201,
+    status: 200,
     data: ans,
     message: 'New supply schedule successfully added',
   })
@@ -27,7 +27,7 @@ export const getSchedules = asyncHandler(async (req, res) => {
   // res.json(ans)
   return makeResponse({
     res,
-    status: 202,
+    status: 200,
     data: ans,
     message: 'Supply schedule successfully retrieved',
   })
@@ -45,7 +45,7 @@ export const updateSchedules = asyncHandler(async (req, res) => {
   // res.send(ans)
   return makeResponse({
     res,
-    status: 203,
+    status: 200,
     data: ans,
     message: 'Supply schedule successfully updated',
   })
@@ -57,7 +57,7 @@ export const deleteSchedules = asyncHandler(async (req, res) => {
   // res.send(ans)
   return makeResponse({
     res,
-    status: 204,
+    status: 200,
     data: ans,
     message: 'Supply schedule successfully deleted',
   })

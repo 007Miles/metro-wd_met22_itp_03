@@ -10,7 +10,8 @@ function SupplierMembershipRequests() {
               Request to Become a Supplier for Perera Distributors
             </h1>
             <p class="text-gray-600">
-              Your request will be handled within 48 hours
+              We will handle your request and send your login credentials to the
+              given e-mail within 48 hours
             </p>
           </div>
           <div>
@@ -74,7 +75,7 @@ function SupplierMembershipRequests() {
               name="registered_products"
               id="registered_products"
               required="required"
-              placeholder="Products You Wish To Supply"
+              placeholder="Products You'll Supply"
             ></input>
           </div>
           <div>

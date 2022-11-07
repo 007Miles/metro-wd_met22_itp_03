@@ -1,7 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 export default function ViewSchedules() {
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    getUsers()
+  }, [])
+
+  const getUsers = async () => {
+    const response = await axios.get(
+      'http://localhost:3000/api/schedules/6368930192b94e93fc7aec8e'
+    )
+    if (response.status === 200) {
+      setData(response.data)
+    }
+  }
+
+  console.log('data=>', data)
+
   return (
     <div>
       <body class="bg-gray-100 border border-gray-400 block py-2 px-4 full rounded focus:outline-none focus:border-teal-500">
