@@ -7,19 +7,6 @@ const ProductList = () => {
   const [products, setProducts] = useState([])
   const [q] = useState('')
 
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     const response = await fetch('http://localhost:4001/api/product')
-  //     const json = await response.json()
-
-  //     if (response.ok) {
-  //       setProducts(json)
-  //     }
-  //   }
-
-  //   fetchProducts()
-  // }, [])
-
   useEffect(() => {
     axios
       .get('http://localhost:4001/api/product/getAllProducts/')
