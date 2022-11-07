@@ -4,10 +4,10 @@ import Login from '../pages/login'
 import About from '../pages/about'
 import Axiostest from '../pages/axiostest'
 import CraeteDelivery from '../pages/delivery'
+import Home from '../pages/home'
 import ProductList from '../pages/ProductList.js'
 import UpdateProduct from '../components/UpdateProduct.js'
 import ProductForm from '../pages/ProductForm.js'
-
 import LeaveUpdateForm from '../pages/sanjula/update-leave-page'
 import LeaveCreateForm from '../pages/sanjula//create-leave-page'
 import LeaveList from '../pages/sanjula/leave-list-page'
@@ -20,6 +20,9 @@ const IndexRoutes = () => {
       <Route path="/about" element={<About />} />
       <Route path="/axiostest" element={<Axiostest />} />
       <Route path="/delivery" element={<CraeteDelivery />} />
+
+
+      <Route path="/empHome" element={<Home />} />
 
       <Route path="/ProductList" element={<ProductList />} />
       <Route path="/ProductForm" element={<ProductForm />} />
