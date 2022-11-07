@@ -19,6 +19,17 @@ console.log("this is repo file and this object",addleave);
     }
 }
 
+  // get all leaves
+  export const getleaves = async () => {
+    try{
+      const a = await Leavesubmission.find().sort({ createdAt: -1 })
+      console.log(a)
+      return a
+    } catch (error){
+      return{msg: 'No Leave forms to display'}
+    }
+  }
+
 export const getleave = async (id) => {
     return await Leavesubmission.findById(mongoose.Types.ObjectId(id))
 }
@@ -42,3 +53,4 @@ export const updateleaveusingId = async (id, ob) => {
       return { msg: 'deletion not successfull' }
     }
   }
+
