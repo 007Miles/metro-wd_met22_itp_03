@@ -20,7 +20,7 @@ const LeaveRequestList = () => {
   }, []);
 
   return (
-    <div className="container bg-gray-200 rounded-xl shadow border p-8 m-10">
+    <div className="container bg-green-200 rounded-xl shadow border p-8 m-10">
       <h1 className="text-3xl">Welcome to Leave Requests</h1>
       <div className="mt-6 space-y-6">
         <div className="-space-y-px rounded-md shadow-sm">
