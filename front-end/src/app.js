@@ -12,6 +12,7 @@ import SupplierMail from './components/supplier/supplierMail'
 import SupplierUpdate from './components/supplier/supplierUpdate'
 import SupMemberReqList from './components/supplier/supMemberReqList'
 import MemberReqDetails from './components/supplier/memberReqDetails'
+import InspecReqDetails from './components/supplier/inspecReqDetails'
 
 function App() {
   // const location = useLocation();
@@ -36,6 +37,11 @@ function App() {
             <Route path="/supplierMail" element={<SupplierMail />} />
             <Route path="/supMemberReqList" element={<SupMemberReqList />} />
             <Route path="/memberReqDetails" element={<MemberReqDetails />} />
+            <Route path="/inspecReqDetails" element={<InspecReqDetails />} />
+            <Route
+              path="/inspecReqDetails/:id"
+              element={<InspecReqDetails />}
+            />
             <Route
               path="/memberReqDetails/:id"
               element={<MemberReqDetails />}
