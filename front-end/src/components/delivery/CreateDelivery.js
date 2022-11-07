@@ -97,11 +97,7 @@ const CraeteDelivery = () => {
       <form action="" className="w-5/6 p-6 m-3">
         <FormField>
           <FormLabel>Remark</FormLabel>
-          <FormInput
-            type="Text"
-            value={remark}
-            onChange={handleRemarkChange}
-          />
+          <FormInput type="Text" value={remark} onChange={handleRemarkChange} />
         </FormField>
 
         <FormField>
@@ -209,7 +205,7 @@ const CraeteDelivery = () => {
             })}
           </select>
 
-          <div className='flex content-center mr-10 align-middle'>
+          <div className="flex content-center mr-10 align-middle">
             <FormLabel>Quantity:</FormLabel>
             <FormInput type="text" value={qty} onChange={handleQtyChange} />
           </div>
