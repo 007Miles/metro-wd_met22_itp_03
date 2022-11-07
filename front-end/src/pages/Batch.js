@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useEffect, useState, Fragment } from 'react'
+import Navbar from '../components/Navbar.js'
 //import '../index.css'
 import ReadOnlyRowBatch from '../components/readOnlyRowBatch.js'
 //import EditRowBatch from '../components/EditRowBatch.js'
@@ -29,6 +30,7 @@ const Batch = () => {
 
   return (
     <div className="overflow-x-auto relative shadow-md sm:rounded-lg justify-center py-3 px-6">
+      <Navbar />
       <div className="batches">
         <div className="py-3 px-6">
           <input
