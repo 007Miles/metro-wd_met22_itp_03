@@ -4,7 +4,6 @@ import Login from '../pages/login'
 import About from '../pages/about'
 import Axiostest from '../pages/axiostest'
 import CraeteDelivery from '../pages/delivery'
-
 import Home from '../pages/home'
 
 const IndexRoutes = () => {
@@ -15,7 +14,7 @@ const IndexRoutes = () => {
       <Route path="/axiostest" element={<Axiostest />} />
       <Route path="/delivery" element={<CraeteDelivery />} />
 
-      <Route path="/x/*" element={<Home />} />
+      <Route path="/empHome" element={<Home />} />
     </Routes>
   )
 }

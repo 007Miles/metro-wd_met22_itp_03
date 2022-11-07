@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom'
 import IndexRoutes from './routes'
 
 const App = () => {
@@ -12,5 +12,3 @@ const App = () => {
 }
 
 export default App
-
-
