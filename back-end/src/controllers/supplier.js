@@ -1,4 +1,6 @@
 import asyncHandler from '../middleware/async.js'
+import makeResponse from '../middleware/response.js'
+
 import {
   addSupplier,
   getSupplierById,
@@ -10,32 +12,57 @@ import {
 //Insert A New Supplier
 export const supplierAdd = asyncHandler(async (req, res) => {
   const ans = await addSupplier(req.body)
-
-  res.status(200).json(ans)
+  return makeResponse({
+    res,
+    status: 201,
+    data: ans,
+    massage: 'Supplier successfully created',
+  })
 })
 
 //Get Data Of One Supplier
 export const supplierGet = asyncHandler(async (req, res) => {
   const ans = await getSupplierById(req.params.supplier_id)
-
-  res.status(200).json(ans)
+  return makeResponse({
+    res,
+    status: 200,
+    data: ans,
+    massage: 'Supplier detail successfully fetched',
+  })
 })
 
 //Get Data Of All Suppliers
 export const suppliersGet = asyncHandler(async (req, res) => {
   const ans = await getAllSuppliers()
-
-  res.status(200).json(ans)
+  return makeResponse({
+    res,
+    status: 200,
+    data: ans,
+    massage: 'Suppliers successfully fetched',
+  })
+  // res.status(200).json(ans)
 })
 
 //Update Supplier Data
 export const updateSupplier = asyncHandler(async (req, res) => {
   const ans = await updateSupplierById(req.params.supplier_id, req.body)
-  res.send(ans)
+  return makeResponse({
+    res,
+    status: 200,
+    data: ans,
+    massage: 'Supplier successfully updated',
+  })
+  // res.send(ans)
 })
 
 //Delete A Supplier
 export const deleteSupplier = asyncHandler(async (req, res) => {
   const ans = await deleteSupplierById(req.params.supplier_id)
-  res.send(ans)
+  return makeResponse({
+    res,
+    status: 200,
+    data: ans,
+    massage: 'Supplier successfully deleted',
+  })
+  // res.send(ans)
 })
