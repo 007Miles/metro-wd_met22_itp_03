@@ -1,8 +1,7 @@
 import dotenv from 'dotenv'
 import express from 'express'
-
-import { isCelebrateError } from 'celebrate'
 import cors from 'cors'
+import { isCelebrateError } from 'celebrate'
 
 import router from './routes/index.js'
 import connectDB from './config/dbConnect.js'
@@ -12,10 +11,8 @@ dotenv.config()
 
 const app = express()
 
-app.use(cors())
-
 app.use(express.json({ limit: '1mb' }))
-//app.use(express.urlencoded({ extended: true }))
+app.use(cors())
 
 app.get('/', (req, res) =>
   res.status(200).json({ message: 'Server Up and Running' })
