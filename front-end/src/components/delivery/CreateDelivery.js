@@ -209,7 +209,7 @@ const CraeteDelivery = () => {
             })}
           </select>
 
-          <div className="flex content-center mr-10 align-middle">
+          <div className='flex content-center mr-10 align-middle'>
             <FormLabel>Quantity:</FormLabel>
             <FormInput type="text" value={qty} onChange={handleQtyChange} />
           </div>
