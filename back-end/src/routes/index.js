@@ -1,5 +1,6 @@
 import express from 'express'
 
+import buyerAccount from './buyerAccount.js'
 import samplceRouter from './Leave.js'
 import schedule_router from './Schedules.js'
 import supplierRouter from './supplier.js'
@@ -11,6 +12,7 @@ import membership_router from './Supplier_membership_request.js'
 
 const router = express.Router()
 
+router.use('/Buyer', buyerAccount)
 router.use('/leaveReq', samplceRouter)
 router.use('/employee', employee_router)
 router.use('/delivery', deliveryRouter)
