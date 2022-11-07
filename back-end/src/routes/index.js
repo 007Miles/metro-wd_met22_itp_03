@@ -7,6 +7,7 @@ import supplyReqRouter from './supplyReq.js'
 import deliveryRouter from './delivery.js'
 import batchRouter from './batch.js'
 import employee_router from './employee.js'
+import membership_router from './Supplier_membership_request.js'
 
 const router = express.Router()
 
@@ -16,7 +17,7 @@ router.use('/delivery', deliveryRouter)
 router.use('/batch', batchRouter)
 router.use('/supplier', supplierRouter)
 router.use('/supplyReq', supplyReqRouter)
-
 router.use('/schedules', schedule_router)
+router.use('/request', membership_router)
 
 export default router
