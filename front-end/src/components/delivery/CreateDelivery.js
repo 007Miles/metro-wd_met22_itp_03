@@ -97,7 +97,11 @@ const CraeteDelivery = () => {
       <form action="" className="w-5/6 p-6 m-3">
         <FormField>
           <FormLabel>Remark</FormLabel>
-          <FormInput type="Text" value={remark} onChange={handleRemarkChange} />
+          <FormInput
+            type="Text"
+            value={remark}
+            onChange={handleRemarkChange}
+          />
         </FormField>
 
         <FormField>
