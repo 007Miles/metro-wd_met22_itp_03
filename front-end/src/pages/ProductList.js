@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useEffect, useState, Fragment } from 'react'
 import ReadOnlyRowProduct from '../components/ProductDetails.js'
+import Navbar from '../components/Navbar.js'
 
 const ProductList = () => {
   const [products, setProducts] = useState([])
@@ -27,6 +28,7 @@ const ProductList = () => {
 
   return (
     <div className="Product">
+      <Navbar />
       <div className="products">
         <form>
           <table className="container bg-gray-200 rounded-xl shadow border p-8 m-10">
