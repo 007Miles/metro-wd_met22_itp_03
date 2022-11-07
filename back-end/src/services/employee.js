@@ -20,8 +20,8 @@ export const getEmployeeById = async (id) => {
 }
 
 //Get All Employee Details
-export const getAllEmployees = async () => {
-  return await getEmployees()
+export const getAllEmployees = async (params) => {
+  return await getEmployees(params)
 }
 
 //Update Employee Details

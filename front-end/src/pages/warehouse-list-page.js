@@ -83,7 +83,7 @@ const WarehouseList = () => {
                                   View </button>
 
                                 {/* Edit Button */}
-                                <Link to={`updateWarehouse/${warehouse._id}`}>
+                                <Link to={`../updateWarehouse/${warehouse._id}`}>
                                   <button type="button" class="inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                                     value={warehouse._id}
                                     onClick={(e) => {
@@ -94,7 +94,7 @@ const WarehouseList = () => {
                                 </Link>
 
                                 {/* Delete Button */}
-                                <Link to={`/deleteWarehouse/${warehouse._id}`}>
+                                <Link to={`../deleteWarehouse/${warehouse._id}`}>
                                   <button type="button" class="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                                     value={warehouse._id}
                                     onClick={(e) => {

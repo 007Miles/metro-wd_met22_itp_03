@@ -53,10 +53,8 @@ export default function EmployeeUpdateForm() {
         }
     };
 
-//edit button eka ebuwama, eka ekenage data adila enawa.....
     useEffect(() => {
         axios.get('http://localhost:3000/api/employee/viewEmployee/' + id)
-            console.log(id)
             .then((response) => {
                 console.log(response)
                 let json = response.data.data

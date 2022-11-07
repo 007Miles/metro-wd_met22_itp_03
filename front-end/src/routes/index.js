@@ -21,8 +21,7 @@ const IndexRoutes = () => {
       <Route path="/axiostest" element={<Axiostest />} />
       <Route path="/delivery" element={<CraeteDelivery />} />
 
-
-      <Route path="/empHome" element={<Home />} />
+      <Route path="/empHome/*" element={<Home />} />
 
       <Route path="/ProductList" element={<ProductList />} />
       <Route path="/ProductForm" element={<ProductForm />} />

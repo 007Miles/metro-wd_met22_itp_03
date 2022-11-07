@@ -46,9 +46,16 @@ export const getEmployeeAccount = async (id) => {
 }
 
 //Get All Employee Details
-export const getEmployees = async () => {
+export const getEmployees = async (params) => {
   try {
-    const a = await Employee.find().sort({ createdAt: -1 })
+    let filter = {}
+    if(params.empName){
+      filter.empName = {'$regex' : params.empName, '$options' : 'i'}
+    }
+    if(params.role){
+      filter.role = params.role
+    }
+    const a = await Employee.find(filter).sort({ createdAt: -1 })
     console.log (a)
     return a
   } catch (error) {

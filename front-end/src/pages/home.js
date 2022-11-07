@@ -23,9 +23,10 @@ const home = () => {
       <div className="container flex">
         <SideNavbar />
         <Routes>
+
           <Route path="/" element={<EmployeeHome />}></Route>
           <Route path="/addEmployee" element={<EmployeeRegistrationForm />}></Route>
-          <Route path="/updateEmployee/:id" element={<EmployeeUpdateForm />}></Route>
+          <Route path="updateEmployee/:id" element={<EmployeeUpdateForm />}></Route>
           <Route path="/viewAllEmployees"  element={<EmployeeList />}></Route>
           <Route path="/deleteEmployee/:id" element={<EmployeeDelete />}></Route> 
           <Route path="/addWarehouse" element={<WarehouseRegistrationForm />}></Route>

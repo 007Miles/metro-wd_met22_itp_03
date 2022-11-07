@@ -1,11 +1,6 @@
 import { useState } from 'react'
 
-import {
-  BsArrowLeftShort,
-  BsChevronDown,
-  BsCalendar2DateFill,
-  BsFileBarGraphFill,
-} from 'react-icons/bs'
+import { BsArrowLeftShort, BsChevronDown, BsCalendar2DateFill, BsFileBarGraphFill, } from 'react-icons/bs'
 import { AiFillEnvironment, AiFillHome } from 'react-icons/ai'
 import { RiDashboardFill, RiTeamFill } from 'react-icons/ri'
 import { FaMoneyCheckAlt, FaWarehouse } from 'react-icons/fa'

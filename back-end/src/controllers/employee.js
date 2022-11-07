@@ -35,7 +35,7 @@ export const getEmployee = asyncHandler(async (req, res) => {
 
 //Get All Employee Details
 export const getEmployees = asyncHandler(async (req, res) => {
-  const a = await getAllEmployees()
+  const a = await getAllEmployees(req.query)
   res.json(a)
   // return makeResponse({
   //   res,

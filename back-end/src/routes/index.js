@@ -12,6 +12,7 @@ import warehouse_router from './warehouse.js'
 import att from './attendance.js'
 import role_router from './role.js'
 import membership_router from './Supplier_membership_request.js'
+import deliveryRouter from './delivery.js'
 
 const router = express.Router()
 
