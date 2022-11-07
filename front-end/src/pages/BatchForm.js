@@ -58,12 +58,13 @@ const BatchForm = () => {
   }
   return (
     <div>
+      <h3> Add Batch</h3>
+
       <form onSubmit={handleSubmit}>
-        <div className="border-solid px-16 border-2 border-indigo-600 ...">
-          <h3> Add Batch</h3>
-          <div className="grid md:grid-cols-2 md:gap-6">
-            <div className="relative z-0 mb-6 w-full group">
-              <div className="py-3 px-6">
+        <div className="border-solid ml-2 mr-2 mb-10 border rounded-lg  border-indigo-700 ...">
+          <div className="grid md:grid-cols-2 md:gap-4">
+            <div className="relative z-0 mb-4 w-full group">
+              <div className="py-3 px-10">
                 <label>Product Name</label>
 
                 <input
@@ -74,19 +75,21 @@ const BatchForm = () => {
                 />
               </div>
             </div>
-            <div className="relative z-0 mb-6 w-full group">
-              <label>Warehouse</label>
-              <input
-                type="text"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                onChange={(e) => setProd_warehouse_id(e.target.value)}
-                value={warehouse_id}
-              />
+            <div className="relative z-0 mb-4 w-full group">
+              <div className="py-3 px-6">
+                <label>Warehouse</label>
+                <input
+                  type="text"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  onChange={(e) => setProd_warehouse_id(e.target.value)}
+                  value={warehouse_id}
+                />
+              </div>
             </div>
           </div>
-          <div className="grid md:grid-cols-2 md:gap-6">
-            <div className="relative z-0 mb-6 w-full group">
-              <div className="py-3 px-6">
+          <div className="grid md:grid-cols-2 md:gap-4">
+            <div className="relative z-0 mb-4 w-full group">
+              <div className="py-3 px-10">
                 <label>Quantity</label>
 
                 <input
@@ -97,20 +100,22 @@ const BatchForm = () => {
                 />
               </div>
             </div>
-            <div className="relative z-0 mb-6 w-full group">
-              <label>Expiry Date</label>
-              <input
-                type="date"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                onChange={(e) => setProd_expdate(e.target.value)}
-                value={exp_date}
-              />
+            <div className="relative z-0 mb-4 w-full group">
+              <div className="py-3 px-6">
+                <label>Expiry Date</label>
+                <input
+                  type="date"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  onChange={(e) => setProd_expdate(e.target.value)}
+                  value={exp_date}
+                />
+              </div>
             </div>
           </div>
-          <div className="grid md:grid-cols-2 md:gap-6">
-            <div className="relative z-0 mb-6 w-full group">
-              <div className="py-3 px-6">
-                <label>Manifacture Date</label>
+          <div className="grid md:grid-cols-2 md:gap-4">
+            <div className="relative z-0 mb-4 w-full group">
+              <div className="py-3 px-10">
+                <label>Manufacture Date</label>
 
                 <input
                   type="date"
@@ -120,19 +125,21 @@ const BatchForm = () => {
                 />
               </div>
             </div>
-            <div className="relative z-0 mb-6 w-full group">
-              <label>Arrived Date</label>
-              <input
-                type="date"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                onChange={(e) => setProd_arrvDate(e.target.value)}
-                value={arrived_date}
-              />
+            <div className="relative z-0 mb-4 w-full group">
+              <div className="py-3 px-6">
+                <label>Arrived Date</label>
+                <input
+                  type="date"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  onChange={(e) => setProd_arrvDate(e.target.value)}
+                  value={arrived_date}
+                />
+              </div>
             </div>
           </div>
-          <div className="grid md:grid-cols-2 md:gap-6">
-            <div className="relative z-0 mb-6 w-full group">
-              <div className="py-3 px-6">
+          <div className="grid md:grid-cols-2 md:gap-4">
+            <div className="relative z-0 mb-4 w-full group">
+              <div className="py-3 px-10">
                 <label>Supplier Name</label>
 
                 <input
@@ -143,18 +150,20 @@ const BatchForm = () => {
                 />
               </div>
             </div>
-            <div className="relative z-0 mb-6 w-full group">
-              <label>Buy Price</label>
-              <input
-                type="number"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                onChange={(e) => setProd_buyPr(e.target.value)}
-                value={buy_price}
-              />
+            <div className="relative z-0 mb-4 w-full group">
+              <div className="py-3 px-6">
+                <label>Buy Price</label>
+                <input
+                  type="number"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  onChange={(e) => setProd_buyPr(e.target.value)}
+                  value={buy_price}
+                />
+              </div>
             </div>
           </div>
-          <div className="relative z-0 mb-6 w-full group">
-            <div className="py-3 px-6">
+          <div className="relative z-0 mb-4 w-full group">
+            <div className="py-3 px-10">
               <label>Sell Price</label>
 
               <input
@@ -165,8 +174,8 @@ const BatchForm = () => {
               />
             </div>
           </div>
-          <div className="relative z-0 mb-6 w-full group">
-            <div className="py-3 px 6">
+          <div className="relative z-0 mb-4 w-full group">
+            <div className="py-3 px-10">
               <button className="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                 {' '}
                 Add Batch
