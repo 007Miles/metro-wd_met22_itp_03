@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-
 import '../styles/supplierList.css'
 import SupplierView from '../components/supplier/supplierView'
 // import SupplierAddForm from "../components/supplierAddForm";
@@ -25,7 +24,7 @@ const SupplierList = () => {
     <div className="home">
       <div className="supplierList">
         {supplierList &&
-          supplierList.map((supplier) => (
+          supplierList.map((supplier, i) => (
             <SupplierView key={supplier._id} supplier={supplier} />
             //   <p key={supplier._id}>{supplier.bussiness_id}</p>
           ))}

@@ -13,6 +13,8 @@ import SupplierUpdate from './components/supplier/supplierUpdate'
 import SupMemberReqList from './components/supplier/supMemberReqList'
 import MemberReqDetails from './components/supplier/memberReqDetails'
 import InspecReqDetails from './components/supplier/inspecReqDetails'
+import SuppliersList from './pages/suppliersList'
+// import Header from './components/layout/header'
 
 function App() {
   // const location = useLocation();
@@ -24,6 +26,7 @@ function App() {
         <SupplierNavbar />
         <div className="pages">
           <Routes>
+            <Route path="/suppliersList" element={<SuppliersList />} />
             <Route path="/supplierList" element={<SupplierList />} />
             <Route path="/inspecReqList" element={<InspecReqList />} />
             <Route path="/supplierDetails/:id" element={<SupplierDetails />} />
