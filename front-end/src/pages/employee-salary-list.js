@@ -1,27 +1,28 @@
+import React from 'react'
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const WarehouseList = () => {
-  const [Warehouses, setWarehouse] = useState([])
+const EmployeSalaryList = () => {
+  const [empSalarys, setSalary] = useState([])
 
   useEffect(() => {
-    const fetchWarehouse = async () => {
+    const fetchSalary = async () => {
       const response = await fetch(
-        'http://localhost:3000/api/warehouse/viewAllWarehouses'
+        'http://localhost:3000/api/role/viewAllRoles'
       );
       const json = await response.json();
       if (response.ok) {
-        setWarehouse(json);
+        setSalary(json);
       }
     };
 
-    fetchWarehouse();
+    fetchSalary();
 
   }, []);
 
   return (
     <div className="container bg-gray-200 rounded-xl shadow border p-8 m-10">
-      <h1 className="text-3xl">Welcome to Warehouse Department</h1>
+      <h1 className="text-3xl">Welcome to Employee Salary Department</h1>
       <div className="mt-6 space-y-6">
         <div className="-space-y-px rounded-md shadow-sm">
 
@@ -36,17 +37,20 @@ const WarehouseList = () => {
                           No
                         </th>
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          Warehouse ID
+                          Employee ID
                         </th>
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          Address
+                          Name
                         </th>
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          Phone Number
+                          Role
                         </th>
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          Storage Condition
+                          Basic Salary
                         </th>                 
+                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                          Net Salary
+                        </th>
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                           Actions
                         </th>
@@ -55,53 +59,42 @@ const WarehouseList = () => {
 
 
                     <tbody>
-                      {Warehouses.map((warehouse, i) => (
+                      {empSalarys.map((salary, i) => (
 
 
-                        <tr key={warehouse._id} class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <tr key={salary._id} class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                           <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                             {i+1}
                           </td>
                           <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                            {warehouse.wareId}
+                            {salary.empId}
                           </td>
                           <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                            {warehouse.address}
+                            {salary.empName}
                           </td>
                           <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                            {warehouse.phone}
+                            {salary.role}
                           </td>
                           <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                            {warehouse.storageCond}
+                            {salary.basicSalary}
+                          </td>
+                          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {salary.netSalary}
                           </td>
 
                           <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                             <div class="flex space-x-2 justify-center">
                               <div>
 
-                                <button type="button" class="inline-block px-6 py-2 border-2 border-blue-400 text-blue-400 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
-                                  View </button>
-
                                 {/* Edit Button */}
-                                <Link to={`updateWarehouse/${warehouse._id}`}>
-                                  <button type="button" class="inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-                                    value={warehouse._id}
+                                <Link to={`/setSalary/${salary._id}`}>
+                                  <button type="button" class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+                                    value={salary._id}
                                     onClick={(e) => {
                                       console.log(e.target.value);
                                     }}
                                   >
-                                    Edit </button>
-                                </Link>
-
-                                {/* Delete Button */}
-                                <Link to={`/deleteWarehouse/${warehouse._id}`}>
-                                  <button type="button" class="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-                                    value={warehouse._id}
-                                    onClick={(e) => {
-                                      console.log(e.target.value);
-                                    }}
-                                  >
-                                    Delete </button>
+                                    Calculate Salary </button>
                                 </Link>
 
                               </div>
@@ -123,9 +116,7 @@ const WarehouseList = () => {
         </div>
       </div>
     </div>
-
-
   )
 }
 
-export default WarehouseList
+export default EmployeSalaryList

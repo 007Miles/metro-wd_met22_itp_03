@@ -1,27 +1,27 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const WarehouseList = () => {
-  const [Warehouses, setWarehouse] = useState([])
+const LeaveRequestList = () => {
+  const [LeaveRequests, setLeaveRequest] = useState([])
 
   useEffect(() => {
-    const fetchWarehouse = async () => {
+    const fetchLeaveRequest = async () => {
       const response = await fetch(
-        'http://localhost:3000/api/warehouse/viewAllWarehouses'
+        // 'http://localhost:3000/api/warehouse/viewAllWarehouses'
       );
       const json = await response.json();
       if (response.ok) {
-        setWarehouse(json);
+        setLeaveRequest(json);
       }
     };
 
-    fetchWarehouse();
+    fetchLeaveRequest();
 
   }, []);
 
   return (
     <div className="container bg-gray-200 rounded-xl shadow border p-8 m-10">
-      <h1 className="text-3xl">Welcome to Warehouse Department</h1>
+      <h1 className="text-3xl">Welcome to Leave Requests</h1>
       <div className="mt-6 space-y-6">
         <div className="-space-y-px rounded-md shadow-sm">
 
@@ -36,16 +36,13 @@ const WarehouseList = () => {
                           No
                         </th>
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          Warehouse ID
+                          Employee ID
                         </th>
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          Address
+                          Date
                         </th>
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          Phone Number
-                        </th>
-                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          Storage Condition
+                          CheckIn
                         </th>                 
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                           Actions
@@ -55,7 +52,7 @@ const WarehouseList = () => {
 
 
                     <tbody>
-                      {Warehouses.map((warehouse, i) => (
+                      {LeaveRequests.map(leaverequest, i) => (
 
 
                         <tr key={warehouse._id} class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -83,7 +80,7 @@ const WarehouseList = () => {
                                   View </button>
 
                                 {/* Edit Button */}
-                                <Link to={`updateWarehouse/${warehouse._id}`}>
+                                <Link to={`/updateWarehouse/${warehouse._id}`}>
                                   <button type="button" class="inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                                     value={warehouse._id}
                                     onClick={(e) => {
@@ -128,4 +125,4 @@ const WarehouseList = () => {
   )
 }
 
-export default WarehouseList
+export default LeaveRequestList

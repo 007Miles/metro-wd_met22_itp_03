@@ -39,9 +39,7 @@ export default function WarehouseUpdateForm() {
         }
     };
 
-//edit button eka ebuwama, eka ekenage data adila enawa.....
     useEffect(() => {
-        //axios.get('https://jsonplaceholder.typicode.com/todos/' + id)
         axios.get('http://localhost:3000/api/warehouse/viewWarehouse/' + id)
             .then((response) => {
                 let json = response.data.data

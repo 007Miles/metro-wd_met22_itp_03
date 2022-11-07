@@ -35,6 +35,7 @@ export default function EmployeeUpdateForm() {
         console.log(employee);
         const response = await fetch(
             "http://localhost:3000/api/employee/updateEmployee/" + id,
+            
             {
                 method: "PUT",
                 body: JSON.stringify(employee),
@@ -42,6 +43,7 @@ export default function EmployeeUpdateForm() {
                     "Content-Type": "application/json",
                 },
             }
+            
         );
         const json = await response.json();
 
@@ -53,9 +55,10 @@ export default function EmployeeUpdateForm() {
 
 //edit button eka ebuwama, eka ekenage data adila enawa.....
     useEffect(() => {
-        //axios.get('https://jsonplaceholder.typicode.com/todos/' + id)
         axios.get('http://localhost:3000/api/employee/viewEmployee/' + id)
+            console.log(id)
             .then((response) => {
+                console.log(response)
                 let json = response.data.data
                 setName(json.empName)
                 setCredId(json.cred_id)
