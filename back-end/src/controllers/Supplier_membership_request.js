@@ -15,7 +15,7 @@ export const newMembership = asyncHandler(async (req, res) => {
   // res.send(ans)
   return makeResponse({
     res,
-    status: 206,
+    status: 200,
     data: ans,
     message: 'Supplier membership request sent',
   })

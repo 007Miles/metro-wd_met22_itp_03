@@ -5,7 +5,7 @@ import mongoose from 'mongoose'
 export const createMembership = async (data) => {
   try {
     const membershipReq = new SupplierMembershipRequest({
-      cred_id: data.cred_id,
+      // cred_id: data.cred_id,
       verified: data.verified,
       business_name: data.business_name,
       email: data.email,

@@ -3,6 +3,7 @@ import {
   getScheduleDrops,
   updateScheduleDrops,
   deleteScheduleDrops,
+  getAllScheduleDrops,
 } from '../repository/Schedules.js'
 
 //Add schedules
@@ -19,7 +20,7 @@ export const addSchedules = async ({
   date,
   dayOfTheWeek,
   dayOfTheMonth,
-  time,
+  // time,
 }) => {
   const data = {
     supplierID,
@@ -34,7 +35,7 @@ export const addSchedules = async ({
     date: Date(date),
     dayOfTheWeek,
     dayOfTheMonth: Number(dayOfTheMonth),
-    time: Date(time),
+    // time: Date(time),
   }
   const x = await createSchedule(data)
   //console.log('Service test', x)
@@ -44,6 +45,11 @@ export const addSchedules = async ({
 //Get Schedules
 export const getSchedulesByID = async (id) => {
   return await getScheduleDrops(id)
+}
+
+//Get All Schedules
+export const getAllSches = async () => {
+  return await getAllScheduleDrops()
 }
 
 //Update schedules

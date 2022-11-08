@@ -8,7 +8,7 @@ import {
 
 //Add schedules
 export const addMembership = async ({
-  cred_id,
+  // cred_id,
   verified,
   business_name,
   email,
@@ -17,7 +17,7 @@ export const addMembership = async ({
   address,
 }) => {
   const data = {
-    cred_id,
+    // cred_id,
     verified: Boolean(verified),
     business_name,
     email,
