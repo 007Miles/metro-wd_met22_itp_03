@@ -13,7 +13,6 @@ const CredentialSchema = new mongoose.Schema(
     },
     user_id: {
       type: mongoose.Schema.Types.ObjectId,
-      unique: true,
       required: false,
     },
     role: {

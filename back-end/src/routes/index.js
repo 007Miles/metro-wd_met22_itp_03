@@ -14,6 +14,7 @@ import warehouse_router from './warehouse.js'
 import att from './attendance.js'
 import role_router from './role.js'
 import membership_router from './Supplier_membership_request.js'
+import driverRouter from './driver.js'
 
 const router = express.Router()
 
@@ -31,5 +32,6 @@ router.use('/AttendancesController', att)
 router.use('/role', role_router)
 router.use('/schedules', schedule_router)
 router.use('/request', membership_router)
+router.use('/driver', driverRouter)
 
 export default router
