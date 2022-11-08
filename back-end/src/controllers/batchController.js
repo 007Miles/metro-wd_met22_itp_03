@@ -8,6 +8,7 @@ import {
   deleteSingleBatchSrc,
   updateSingleBatchSrc,
   removeBatchFromInvSrc,
+  //setSellPriceSrc,
 } from '../services/batchService.js'
 
 //GET all Batch
@@ -65,11 +66,22 @@ export const singleBatchUpdate = asyncHandler(async (req, res) => {
   })
 })
 
+//deleting after checking the availability of the batch
 export const RemoveSingleBatch = asyncHandler(async (req, res) => {
   const batch = await removeBatchFromInvSrc(req.params.id)
   return makeResponse({
     res,
     status: 200,
     data: batch,
+  })
+})
+
+export const setMarkupPrice = asyncHandler(async (req, res) => {
+  const batch = await setSellPriceSrc()
+  return makeResponse({
+    res,
+    status: 200,
+    data: batch,
+    message: 'Update single Batch',
   })
 })

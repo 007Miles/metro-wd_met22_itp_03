@@ -7,6 +7,7 @@ import {
   singleBatchDelete,
   singleBatchUpdate,
   RemoveSingleBatch,
+  setMarkupPrice,
 } from '../controllers/batchController.js'
 const batchRouter = express.Router()
 
@@ -17,5 +18,7 @@ batchRouter.delete('/deleteABatch/:id', singleBatchDelete)
 batchRouter.patch('/updateBatch/:id', singleBatchUpdate)
 
 batchRouter.delete('/RemoveSingleBatch/:id', RemoveSingleBatch)
+
+// batchRouter.post('/markupPrice', setMarkupPrice)
 
 export default batchRouter

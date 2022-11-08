@@ -24,7 +24,7 @@ export const createProduct = async (
 
 //get all products
 export const getAllProduct = async () => {
-  return await Product.find()
+  return await Product.find().lean()
 }
 
 //get single product
@@ -44,3 +44,15 @@ export const updateSingleProduct = async (id, pr) => {
   })
   return productUpdateRepo
 }
+
+export const getProducts = async (filter) => {
+  return await Product.find(filter).lean()
+}
+
+// export const getMarkupPrice = async (productName) => {
+//   const products = await Product.find({ name: productName }).lean()
+//   products.forEach((product) => {
+//     console.log(product.markupPrice)
+//     return product.markupPrice
+//   })
+// }

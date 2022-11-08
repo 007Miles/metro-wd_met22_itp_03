@@ -6,6 +6,8 @@ import {
   updateSingleProduct,
 } from '../repository/productRepo.js'
 
+import { getTotalProduce } from '../repository/batchRepo.js'
+
 export const createProductSrc = async ({
   name,
   measurement_unit,
@@ -24,8 +26,23 @@ export const createProductSrc = async ({
   )
 }
 
+// export const getAllProductSrc = async () => {
+//   return await getAllProduct()
+// }
+
 export const getAllProductSrc = async () => {
-  return await getAllProduct()
+  const products = await getAllProduct()
+
+  const promises = products.map((product) => {
+    return getTotalProduce(product.name)
+  })
+  const quantities = await Promise.all(promises)
+  for (var i = 0; i < products.length; i++) {
+    products[i].quantity = quantities[i]
+  }
+  console.log(quantities)
+  console.log(products)
+  return products
 }
 
 export const getSingleProductSrc = async (id) => {

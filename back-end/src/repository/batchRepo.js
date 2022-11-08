@@ -52,6 +52,17 @@ export const updateSingleBatch = async (id, bt) => {
   return updateBatchRepo
 }
 
+//first bs logic
 export const getBatches = async (filter) => {
   return await Batch.find(filter).lean()
+}
+
+export const getTotalProduce = async (name) => {
+  const productBatches = await Batch.find({ prod_Name: name }).lean()
+  var totalProducts = 0
+  productBatches.forEach((batch) => {
+    totalProducts += batch.quantity
+  })
+  console.log(totalProducts)
+  return totalProducts
 }
