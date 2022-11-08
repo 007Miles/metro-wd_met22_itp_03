@@ -27,7 +27,7 @@ router.put(
   // celebrate({ [Segments.BODY]: createScheduleSchema }),
   updateSchedules
 ) //update schedules
-router.delete('/:id', deleteSchedules) //delete schedules
+router.delete('/delSchedule/:id', deleteSchedules) //delete schedules
 router.delete('/cancel/:id', cancelSchedule) //delete schedules
 
 export default router

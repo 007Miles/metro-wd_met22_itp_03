@@ -1,24 +1,47 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import axios from 'axios'
 
 export default function ViewSchedules() {
-  const [data, setData] = useState([])
+  const [supplierID, setSupplierID] = useState('')
+  const [supplier_name, setSupplierName] = useState('')
+  const [product, setProduct] = useState('')
+  const [quantity, setQuantity] = useState('')
+  const [price, setPrice] = useState('')
+  const [warehouse, setWarehouse] = useState('')
+  const [weekly, setWeekly] = useState('true')
+  const [monthly, setMonthly] = useState('false')
+  const [yearly, setYearly] = useState('false')
+  const [dayOfTheWeek, setDayOfTheWeek] = useState('')
+  const [dayOfTheMonth, setDayOfTheMonth] = useState('')
 
-  useEffect(() => {
-    getUsers()
-  }, [])
+  // const [post, setPost] = useState({})
+  const [id, setId] = useState()
+  const [idFromButtonClick, setIdFromButtonClick] = useState()
 
-  const getUsers = async () => {
-    const response = await axios.get(
-      'http://localhost:3000/api/schedules/6368930192b94e93fc7aec8e'
-    )
-    if (response.status === 200) {
-      setData(response.data)
-    }
+  const handleClick = () => {
+    setIdFromButtonClick(id)
   }
 
-  console.log('data=>', data)
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/api/schedules/${idFromButtonClick}`)
+      .then((response) => {
+        let json = response.data.data
+        setSupplierID(json.supplierID)
+        setSupplierName(json.setSupplierName)
+        setProduct(json.product)
+        setQuantity(json.quantity)
+        setPrice(json.price)
+        setWarehouse(json.warehouse)
+        setWeekly(json.weekly)
+        setMonthly(json.monthly)
+        setYearly(json.yearly)
+        setDayOfTheWeek(json.dayOfTheWeek)
+        setDayOfTheMonth(json.dayOfTheMonth)
+        // setPost(response.data)
+      })
+  }, [idFromButtonClick])
 
   return (
     <div>
@@ -30,12 +53,26 @@ export default function ViewSchedules() {
               Details of your current supply drops...If you want to make any
               changes you can update or cancel your schedules
             </p>
+            <input
+              type="text"
+              value={id}
+              onChange={(e) => setId(e.target.value)}
+              placeholder="Search by Schedule ID"
+            ></input>
+            <button class="bg-teal-300 x-4" type="button" onClick={handleClick}>
+              {' '}
+              Search Schedule{' '}
+            </button>
           </div>
           <div class="card bg-gray-300">
             <div>
               <label for="supplierID">Supplier ID </label>
               <input
                 readOnly
+                defaultValue={(e) => {
+                  setSupplierID(e.target.value)
+                }}
+                value={supplierID}
                 class="border border-gray-400 block py-2 px-4 full rounded focus:outline-none focus:border-teal-500"
                 type="text"
                 name="supplierID"
@@ -49,6 +86,11 @@ export default function ViewSchedules() {
                 type="text"
                 name="supplier_name"
                 id="supplier_name"
+                //defaultValue={post.supplier_name}
+                defaultValue={(e) => {
+                  setSupplierName(e.target.value)
+                }}
+                value={supplier_name}
                 readOnly
               ></input>
             </div>
@@ -59,6 +101,10 @@ export default function ViewSchedules() {
                 type="text"
                 name="product"
                 id="product"
+                defaultValue={(e) => {
+                  setProduct(e.target.value)
+                }}
+                value={product}
                 readOnly
               ></input>
             </div>
@@ -69,6 +115,10 @@ export default function ViewSchedules() {
                 type="text"
                 name="quantity"
                 id="quantity"
+                defaultValue={(e) => {
+                  setQuantity(e.target.value)
+                }}
+                value={quantity}
                 readOnly
               ></input>
             </div>
@@ -79,6 +129,10 @@ export default function ViewSchedules() {
                 type="number"
                 name="price"
                 id="price"
+                defaultValue={(e) => {
+                  setPrice(e.target.value)
+                }}
+                value={price}
                 min={0}
                 readOnly
               ></input>
@@ -90,6 +144,10 @@ export default function ViewSchedules() {
                 type="text"
                 name="warehouse"
                 id="warehouse"
+                defaultValue={(e) => {
+                  setWarehouse(e.target.value)
+                }}
+                value={warehouse}
                 readOnly
               ></input>
             </div>
@@ -103,33 +161,38 @@ export default function ViewSchedules() {
                 type="radio"
                 name="interval"
                 id="weekly"
+                defaultValue={(e) => {
+                  setWeekly(e.target.value)
+                }}
+                value={weekly}
+                checked
                 disabled
               ></input>
+
               <label for="monthly"> Monthly </label>
               <input
                 class=""
                 type="radio"
                 name="interval"
                 id="monthly"
+                defaultValue={(e) => {
+                  setMonthly(e.target.value)
+                }}
+                value={monthly}
                 disabled
               ></input>
+
               <label for="yearly"> Yearly </label>
               <input
                 class=""
                 type="radio"
                 name="interval"
                 id="yearly"
+                defaultValue={(e) => {
+                  setYearly(e.target.value)
+                }}
+                value={yearly}
                 disabled
-              ></input>
-            </div>
-            <div class="">
-              <label for="date">Date </label>
-              <input
-                class="border border-gray-400 block py-2 px-4 full rounded focus:outline-none focus:border-teal-500"
-                type="date"
-                name="date"
-                id="date"
-                readOnly
               ></input>
             </div>
             <div>
@@ -139,6 +202,10 @@ export default function ViewSchedules() {
                 type="text"
                 name="dayOfTheWeek"
                 id="dayOfTheweek"
+                defaultValue={(e) => {
+                  setDayOfTheWeek(e.target.value)
+                }}
+                value={dayOfTheWeek}
                 readOnly
               ></input>
             </div>
@@ -149,18 +216,10 @@ export default function ViewSchedules() {
                 type="number"
                 name="dayOfTheMonth"
                 id="dayOfTheMonth"
-                min={0}
-                max="31"
-                readOnly
-              ></input>
-            </div>
-            <div>
-              <label for="time">Time </label>
-              <input
-                class="border border-gray-400 block py-2 px-4 full rounded focus:outline-none focus:border-teal-500"
-                type="time"
-                name="time"
-                id="time"
+                defaultValue={(e) => {
+                  setDayOfTheMonth(e.target.value)
+                }}
+                value={dayOfTheMonth}
                 readOnly
               ></input>
             </div>
@@ -174,70 +233,5 @@ export default function ViewSchedules() {
         </form>
       </body>
     </div>
-
-    // <div>
-    //   <div>
-    //     <header>
-    //       <h1>View supply drops</h1>
-    //     </header>
-    //   </div>
-    //   <div>
-    //     <h3>
-    //       <b>Details of your current supply drops</b>
-    //     </h3>
-    //     <h4>
-    //       If you want to make any changes you can update or cancel your
-    //       schedules
-    //     </h4>
-    //   </div>
-    //   <div class="card bg-gray-300">
-    //     <form>
-    //       <table>
-    //         <tr>
-    //           <td>Organization :</td>
-    //           <td> </td>
-    //         </tr>
-    //         <tr>
-    //           <td>Supplier ID :</td>
-    //           <td> </td>
-    //         </tr>
-    //         <tr>
-    //           <td>Phone no :</td>
-    //           <td> </td>
-    //         </tr>
-    //         <tr>
-    //           <td>Product :</td>
-    //           <td> </td>
-    //         </tr>
-    //         <tr>
-    //           <td>Quantity :</td>
-    //           <td> </td>
-    //         </tr>
-    //         <tr>
-    //           <td>Price :</td>
-    //           <td> </td>
-    //         </tr>
-    //         <tr>
-    //           <td>Warehouse :</td>
-    //           <td> </td>
-    //         </tr>
-    //         <tr>
-    //           <td>Time Interval :</td>
-    //           <td> </td>
-    //         </tr>
-    //         <tr>
-    //           <td>Date :</td>
-    //           <td> </td>
-    //         </tr>
-    // <div>
-    //   <Link to="/Updateschedule">Update supply schedule</Link>
-    // </div>
-    // <div>
-    //   <Link to="/Cancelschedule">Cancel supply schedule</Link>
-    // </div>
-    //       </table>
-    //     </form>
-    //   </div>
-    // </div>
   )
 }

@@ -1,6 +1,36 @@
 import React from 'react'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 export default function CancelSchedule() {
+  const [reason, setReason] = useState('')
+
+  const [_id, setId] = useState()
+  const [idFromButtonClick, setIdFromButtonClick] = useState()
+
+  const handleClick = () => {
+    setIdFromButtonClick(_id)
+  }
+
+  const resp = {
+    reason,
+  }
+
+  const { id } = useParams()
+  console.log(id)
+  useEffect(() => {
+    const cancelSchedule = async () => {
+      fetch(`http://localhost:3000/api/schedules/cancel/${idFromButtonClick}`, {
+        method: 'DELETE',
+        body: JSON.stringify(resp),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+    }
+    cancelSchedule()
+  }, [idFromButtonClick])
+
   return (
     <div>
       <body class="bg-gray-100border border-gray-400 block py-2 px-4 full rounded focus:outline-none focus:border-teal-500">
@@ -11,6 +41,12 @@ export default function CancelSchedule() {
               Your supply schedule will be permanently deleted...Provide a
               reason and proceed
             </p>
+            <input
+              type="text"
+              value={_id}
+              onChange={(e) => setId(e.target.value)}
+              placeholder="Search by Schedule ID"
+            ></input>
           </div>
           <div>
             <label for="reason">Reason </label>
@@ -19,6 +55,8 @@ export default function CancelSchedule() {
               type="text"
               name="reason"
               id="reason"
+              value={reason}
+              onChange={(e) => setReason(e.target.value)}
               placeholder="Give us a reason"
             ></input>
           </div>
@@ -26,46 +64,13 @@ export default function CancelSchedule() {
             <input
               class="bg-teal-500 rounded text-white"
               type="submit"
-              value=" Submit "
+              value=" Cancel Schedule "
               name="submit"
+              onClick={handleClick}
             ></input>
           </div>
         </form>
       </body>
     </div>
-
-    // <div>
-    //   <div>
-    //     <header>
-    //       <h1>Cancel supply drops</h1>
-    //     </header>
-    //   </div>
-    //   <div>
-    //     <h3>
-    //       <b>Your Scheduled supply schedule will be permanently deleted</b>
-    //     </h3>
-    //     <h4>Provide a reason and proceed</h4>
-    //   </div>
-    //   <form>
-    //     <table>
-    //       <tr>
-    //         <td>Reason :</td>
-    //         <td>
-    //           <input
-    //             type="text"
-    //             name=""
-    //             placeholder="Give us a reason"
-    //             required="required"
-    //           />
-    //         </td>
-    //       </tr>
-    //       <tr>
-    //         <td>
-    //           <input type="Submit" value="Submit" name="" />
-    //         </td>
-    //       </tr>
-    //     </table>
-    //   </form>
-    // </div>
   )
 }
