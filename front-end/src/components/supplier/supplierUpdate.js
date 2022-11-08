@@ -72,7 +72,7 @@ const SupplierUpdate = () => {
         <label>Business name/ Supplier Name :</label>
         <input
           type="text"
-          placeholder="name"
+          placeholder={supplier.business_name}
           className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
           onChange={(e) => setBusiness_name(e.target.value)}
           value={business_name}
@@ -81,7 +81,7 @@ const SupplierUpdate = () => {
         <label>Address :</label>
         <input
           type="text"
-          placeholder="Address"
+          placeholder={supplier.address}
           className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
           onChange={(e) => setAddress(e.target.value)}
           value={address}
@@ -90,7 +90,7 @@ const SupplierUpdate = () => {
         <label>Email :</label>
         <input
           type="text"
-          placeholder="Email"
+          placeholder={supplier.email}
           className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
@@ -99,7 +99,7 @@ const SupplierUpdate = () => {
         <label>Phone :</label>
         <input
           type="text"
-          placeholder="Phone"
+          placeholder={supplier.phone}
           className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
           onChange={(e) => setPhone(e.target.value)}
           value={phone}
@@ -108,7 +108,7 @@ const SupplierUpdate = () => {
         <label>Registered product :</label>
         <input
           type="text"
-          placeholder="Registered product"
+          placeholder={supplier.registered_products}
           className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
           onChange={(e) => setRegistered_products(e.target.value)}
           value={registered_products}
@@ -117,7 +117,7 @@ const SupplierUpdate = () => {
         <label>Rating :</label>
         <input
           type="number"
-          placeholder="Rating"
+          placeholder={supplier.rating}
           className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
           onChange={(e) => setRating(e.target.value)}
           value={rating}

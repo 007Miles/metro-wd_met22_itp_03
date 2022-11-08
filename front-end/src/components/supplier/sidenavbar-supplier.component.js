@@ -72,7 +72,7 @@ const SideNavbar = () => {
                     font-medium text-2xl duration-300 
                     ${!open && 'scale-0'}`}
           >
-            HR Department
+            QA Department
           </h1>
         </div>
 
