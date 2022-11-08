@@ -4,10 +4,12 @@ import {
   getSingleBatch,
   deleteSingleBatch,
   updateSingleBatch,
+  //removeBatch,
 } from '../repository/batchRepo.js'
 
 export const createBatchSrc = async ({
   prod_Name,
+  warehouse_id,
   quantity,
   exp_date,
   manu_date,
@@ -18,6 +20,7 @@ export const createBatchSrc = async ({
 }) => {
   return await createBatch(
     prod_Name,
+    warehouse_id,
     quantity,
     exp_date,
     manu_date,
@@ -42,4 +45,12 @@ export const deleteSingleBatchSrc = async (id, bt) => {
 
 export const updateSingleBatchSrc = async (id, body) => {
   return await updateSingleBatch(id, body)
+}
+
+export const removeBatchFromInvSrc = async (id) => {
+  const batch = getSingleBatch({ id })
+  if (batch == null) return false
+  else {
+    return await deleteSingleBatch(id)
+  }
 }

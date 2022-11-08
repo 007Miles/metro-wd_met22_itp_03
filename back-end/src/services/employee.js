@@ -1,25 +1,31 @@
-import { createEmployeeAccount, getEmployeeAccount, updateEmployeeAccount, deleteEmployeeAccount } from '../repository/employee.js'
+import { createEmployeeAccount, getEmployeeAccount, getEmployees, updateEmployeeAccount, deleteEmployeeAccount, checkEmployee } from '../repository/employee.js'
 
 //Add New Employee
-export const addEmployee = async ({ empName, address, phone, dob, empId, nic, gender, wareId, role, email }) => {
+export const addEmployee = async ({ empName, cred_id, address, phone, dob, nic, gender, wareId, role, email }) => {
 
-  const details = { empName, address, phone: Number(phone), dob: Date(dob), empId, nic, gender, wareId, role, email }
+  const details = { empName, cred_id, address, phone: Number(phone), dob: Date(dob), nic, gender, wareId, role, email }
 
-  const b = await createEmployeeAccount(details)
-  // console.log('await', b)
-  return b.msg
+  return await createEmployeeAccount(details)
 }
 
-//Get Employee Details
+//Check Data Of One Employee
+export const checkEmployeeById = async (id) => {
+  return await checkEmployee(id)
+}
+
+//Get one Employee Details
 export const getEmployeeById = async (id) => {
   return await getEmployeeAccount(id)
 }
 
+//Get All Employee Details
+export const getAllEmployees = async () => {
+  return await getEmployees()
+}
+
 //Update Employee Details
 export const updatemployeeById = async (id, ob) => {
-  // console.log(ob)
-  const a = await updateEmployeeAccount(id, ob)
-  return a
+  return await updateEmployeeAccount(id, ob)
 }
 
 //Delete Employee

@@ -6,7 +6,9 @@ import ViewSchedules from '../components/supplierFunctionalities/ViewSchedules'
 const ViewSchedule = () => {
   return (
     <div>
-      <Header />
+      <Header
+        headerButtons={[{ path: '/UpdateSchedule', name: 'Update Schedule' }]}
+      />
       <ViewSchedules />
     </div>
   )

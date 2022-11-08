@@ -7,10 +7,10 @@ export const createEmployeeAccount = async (details) => {
   try {
     const employee = new Employee({
       empName: details.empName,
+      cred_id: details.cred_id,
       address: details.address,
       phone: details.phone,
       dob: details.dob,
-      empId: details.empId,
       nic: details.nic,
       gender: details.gender,
       wareId: details.wareId,
@@ -19,16 +19,41 @@ export const createEmployeeAccount = async (details) => {
     })
 
     await employee.save()
-    return { msg: 'Account Create Succesfully' }
+    return employee
   } catch (error) {
     console.log(error)
     return { msg: 'Account Error' }
   }
 }
 
-//Get Employee Details
+//Check if Employee exists
+export const checkEmployee = async (id) => {
+  //check for valid objectId
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return { msg: 'No employee is available with this id' }
+  }
+
+  if ((await Employee.findById(mongoose.Types.ObjectId(id))) == null) {
+    return { msg: 'No employee is available with this Employee_id' }
+  } else {
+    next()
+  }
+}
+
+//Get one Employee Details
 export const getEmployeeAccount = async (id) => {
   return await Employee.findById(mongoose.Types.ObjectId(id))
+}
+
+//Get All Employee Details
+export const getEmployees = async () => {
+  try {
+    const a = await Employee.find().sort({ createdAt: -1 })
+    console.log (a)
+    return a
+  } catch (error) {
+    return { msg: 'no Employee found' }
+  }
 }
 
 //Update Employee Details

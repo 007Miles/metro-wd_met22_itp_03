@@ -1,21 +1,24 @@
 import mongoose from 'mongoose'
 
-const credentialSchema = new mongoose.Schema(
+const CredentialSchema = new mongoose.Schema(
   {
-    user_id: {
-      type: mongoose.Schema.Types.ObjectId,
-    },
-    role: {
-      type: String,
-    },
     username: {
       type: String,
       unique: true,
-      require: true,
+      required: true,
     },
     password: {
       type: String,
-      require: true,
+      required: true,
+    },
+    user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: false,
+    },
+    role: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Role',
+      required: false,
     },
   },
   {
@@ -24,6 +27,12 @@ const credentialSchema = new mongoose.Schema(
   }
 )
 
-const Credential = mongoose.model('credential', credentialSchema)
+// QuestionSchema.plugin(mongoosePaginate)
+
+CredentialSchema.index({ createdAt: 1 })
+
+const Credential = mongoose.model('Credential', CredentialSchema)
+
+Credential.syncIndexes()
 
 export default Credential

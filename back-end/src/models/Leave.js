@@ -13,7 +13,7 @@ const leaveSchema = mongoose.Schema(
             unique: true,        
           },
           start_date : {
-            type: String,
+            type: Date,
             required: true,
             unique: false,  
           },
