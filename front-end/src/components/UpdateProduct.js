@@ -46,7 +46,7 @@ export default function UpdateProduct() {
 
     axios
       .patch(
-        'http://localhost:4001/api/product/updateProduct/' + z,
+        'http://localhost:3000/api/product/updateProduct/' + z,
         UpdateProduct
       )
       .then(() => {

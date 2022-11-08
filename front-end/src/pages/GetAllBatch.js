@@ -5,7 +5,7 @@ export default function GetAllBatches() {
   const [batch, setBatch] = useState([])
   useEffect(() => {
     axios
-      .get('http://localhost:4001/api/batch/getAllBatch')
+      .get('http://localhost:3000/api/batch/getAllBatch')
       .then((res) => {
         setBatch(res.data.data)
       })

@@ -18,7 +18,7 @@ const ProductList = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:4001/api/product/getAllProducts/')
+      .get('http://localhost:3000/api/product/getAllProducts/')
       .then((res) => {
         setProducts(res.data.data)
       })
@@ -27,7 +27,7 @@ const ProductList = () => {
   const handleDeleteClick = (event) => {
     console.log(event)
     fetch(
-      'http://localhost:4001/api/product/deleteProduct/' + event.target.value,
+      'http://localhost:3000/api/product/deleteProduct/' + event.target.value,
       {
         method: 'DELETE',
       }

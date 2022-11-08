@@ -6,7 +6,7 @@ export default function GetallProducts() {
   const [product, setProduct] = useState([])
   useEffect(() => {
     axios
-      .get('http://localhost:4001/api/product/getAllProducts/')
+      .get('http://localhost:3000/api/product/getAllProducts/')
       .then((res) => {
         setProduct(res.data.data)
       })

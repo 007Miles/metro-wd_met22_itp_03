@@ -23,7 +23,7 @@ const ProductForm = () => {
       description,
     }
     const response = await fetch(
-      'http://localhost:4001/api/product/createProduct/',
+      'http://localhost:3000/api/product/createProduct/',
       {
         method: 'POST',
         body: JSON.stringify(product),

@@ -29,7 +29,7 @@ const BatchForm = () => {
       sell_price,
     }
     const response = await fetch(
-      'http://localhost:4001/api/batch/createABatch/',
+      'http://localhost:3000/api/batch/createABatch/',
       {
         method: 'POST',
         body: JSON.stringify(batch),

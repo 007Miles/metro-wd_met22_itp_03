@@ -1,5 +1,0 @@
-// import React from 'react'
-// import axios from 'axios'
-// import { useEffect, useState, Fragment } from 'react'
-// import { useReactToPrint } from 'react-to-print'
-// import { Link } from 'react-router-dom'
