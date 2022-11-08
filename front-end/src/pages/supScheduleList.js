@@ -94,7 +94,7 @@ const SupScheduleList = () => {
                               {i + 1}
                             </td>
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap capitalize">
-                              {scheduleList.business_name}
+                              {scheduleList.supplier_name}
                             </td>
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                               {scheduleList.product}
@@ -115,7 +115,7 @@ const SupScheduleList = () => {
                               <div className="flex space-x-2 justify-center">
                                 <div>
                                   <Link
-                                    to={`../supplierDetails/${scheduleList._id}`}
+                                    to={`/scheduleDetails/${scheduleList._id}`}
                                   >
                                     <button
                                       type="button"

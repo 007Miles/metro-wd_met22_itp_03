@@ -32,6 +32,7 @@ import SupMemberReqList from '../components/supplier/supMemberReqList'
 import MemberReqDetails from '../components/supplier/memberReqDetails'
 import InspecReqDetails from '../components/supplier/inspecReqDetails'
 import SupScheduleList from '../pages/supScheduleList'
+import ScheduleDetails from '../components/supplier/scheduleDetails'
 
 const IndexRoutes = () => {
   return (
@@ -59,7 +60,8 @@ const IndexRoutes = () => {
       <Route path="/inspecReqDetails/:id" element={<InspecReqDetails />} />
       <Route path="/memberReqDetails/:id" element={<MemberReqDetails />} />
 
-      <Route path="/supSchduleList" element={<SupScheduleList />} />
+      <Route path="/supScheduleList" element={<SupScheduleList />} />
+      <Route path="/scheduleDetails/:id" element={<ScheduleDetails />} />
 
       <Route path="/scheduleSupply" element={<ScheduleSupply />} />
       <Route path="/Viewschedules" element={<ViewSchedule />} />
