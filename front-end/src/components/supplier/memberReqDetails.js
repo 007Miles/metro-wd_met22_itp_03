@@ -5,60 +5,11 @@ import '../../styles/supplierList.css'
 import SideNavbar from './sidenavbar-supplier.component'
 const MemberReqDetails = () => {
   const [memberReq, setMemberReq] = useState({})
+  const [rating, setRating] = useState('')
 
   const { id } = useParams()
   console.log(id)
-  //Set Status to Approved
-  const handleSubmitOk = async (e) => {
-    e.preventDefault()
-
-    const memberReq = {
-      status: 'Approved',
-    }
-    console.log(memberReq)
-    const response = await fetch(
-      'http://localhost:4000/api/supplyReq/putSupplyReq/' + id,
-      {
-        method: 'PUT',
-        body: JSON.stringify(memberReq),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-    const json = await response.json()
-
-    if (!response.ok) {
-      // setError(json.error);
-      console.log(json)
-    }
-  }
-  //Set Status to Rejected
-  const handleSubmitNo = async (e) => {
-    e.preventDefault()
-
-    const memberReq = {
-      status: 'Denied',
-    }
-    console.log(memberReq)
-    const response = await fetch(
-      'http://localhost:4000/api/supplyReq/putSupplyReq/' + id,
-      {
-        method: 'PUT',
-        body: JSON.stringify(memberReq),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    )
-    const json = await response.json()
-
-    if (!response.ok) {
-      // setError(json.error);
-      console.log(json)
-    }
-  }
-  //
+  //fetch member request data
   const fetchMemberReq = async () => {
     const response = await fetch(
       `http://localhost:4000/api/request/getMembership/` + id
@@ -75,6 +26,84 @@ const MemberReqDetails = () => {
     fetchMemberReq()
   }, [])
   //
+  console.log(memberReq.business_name)
+  //Set Status to Approved
+  const handleSubmitOk = async (e) => {
+    e.preventDefault()
+
+    const supplier = {
+      business_name: memberReq.business_name,
+      cred_id: '123456789012345678901234',
+      address: memberReq.address,
+      email: memberReq.email,
+      phone: memberReq.phone,
+      registered_products: memberReq.registered_products,
+      rating,
+    }
+    console.log(supplier)
+    console.log(memberReq.business_name)
+    const response = await fetch(
+      'http://localhost:4000/api/supplier/addSupplier',
+      {
+        method: 'POST',
+        body: JSON.stringify(supplier),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+    const json = await response.json()
+
+    if (!response.ok) {
+      // setError(json.error);
+    }
+
+    const memberReq1 = {
+      verified: true,
+    }
+    console.log(memberReq1)
+    const response1 = await fetch(
+      'http://localhost:4000/api/request/updateMemberShip/' + id,
+      {
+        method: 'PUT',
+        body: JSON.stringify(memberReq1),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+    const json1 = await response1.json()
+
+    // if (!response.ok) {
+    //   // setError(json.error);
+    //   console.log(json1)
+    // }
+  }
+  //Set Status to Rejected
+  const handleSubmitNo = async (e) => {
+    e.preventDefault()
+
+    const memberReq = {
+      verified: false,
+    }
+    console.log(memberReq)
+    const response1 = await fetch(
+      'http://localhost:4000/api/request/updateMemberShip/' + id,
+      {
+        method: 'PUT',
+        body: JSON.stringify(memberReq),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+    const json1 = await response1.json()
+    if (!response1.ok) {
+      // setError(json.error);
+      console.log(json1)
+    }
+  }
+
   return (
     <div className="concontainer flex">
       <SideNavbar />
@@ -89,7 +118,7 @@ const MemberReqDetails = () => {
           </p>
           <p>
             <strong>Status -</strong>
-            {memberReq.verified}
+            {String(memberReq.verified)}
           </p>
           <p>
             <strong>Email -</strong>
@@ -107,18 +136,35 @@ const MemberReqDetails = () => {
             <strong>Registering Product -</strong>
             {memberReq.registered_products}
           </p>
+          <input
+            type="number"
+            placeholder="Give a Supplier Rating"
+            required
+            className="w-4/5 p-2 mt-2 mb-5 rounded box-border bg-gray-200"
+            onChange={(e) => setRating(e.target.value)}
+            value={rating}
+          />
           <center>
             <button
               className="m-2 inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
               value={memberReq._id}
-              onClick={handleSubmitOk}
+              onClick={(e) => {
+                handleSubmitOk(e)
+                // window.location.reload(true)
+                alert('New Supplier Added')
+                // <SupplierDetails key={supplier._id} supplier={supplier} />;
+              }}
             >
               Accept Member Request
             </button>
             <button
               className="m-2 inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
               value={memberReq._id}
-              onClick={handleSubmitNo}
+              onClick={(e) => {
+                handleSubmitNo(e)
+                window.location.reload(true)
+                // <SupplierDetails key={supplier._id} supplier={supplier} />;
+              }}
             >
               Reject Member Request
             </button>

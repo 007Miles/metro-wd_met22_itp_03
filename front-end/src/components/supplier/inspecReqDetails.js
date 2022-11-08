@@ -100,14 +100,22 @@ const InspecReqDetails = () => {
             <button
               className="m-2 inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
               value={inspecReq._id}
-              onClick={handleSubmitOk}
+              onClick={(e) => {
+                handleSubmitOk(e)
+                // window.location.reload(true)
+                // <SupplierDetails key={supplier._id} supplier={supplier} />;
+              }}
             >
               Accept Supply Drop
             </button>
             <button
               className="m-2 inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
               value={inspecReq._id}
-              onClick={handleSubmitNo}
+              onClick={(e) => {
+                handleSubmitNo(e)
+                window.location.reload(true)
+                // <SupplierDetails key={supplier._id} supplier={supplier} />;
+              }}
             >
               Reject Supply Drop
             </button>

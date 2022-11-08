@@ -1,34 +1,29 @@
 import { useEffect, useState } from 'react'
 import '../styles/supplierList.css'
 import { Link } from 'react-router-dom'
-import SideNavbar from '../components/supplier/sidenavbar-supplier.component'
-// import SupplierView from '../components/supplier/supplierView'
-// // import SupplierAddForm from "../components/supplierAddForm";
-// import Navbar from '../components/supplier/Navbar'
-// import SupplierNavbar from '../components/supplier/supplierNavbar'
+// import SideNavbar from '../components/supplier/sidenavbar-supplier.component'
 
-const SupplierList = () => {
-  const [supplierList, setSupplierList] = useState([])
+const SupScheduleList = () => {
+  const [scheduleList, setScheduleList] = useState([])
 
   useEffect(() => {
-    const fetchSuppliers = async () => {
+    const fetchSchedules = async () => {
       const response = await fetch(
-        'http://localhost:4000/api/supplier/viewAllSuppliers'
+        'http://localhost:4000/api/schedules/getAllSchedules'
       )
       const json = await response.json()
       if (response.ok) {
-        setSupplierList(json.data)
+        setScheduleList(json)
         console.log(json)
       }
     }
-    fetchSuppliers()
+    fetchSchedules()
   }, [])
 
   return (
     <div className="container flex">
-      <SideNavbar />
       <div className="container bg-gray-200 rounded-xl shadow border p-8 m-10 w-11/12">
-        <h1 className="text-3xl">Supplier Management</h1>
+        <h1 className="text-3xl">Supply Management</h1>
         <div className="mt-6 space-y-6">
           <div className="-space-y-px rounded-md shadow-sm">
             <div className="flex flex-col">
@@ -54,31 +49,31 @@ const SupplierList = () => {
                             scope="col"
                             className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                           >
-                            Phone
+                            Product
                           </th>
                           <th
                             scope="col"
                             className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                           >
-                            Email
-                          </th>
-                          {/* <th
-                            scope="col"
-                            className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                          >
-                            Address
-                          </th> */}
-                          <th
-                            scope="col"
-                            className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-                          >
-                            Registered Product
+                            Quantity
                           </th>
                           <th
                             scope="col"
                             className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                           >
-                            Rating
+                            Price
+                          </th>
+                          <th
+                            scope="col"
+                            className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                          >
+                            WarehouseID
+                          </th>
+                          <th
+                            scope="col"
+                            className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                          >
+                            Date
                           </th>
                           <th
                             scope="col"
@@ -90,80 +85,47 @@ const SupplierList = () => {
                       </thead>
 
                       <tbody>
-                        {supplierList.map((supplierList, i) => (
+                        {scheduleList.map((scheduleList, i) => (
                           <tr
-                            key={supplierList._id}
+                            key={scheduleList._id}
                             className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
                           >
                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                               {i + 1}
                             </td>
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap capitalize">
-                              {supplierList.business_name}
+                              {scheduleList.business_name}
                             </td>
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              {supplierList.phone}
+                              {scheduleList.product}
                             </td>
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              {supplierList.email}
-                            </td>
-                            {/* <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              {supplierList.address}
-                            </td> */}
-                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              {supplierList.registered_products}
+                              {scheduleList.quantity}
                             </td>
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                              {supplierList.rating}
+                              {scheduleList.price}
+                            </td>
+                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {scheduleList.warehouse}
+                            </td>
+                            <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                              {scheduleList.date}
                             </td>
                             <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                               <div className="flex space-x-2 justify-center">
                                 <div>
                                   <Link
-                                    to={`../supplierDetails/${supplierList._id}`}
+                                    to={`../supplierDetails/${scheduleList._id}`}
                                   >
                                     <button
                                       type="button"
                                       className="m-2 inline-block px-6 py-2 border-2 border-blue-400 text-blue-400 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-                                      value={supplierList._id}
+                                      value={scheduleList._id}
                                       onClick={(e) => {
                                         console.log(e.target.value)
                                       }}
                                     >
                                       View{' '}
-                                    </button>
-                                  </Link>
-
-                                  {/* Edit Button */}
-                                  <Link
-                                    to={`../supplierUpdate/${supplierList._id}`}
-                                  >
-                                    <button
-                                      type="button"
-                                      className="m-2 inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-                                      value={supplierList._id}
-                                      onClick={(e) => {
-                                        console.log(e.target.value)
-                                      }}
-                                    >
-                                      Edit{' '}
-                                    </button>
-                                  </Link>
-
-                                  {/* Delete Button */}
-                                  <Link
-                                    to={`../supplierRemove/${supplierList._id}`}
-                                  >
-                                    <button
-                                      type="button"
-                                      className="m-2 inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-                                      value={supplierList._id}
-                                      onClick={(e) => {
-                                        window.location.reload(true)
-                                        //console.log(e.target.value)
-                                      }}
-                                    >
-                                      Delete{' '}
                                     </button>
                                   </Link>
                                 </div>
@@ -183,4 +145,4 @@ const SupplierList = () => {
     </div>
   )
 }
-export default SupplierList
+export default SupScheduleList

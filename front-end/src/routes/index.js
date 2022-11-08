@@ -26,6 +26,7 @@ import SupplierUpdate from '../components/supplier/supplierUpdate'
 import SupMemberReqList from '../components/supplier/supMemberReqList'
 import MemberReqDetails from '../components/supplier/memberReqDetails'
 import InspecReqDetails from '../components/supplier/inspecReqDetails'
+import SupScheduleList from '../pages/supScheduleList'
 
 const IndexRoutes = () => {
   return (
@@ -52,6 +53,8 @@ const IndexRoutes = () => {
       <Route path="/inspecReqDetails" element={<InspecReqDetails />} />
       <Route path="/inspecReqDetails/:id" element={<InspecReqDetails />} />
       <Route path="/memberReqDetails/:id" element={<MemberReqDetails />} />
+
+      <Route path="/supSchduleList" element={<SupScheduleList />} />
 
       <Route path="/Batch" element={<Batch />} />
       <Route path="/batchForm" element={<BatchForm />} />
