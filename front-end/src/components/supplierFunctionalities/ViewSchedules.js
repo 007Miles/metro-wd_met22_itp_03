@@ -230,12 +230,12 @@ export default function ViewSchedules() {
                 readOnly
               ></input>
             </div>
-            <div class="text-blue-600 text-xl">
+            {/* <div class="text-blue-600 text-xl">
               <Link to="/Updateschedule">Update supply schedule</Link>
             </div>
             <div class="text-blue-600 text-xl">
               <Link to="/Cancelschedule">Cancel supply schedule</Link>
-            </div>
+            </div> */}
           </div>
         </form>
         <div>

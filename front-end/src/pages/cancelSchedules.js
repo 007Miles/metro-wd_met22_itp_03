@@ -6,7 +6,9 @@ import CancelSchedule from '../components/supplierFunctionalities/CancelSchedule
 const CancelSchedules = () => {
   return (
     <div>
-      <Header />
+      <Header
+        headerButtons={[{ path: '/scheduleSupply', name: 'Schedule Supply' }]}
+      />
       <CancelSchedule />
     </div>
   )

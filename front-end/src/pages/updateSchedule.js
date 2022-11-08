@@ -6,7 +6,9 @@ import UpdateSchedule from '../components/supplierFunctionalities/UpdateSchedule
 const UpdateSchedules = () => {
   return (
     <div>
-      <Header />
+      <Header
+        headerButtons={[{ path: '/Cancelschedule', name: 'Cancel Schedule' }]}
+      />
       <UpdateSchedule />
     </div>
   )

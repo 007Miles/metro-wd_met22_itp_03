@@ -7,7 +7,9 @@ import ScheduleForm from '../components/supplierFunctionalities/ScheduleForm'
 const ScheduleSupply = () => {
   return (
     <div>
-      <Header />
+      <Header
+        headerButtons={[{ path: '/Viewschedules', name: 'View Schedule' }]}
+      />
       <ScheduleForm />
     </div>
   )

@@ -251,13 +251,13 @@ export default function ScheduleForm() {
               name="submit"
             ></input>
           </div>
-          <div>
+          {/* <div>
             <nav>
               <div class="text-blue-600 text-xl">
                 <Link to="/Viewschedules">View supply schedules</Link>
               </div>
             </nav>
-          </div>
+          </div> */}
         </form>
       </body>
     </div>

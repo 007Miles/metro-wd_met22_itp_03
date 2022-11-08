@@ -7,7 +7,10 @@ const ViewSchedule = () => {
   return (
     <div>
       <Header
-        headerButtons={[{ path: '/UpdateSchedule', name: 'Update Schedule' }]}
+        headerButtons={[
+          { path: '/UpdateSchedule', name: 'Update Schedule' },
+          { path: '/Cancelschedule', name: 'Cancel Schedule' },
+        ]}
       />
       <ViewSchedules />
     </div>
