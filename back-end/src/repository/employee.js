@@ -19,7 +19,7 @@ export const createEmployeeAccount = async (details) => {
     })
 
     await employee.save()
-    return { msg: 'Account Create Succesfully' }
+    return employee
   } catch (error) {
     console.log(error)
     return { msg: 'Account Error' }

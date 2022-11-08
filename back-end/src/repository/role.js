@@ -28,6 +28,11 @@ export const getRoleAccount = async (id) => {
   return await Role.findOne({empId: id})
 }
 
+// Get Role By Name
+export const getRoleByName = async (name) => {
+  return await Role.findOne({ role: name })
+}
+
 //Get All Role Details
 export const getRoles = async () => {
   try {

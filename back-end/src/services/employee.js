@@ -5,8 +5,7 @@ export const addEmployee = async ({ empName, cred_id, address, phone, dob, nic, 
 
   const details = { empName, cred_id, address, phone: Number(phone), dob: Date(dob), nic, gender, wareId, role, email }
 
-  const b = await createEmployeeAccount(details)
-  return b.msg
+  return await createEmployeeAccount(details)
 }
 
 //Check Data Of One Employee
