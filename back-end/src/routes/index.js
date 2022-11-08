@@ -19,7 +19,7 @@ router.use('/Buyer', buyerAccount)
 router.use('/leaveReq', samplceRouter)
 router.use('/employee', employee_router)
 router.use('/warehouse', warehouse_router)
-router.use('/delivery', deliveryRouter)
+// router.use('/delivery', deliveryRouter)  ReferenceError: deliveryRouter is not defined error
 router.use('/product', productRouter)
 router.use('/batch', batchRouter)
 router.use('/supplier', supplierRouter)

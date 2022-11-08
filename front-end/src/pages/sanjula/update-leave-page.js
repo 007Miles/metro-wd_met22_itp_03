@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import LeaveList from './leave-list-page'
 
 export default function LeaveUpdateForm() {
   const [empId, setempID] = useState('')
@@ -49,7 +50,7 @@ export default function LeaveUpdateForm() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/api/leaveReq/leave/' + id)
+      .get('http://localhost:3000/api/leaveReq/leave/' + id) 
       .then((response) => {
         let json = response.data.data
         setempID(json.empId)
@@ -67,9 +68,10 @@ export default function LeaveUpdateForm() {
       <div className="mt-6 space-y-6">
         <div className="-space-y-px rounded-md shadow-sm">
           <div>
-            {/* <label className="sr-only">Employee ID</label>
+            <label className="sr-only">Employee ID</label>
             <input
               id="empId"
+              // fetch="empId"
               name="empId"
               type="text"
               required
@@ -79,7 +81,7 @@ export default function LeaveUpdateForm() {
                 setempID(e.target.value)
               }}
               value={empId}
-            /> */}
+            />
           </div>
           <div>
             <label className="sr-only">Leave ID</label>
@@ -159,15 +161,18 @@ export default function LeaveUpdateForm() {
           </div>
           <br></br>
           <div>
-            <button
+            {/* <Link to={`/leave-list-page`}> */}
+            <button pathname="/viewAllLeaves"
               onClick={Update}
               className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
               Update
             </button>
+            {/* </Link> */}
           </div>
         </div>
       </div>
     </div>
   )
+  return <LeaveList/>
 }

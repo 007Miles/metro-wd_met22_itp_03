@@ -30,7 +30,7 @@ const IndexRoutes = () => {
 
       <Route path="/createLeave" element={<LeaveCreateForm />} />
       <Route path="/viewAllLeaves" element={<LeaveList />} />
-      <Route path="/deleteLeave" element={<LeaveDelete />} />
+      <Route path="/deleteLeave/:id" element={<LeaveDelete />} />
       <Route path="/updateLeave/:id" element={<LeaveUpdateForm />} />
     </Routes>
   )
