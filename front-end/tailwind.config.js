@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}','./node_modules/tw-elements/dist/js/**/*.js'],
+  content: [
+    './index.html',
+    './src/**/*.{js,jsx,ts,tsx}',
+    './node_modules/tw-elements/dist/js/**/*.js',
+  ],
   mode: 'jit',
   theme: {
     extend: {
@@ -9,23 +13,13 @@ module.exports = {
         secondary: '#00f6ff',
         dimWhite: 'rgba(255, 255, 255, 0.7)',
         dimBlue: 'rgba(9, 151, 124, 0.1)',
-        "dark-purple": "#081A51",
-        'light-white': 'rgba(255,255,255,0.18)'
+        'dark-purple': '#081A51',
+        'light-white': 'rgba(255,255,255,0.18)',
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
       },
     },
-    screens: {
-      xs: '480px',
-      ss: '620px',
-      sm: '768px',
-      md: '1060px',
-      lg: '1200px',
-      xl: '1700px',
-    },
   },
-  plugins: [
-    require('tw-elements/dist/plugin')
-  ],
+  plugins: [require('tw-elements/dist/plugin')],
 }
