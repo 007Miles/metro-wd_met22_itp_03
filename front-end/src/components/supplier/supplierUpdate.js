@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import SideNavbar from '../supplier/sidenavbar-supplier.component'
 
@@ -12,6 +12,22 @@ const SupplierUpdate = () => {
   const [rating, setRating] = useState('')
 
   const { id } = useParams()
+  const [supplier, setSupplier] = useState({})
+  //fetch Data using ID
+  const fetchSupplier = async () => {
+    const response = await fetch(
+      `http://localhost:4000/api/supplier/viewSupplier/` + id
+    )
+    const json = await response.json()
+    if (response.ok) {
+      setSupplier(json.data)
+      console.log(json)
+    }
+  }
+  useEffect(() => {
+    fetchSupplier()
+  }, [])
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 

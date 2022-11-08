@@ -2,87 +2,129 @@ import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 
 import '../../styles/supplierList.css'
+import SideNavbar from './sidenavbar-supplier.component'
 const MemberReqDetails = () => {
-  const [supplier, setSupplier] = useState({})
+  const [memberReq, setMemberReq] = useState({})
 
   const { id } = useParams()
-  //
-  const fetchSupplier = async () => {
+  console.log(id)
+  //Set Status to Approved
+  const handleSubmitOk = async (e) => {
+    e.preventDefault()
+
+    const memberReq = {
+      status: 'Approved',
+    }
+    console.log(memberReq)
     const response = await fetch(
-      `http://localhost:4000/api/supplier/viewSupplier/` + id
+      'http://localhost:4000/api/supplyReq/putSupplyReq/' + id,
+      {
+        method: 'PUT',
+        body: JSON.stringify(memberReq),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+    const json = await response.json()
+
+    if (!response.ok) {
+      // setError(json.error);
+      console.log(json)
+    }
+  }
+  //Set Status to Rejected
+  const handleSubmitNo = async (e) => {
+    e.preventDefault()
+
+    const memberReq = {
+      status: 'Denied',
+    }
+    console.log(memberReq)
+    const response = await fetch(
+      'http://localhost:4000/api/supplyReq/putSupplyReq/' + id,
+      {
+        method: 'PUT',
+        body: JSON.stringify(memberReq),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+    const json = await response.json()
+
+    if (!response.ok) {
+      // setError(json.error);
+      console.log(json)
+    }
+  }
+  //
+  const fetchMemberReq = async () => {
+    const response = await fetch(
+      `http://localhost:4000/api/request/getMembership/` + id
     )
     const json = await response.json()
     if (response.ok) {
-      setSupplier(json.data)
+      setMemberReq(json)
 
-      // console.log("in response");
-      // console.log(json);
+      console.log('in response')
+      console.log(json)
     }
   }
   useEffect(() => {
-    fetchSupplier()
+    fetchMemberReq()
   }, [])
   //
   return (
-    <div className="supplier-details">
-      <h2 className="title">Supplier Details</h2>
-      <h4>{supplier.business_name}</h4>
-      <p>
-        <strong>Address : </strong>
-        {supplier.address}
-      </p>
-      <p>
-        <strong>Email : </strong>
-        {supplier.email}
-      </p>
-      <p>
-        <strong>phone : </strong>
-        {supplier.phone}
-      </p>
-      <p>
-        <strong>registered_product : </strong>
-        {supplier.registered_products}
-      </p>
-      <p>
-        <strong>Rating : </strong>
-        {supplier.rating}
-      </p>
-      <Link to={`/supplierRemove/${supplier._id}`}>
-        <button
-          className="view_btn"
-          value={supplier._id}
-          // onClick={(e) => {
-          //   console.log(e.target.value);
-          //   // <SupplierDetails key={supplier._id} supplier={supplier} />;
-          // }}
-        >
-          Delete Supplier
-        </button>
-      </Link>
-      <Link to={`/supplierUpdate/${supplier._id}`}>
-        <button
-          className="view_btn"
-          value={supplier._id}
-          onClick={(e) => {
-            console.log(e.target.value)
-            // <SupplierDetails key={supplier._id} supplier={supplier} />;
-          }}
-        >
-          Update Supplier
-        </button>
-      </Link>
-      <Link to={`/supplierMail/${supplier._id}`}>
-        <button
-          className="view_btn"
-          value={supplier._id}
-          onClick={(e) => {
-            console.log(e.target.value)
-            // <SupplierDetails key={supplier._id} supplier={supplier} />;
-          }}
-        >
-          Send Mail
-        </button>
-      </Link>
+    <div className="concontainer flex">
+      <SideNavbar />
+      <div className="container bg-gray-200 rounded-xl shadow border p-8 m-10 w-11/12">
+        <h2 className="text-3xl text-blue-500 text-center m-5">
+          Membership Request Details
+        </h2>
+        <div className="container bg-white rounded-xl shadow border p-8 m-10 w-10/12">
+          <p>
+            <strong>Business Name Or Supplier Name -</strong>
+            {memberReq.business_name}
+          </p>
+          <p>
+            <strong>Status -</strong>
+            {memberReq.verified}
+          </p>
+          <p>
+            <strong>Email -</strong>
+            {memberReq.email}
+          </p>
+          <p>
+            <strong>Phone -</strong>
+            {memberReq.phone}
+          </p>
+          <p>
+            <strong>Address -</strong>
+            {memberReq.address}
+          </p>
+          <p>
+            <strong>Registering Product -</strong>
+            {memberReq.registered_products}
+          </p>
+          <center>
+            <button
+              className="m-2 inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+              value={memberReq._id}
+              onClick={handleSubmitOk}
+            >
+              Accept Member Request
+            </button>
+            <button
+              className="m-2 inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+              value={memberReq._id}
+              onClick={handleSubmitNo}
+            >
+              Reject Member Request
+            </button>
+          </center>
+        </div>
+      </div>
     </div>
   )
 }
