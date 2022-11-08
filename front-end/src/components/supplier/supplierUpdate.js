@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import SideNavbar from '../supplier/sidenavbar-supplier.component'
 
 const SupplierUpdate = () => {
   const [business_name, setBusiness_name] = useState('')
@@ -42,82 +43,85 @@ const SupplierUpdate = () => {
   }
 
   return (
-    <form
-      className="container bg-gray-200 rounded-xl shadow border p-8 m-10 w-11/12"
-      onSubmit={handleSubmit}
-    >
-      <h2 className="text-3xl text-green-500 text-center m-6">
-        Update Supplier Details
-      </h2>
+    <div className="container flex">
+      <SideNavbar />
+      <form
+        className="container bg-gray-200 rounded-xl shadow border p-8 m-10 w-11/12"
+        onSubmit={handleSubmit}
+      >
+        <h2 className="text-3xl text-green-500 text-center m-6">
+          Update Supplier Details
+        </h2>
 
-      <label>Business name/ Supplier Name :</label>
-      <input
-        type="text"
-        placeholder="name"
-        className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
-        onChange={(e) => setBusiness_name(e.target.value)}
-        value={business_name}
-      />
+        <label>Business name/ Supplier Name :</label>
+        <input
+          type="text"
+          placeholder="name"
+          className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
+          onChange={(e) => setBusiness_name(e.target.value)}
+          value={business_name}
+        />
 
-      <label>Address :</label>
-      <input
-        type="text"
-        placeholder="Address"
-        className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
-        onChange={(e) => setAddress(e.target.value)}
-        value={address}
-      />
+        <label>Address :</label>
+        <input
+          type="text"
+          placeholder="Address"
+          className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
+          onChange={(e) => setAddress(e.target.value)}
+          value={address}
+        />
 
-      <label>Email :</label>
-      <input
-        type="text"
-        placeholder="Email"
-        className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
-      />
+        <label>Email :</label>
+        <input
+          type="text"
+          placeholder="Email"
+          className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
 
-      <label>Phone :</label>
-      <input
-        type="text"
-        placeholder="Phone"
-        className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
-        onChange={(e) => setPhone(e.target.value)}
-        value={phone}
-      />
+        <label>Phone :</label>
+        <input
+          type="text"
+          placeholder="Phone"
+          className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
+          onChange={(e) => setPhone(e.target.value)}
+          value={phone}
+        />
 
-      <label>Registered product :</label>
-      <input
-        type="text"
-        placeholder="Registered product"
-        className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
-        onChange={(e) => setRegistered_products(e.target.value)}
-        value={registered_products}
-      />
+        <label>Registered product :</label>
+        <input
+          type="text"
+          placeholder="Registered product"
+          className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
+          onChange={(e) => setRegistered_products(e.target.value)}
+          value={registered_products}
+        />
 
-      <label>Rating :</label>
-      <input
-        type="number"
-        placeholder="Rating"
-        className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
-        onChange={(e) => setRating(e.target.value)}
-        value={rating}
-      />
+        <label>Rating :</label>
+        <input
+          type="number"
+          placeholder="Rating"
+          className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
+          onChange={(e) => setRating(e.target.value)}
+          value={rating}
+        />
 
-      <center>
-        <button
-          className="m-2 inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-          onClick={(e) => {
-            // Navigate('/supplierList')
-            window.location.href = 'http://localhost:3000/supplierList'
-            //console.log(e.target.value)
-          }}
-        >
-          Update Supplier
-        </button>
-      </center>
-      {/* {error && <div className="error"></div>} */}
-    </form>
+        <center>
+          <button
+            className="m-2 inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+            onClick={(e) => {
+              // Navigate('/supplierList')
+              window.location.href = 'http://localhost:3000/supplierList'
+              //console.log(e.target.value)
+            }}
+          >
+            Update Supplier
+          </button>
+        </center>
+        {/* {error && <div className="error"></div>} */}
+      </form>
+    </div>
   )
 }
 

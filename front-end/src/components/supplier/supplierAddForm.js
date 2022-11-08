@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import SideNavbar from '../supplier/sidenavbar-supplier.component'
 // import { Link, Navigate } from 'react-router-dom'
 
 const SupplierAddForm = () => {
@@ -55,7 +56,8 @@ const SupplierAddForm = () => {
   }
 
   return (
-    <div className="content-center">
+    <div className="container flex">
+      <SideNavbar />
       <form
         className="container bg-gray-200 rounded-xl shadow border p-8 m-10 w-11/12"
         onSubmit={handleSubmit}
