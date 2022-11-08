@@ -7,7 +7,7 @@ const batchSchema = new mongoose.Schema(
       required: true,
     },
     warehouse_id: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: String,
       required: true,
     },
     quantity: {

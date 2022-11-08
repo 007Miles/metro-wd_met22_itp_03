@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import GetAllBatches from '../pages/GetAllBatch.js'
+import Header from '../components/layout/header.js'
+// import Footer from '../components/layout/footer.js'
 
 export default function UpdateBatch() {
   const id = useParams()
@@ -65,8 +67,16 @@ export default function UpdateBatch() {
 
   return (
     <div>
+      <Header
+        headerButtons={[
+          { path: '/batch', name: 'View Batches' },
+          { path: '/batchForm', name: 'Add Batch' },
+          { path: '/productList', name: 'View Products' },
+          { path: '/productForm', name: 'Add Product' },
+        ]}
+      />
       <form onSubmit={updateData}>
-        <div className="container bg-green-200 rounded-xl shadow border p-8 m-10">
+        <div className="container bg-green-200 rounded-xl shadow border p-8 m-24">
           <h3 className="text-3xl"> Update Batch</h3>
           <div className="grid md:grid-cols-2 md:gap-4 mt-6 ">
             <div className="relative z-0 mb-4 w-full group">

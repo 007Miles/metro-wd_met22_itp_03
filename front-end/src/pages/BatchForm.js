@@ -1,5 +1,7 @@
 import { useState } from 'react'
-import '../styles/batchForm.css'
+import Header from '../components/layout/header.js'
+import Footer from '../components/layout/footer.js'
+
 const BatchForm = () => {
   const [prod_Name, setProd_Name] = useState('')
   const [warehouse_id, setProd_warehouse_id] = useState('')
@@ -58,8 +60,16 @@ const BatchForm = () => {
   }
   return (
     <div>
+      <Header
+        headerButtons={[
+          { path: '/batch', name: 'View Batches' },
+          { path: '/batchForm', name: 'Add Batch' },
+          { path: '/productList', name: 'View Products' },
+          { path: '/productForm', name: 'Add Product' },
+        ]}
+      />
       <form onSubmit={handleSubmit}>
-        <div className="container bg-green-200 rounded-xl shadow border p-8 m-10">
+        <div className="container bg-green-200 rounded-xl shadow border p-8 m-24">
           <h1 className="text-3xl">Add a batch</h1>
           <div className="grid md:grid-cols-2 md:gap-4 mt-6 ">
             <div className="relative z-0 mb-4 w-full group ">

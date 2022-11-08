@@ -9,13 +9,19 @@ import {
   singleProductUpdate,
 } from '../controllers/productController.js'
 
+import { addProductSchema } from '../validations/productValidate.js'
+
 const productRouter = express.Router()
 
 productRouter.get('/getAllProducts', getAllProduct)
 
 productRouter.get('/getAProduct/:id', getAproduct)
 
-productRouter.post('/createProduct', singleProductCreate)
+productRouter.post(
+  '/createProduct',
+  celebrate({ [Segments.BODY]: addProductSchema }),
+  singleProductCreate
+)
 
 productRouter.delete('/deleteProduct/:id', singleProductDelete)
 

@@ -15,7 +15,7 @@ import LeaveUpdateForm from '../pages/sanjula/update-leave-page'
 import LeaveCreateForm from '../pages/sanjula//create-leave-page'
 import LeaveList from '../pages/sanjula/leave-list-page'
 import LeaveDelete from '../pages/sanjula/delete-leave-page'
-import ChartProduct from '../pages/chart-vertical'
+// import GraphChart from '../pages/ProductChart.js'
 const IndexRoutes = () => {
   return (
     <Routes>
@@ -32,7 +32,6 @@ const IndexRoutes = () => {
       <Route path="/productList" element={<ProductList />} />
       <Route path="/productForm" element={<ProductForm />} />
       <Route path="/updateProduct/:id" element={<UpdateProduct />} />
-      <Route path="/chartProduct" element={<ChartProduct />} />
 
       <Route path="/createLeave" element={<LeaveCreateForm />} />
       <Route path="/viewAllLeaves" element={<LeaveList />} />

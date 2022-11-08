@@ -27,7 +27,7 @@ const ReadOnlyRowProduct = ({ product, handleDeleteClick }) => {
       </td>
       <td>
         {(() => {
-          if (product.quantity <= 300) {
+          if (product.quantity <= 100) {
             return (
               <div
                 style={{

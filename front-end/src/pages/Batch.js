@@ -3,7 +3,8 @@ import axios from 'axios'
 import { useEffect, useState, Fragment } from 'react'
 import Header from '../components/layout/header.js'
 import Footer from '../components/layout/footer.js'
-import { useReactToPrint } from 'react-to-print'
+import printDocument from '../utils/printDocument.js'
+import { FiPrinter } from 'react-icons/fi'
 // import Navbar from '../components/Navbar.js'
 //import '../index.css'
 import ReadOnlyRowBatch from '../components/readOnlyRowBatch.js'
@@ -35,12 +36,14 @@ const Batch = () => {
     <div>
       <Header
         headerButtons={[
+          { path: '/batch', name: 'View Batches' },
           { path: '/batchForm', name: 'Add Batch' },
           { path: '/productList', name: 'View Products' },
+          { path: '/productForm', name: 'Add Product' },
         ]}
       />
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg justify-center py-3 px-6">
-        <div className="batches">
+        <div className="container bg-green-200 rounded-xl shadow border p-8 m-10">
           <div className="py-3 px-6">
             <input
               type="text"
@@ -90,6 +93,12 @@ const Batch = () => {
               </tbody>
             </table>
           </form>
+          <button
+            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+            onClick={() => printDocument(document.body, 'b2')}
+          >
+            <FiPrinter />
+          </button>
         </div>
       </div>
       <Footer />
