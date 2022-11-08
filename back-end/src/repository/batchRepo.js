@@ -1,9 +1,11 @@
 import Batch from '../models/batchModel.js'
+// import Product from '../models/productModel.js'
 import mongoose from 'mongoose'
 
 //create product
 export const createBatch = async (
   prod_Name,
+  warehouse_id,
   quantity,
   exp_date,
   manu_date,
@@ -14,6 +16,7 @@ export const createBatch = async (
 ) => {
   const batchRepo = new Batch({
     prod_Name,
+    warehouse_id,
     quantity,
     exp_date,
     manu_date,
@@ -31,6 +34,7 @@ export const getAllBatch = async () => {
   return await Batch.find()
 }
 
+//getSingleBatch
 export const getSingleBatch = async (id) => {
   return await Batch.findById(mongoose.Types.ObjectId(id))
 }
@@ -46,4 +50,8 @@ export const updateSingleBatch = async (id, bt) => {
     new: true,
   })
   return updateBatchRepo
+}
+
+export const getBatches = async (filter) => {
+  return await Batch.find(filter).lean()
 }

@@ -3,6 +3,7 @@ import {
   getleave,
   updateleaveusingId,
   deleteleaveusingId,
+  getleaves,
 } from '../repository/leave.js'
 
 export const createleaveform = async ({
@@ -26,6 +27,12 @@ export const createleaveform = async ({
   return y.msg
 }
 
+
+// get all the requests 
+export const getAllLeaves = async () => {
+  return await getleaves()
+}
+
 export const getleaveId = async (id) => {
   return await getleave(id)
 }
@@ -39,3 +46,4 @@ export const updateLeaveById = async (id, ob) => {
 export const deleteLeaveById = async (id) => {
   return await deleteleaveusingId(id)
 }
+

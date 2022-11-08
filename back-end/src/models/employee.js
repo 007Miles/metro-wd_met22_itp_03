@@ -6,6 +6,10 @@ const employeeSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    cred_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+    },
     address: {
       type: String,
       required: true,
@@ -18,11 +22,6 @@ const employeeSchema = mongoose.Schema(
     dob: {
       type: Date,
       require: true,
-    },
-    empId: {
-      type: String,
-      require: true,
-      unique: true,
     },
     nic: {
       type: String,

@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  content: [
+    './index.html',
+    './src/**/*.{html,js}',
+    './node_modules/tw-elements/dist/js/**/*.js',
+  ],
   mode: 'jit',
   theme: {
     extend: {
@@ -21,7 +25,12 @@ module.exports = {
       md: '1060px',
       lg: '1200px',
       xl: '1700px',
+
+      colors: {
+        'dark-purple': '#081A51',
+        'light-white': 'rgba(255,255,255,0.18)',
+      },
     },
   },
-  plugins: [],
+  plugins: [require('tw-elements/dist/plugin')],
 }
