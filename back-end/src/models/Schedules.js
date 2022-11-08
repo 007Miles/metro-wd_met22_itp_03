@@ -29,15 +29,15 @@ const schedulesSchema = mongoose.Schema(
     },
     weekly: {
       type: Boolean,
-      required: true,
+      required: false,
     },
     monthly: {
       type: Boolean,
-      required: true,
+      required: false,
     },
     yearly: {
       type: Boolean,
-      required: true,
+      required: false,
     },
     date: {
       type: Date,
@@ -51,10 +51,10 @@ const schedulesSchema = mongoose.Schema(
       type: Number,
       required: false,
     },
-    time: {
-      type: Date,
-      required: true,
-    },
+    // time: {
+    //   type: Date,
+    //   required: true,
+    // },
   },
   {
     versionKey: false,

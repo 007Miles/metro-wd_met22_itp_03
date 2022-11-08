@@ -18,7 +18,7 @@ export const createSchedule = async (data) => {
       date: data.date,
       dayOfTheWeek: data.dayOfTheWeek,
       dayOfTheMonth: data.dayOfTheMonth,
-      time: data.time, //test
+      // time: data.time, //test
     })
     await scheduleDrop.save()
     return { msg: 'New schedule added' }
@@ -30,6 +30,16 @@ export const createSchedule = async (data) => {
 //Get schedule details
 export const getScheduleDrops = async (id) => {
   return await dropSchedule.findById(mongoose.Types.ObjectId(id))
+}
+
+//Get All Schedules
+export const getAllScheduleDrops = async () => {
+  try {
+    const a = await dropSchedule.find().sort({ createdAt: -1 })
+    return a
+  } catch (error) {
+    return { msg: 'no Schedules found' }
+  }
 }
 
 //Update schedules
