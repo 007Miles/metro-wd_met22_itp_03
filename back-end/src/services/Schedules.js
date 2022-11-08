@@ -20,7 +20,7 @@ export const addSchedules = async ({
   date,
   dayOfTheWeek,
   dayOfTheMonth,
-  time,
+  // time,
 }) => {
   const data = {
     supplierID,
@@ -35,7 +35,7 @@ export const addSchedules = async ({
     date: Date(date),
     dayOfTheWeek,
     dayOfTheMonth: Number(dayOfTheMonth),
-    time: Date(time),
+    // time: Date(time),
   }
   const x = await createSchedule(data)
   //console.log('Service test', x)

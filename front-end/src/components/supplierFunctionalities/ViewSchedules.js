@@ -45,10 +45,15 @@ export default function ViewSchedules() {
       })
   }, [idFromButtonClick])
 
+  const componentRef = useRef()
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  })
+
   return (
     <div>
       <body class="bg-gray-100 border border-gray-400 block py-2 px-4 full rounded focus:outline-none focus:border-teal-500">
-        <form class="px-4 my-32 max-w-3xl mx-auto space-y-6">
+        <form class="px-4 my-32 max-w-3xl mx-auto space-y-6" ref={componentRef}>
           <div>
             <h1 class="text-3xl font-semibold">View Supply Drops</h1>
             <p class="text-gray-600">
@@ -233,6 +238,16 @@ export default function ViewSchedules() {
             </div>
           </div>
         </form>
+        <div>
+          <button
+            class="bg-teal-300"
+            onClick={handlePrint}
+            className="print_button"
+          >
+            {' '}
+            Print Schedule{' '}
+          </button>
+        </div>
       </body>
     </div>
   )

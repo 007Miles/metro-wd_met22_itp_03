@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 function SupplierMembershipRequests() {
-  const [cred_id, setCredId] = useState('')
+  // const [cred_id, setCredId] = useState('')
   const [verified, setVerified] = useState('false')
   const [business_name, setBusinessName] = useState('')
   const [email, setEmail] = useState('')
@@ -13,7 +13,7 @@ function SupplierMembershipRequests() {
     e.preventDefault()
 
     const resp = {
-      cred_id,
+      // cred_id,
       verified,
       business_name,
       email,
@@ -37,7 +37,7 @@ function SupplierMembershipRequests() {
     if (!response.ok) {
     }
     if (response.ok) {
-      setCredId('')
+      // setCredId('')
       setVerified('')
       setBusinessName('')
       setEmail('')
@@ -65,7 +65,7 @@ function SupplierMembershipRequests() {
               given e-mail within 48 hours
             </p>
           </div>
-          <div>
+          {/* <div>
             <label for="cred_id">Credential ID </label>
             <input
               class="border border-gray-400 block py-2 px-4 full rounded focus:outline-none focus:border-teal-500"
@@ -76,6 +76,19 @@ function SupplierMembershipRequests() {
               onChange={(e) => setCredId(e.target.value)}
               required="required"
               placeholder="Give a user name"
+            ></input>
+          </div> */}
+          <div>
+            <label for="business_name">Business Name </label>
+            <input
+              class="border border-gray-400 block py-2 px-4 full rounded focus:outline-none focus:border-teal-500"
+              type="text"
+              name="supplier_name"
+              id="supplier_name"
+              value={business_name}
+              onChange={(e) => setBusinessName(e.target.value)}
+              required="required"
+              placeholder="Type Business Name"
             ></input>
           </div>
           <div>
@@ -98,20 +111,7 @@ function SupplierMembershipRequests() {
               checked
               disabled
             ></input>
-            <p class="text-sm text-gray-600">You are not verified yet</p>
-          </div>
-          <div>
-            <label for="business_name">Business Name </label>
-            <input
-              class="border border-gray-400 block py-2 px-4 full rounded focus:outline-none focus:border-teal-500"
-              type="text"
-              name="supplier_name"
-              id="supplier_name"
-              value={business_name}
-              onChange={(e) => setBusinessName(e.target.value)}
-              required="required"
-              placeholder="Type Business Name"
-            ></input>
+            <p class="text-sm text-teal-600">You are not verified for now</p>
           </div>
           <div>
             <label for="email">E-mail </label>
