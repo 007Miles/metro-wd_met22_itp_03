@@ -1,16 +1,23 @@
 import { useState } from 'react'
 
 import Layout from '../components/layout'
+import { login, ping } from '../requests/auth'
 import { Button1 } from '../components/common/buttons'
 
 const Login = () => {
+  const [s, sets] = useState([])
+
   const handleSubmit = async (event) => {
     event.preventDefault()
 
     const username = document.getElementById("username").value
     const password = document.getElementById("password").value
 
-    console.log(username + " " + password)
+    const res = await login({ username, password })
+
+    localStorage.setItem("accessToken", res.data.access_token)
+    localStorage.setItem("credentialId", res.data.cred._id)
+    localStorage.setItem("username", res.data.cred.username)
   }
 
   return (
