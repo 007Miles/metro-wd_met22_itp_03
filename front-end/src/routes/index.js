@@ -4,6 +4,9 @@ import Login from '../pages/login'
 import About from '../pages/about'
 import Axiostest from '../pages/axiostest'
 import CraeteDelivery from '../pages/delivery'
+import UpdateBatch from '../components/UpdateBatch.js'
+import Batch from '../pages/Batch.js'
+import BatchForm from '../pages/BatchForm.js'
 import Home from '../pages/home'
 import ProductList from '../pages/ProductList.js'
 import UpdateProduct from '../components/UpdateProduct.js'
@@ -20,7 +23,9 @@ const IndexRoutes = () => {
       <Route path="/about" element={<About />} />
       <Route path="/axiostest" element={<Axiostest />} />
       <Route path="/delivery" element={<CraeteDelivery />} />
-
+      <Route path="/Batch" element={<Batch />} />
+      <Route path="/batchForm" element={<BatchForm />} />
+      <Route path="/UpdateBatch/:id" element={<UpdateBatch />} />
 
       <Route path="/empHome" element={<Home />} />
 
