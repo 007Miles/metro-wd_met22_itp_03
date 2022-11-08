@@ -44,49 +44,63 @@ const SupplierUpdate = () => {
 
   return (
     <form
-      className="container bg-gray-200 rounded-xl shadow border p-8 m-2 w-3/5 content-center"
+      className="container bg-gray-200 rounded-xl shadow border p-8 m-10 w-11/12"
       onSubmit={handleSubmit}
     >
-      <h2 className="title">Update Supplier Details</h2>
+      <h2 className="text-3xl text-green-500 text-center m-6">
+        Update Supplier Details
+      </h2>
 
-      <label>setBusiness_name :</label>
+      <label>Business name/ Supplier Name :</label>
       <input
         type="text"
+        placeholder="name"
+        className="w-4/5"
         onChange={(e) => setBusiness_name(e.target.value)}
         value={business_name}
       />
 
-      <label>setAddress :</label>
+      <label>Address :</label>
       <input
         type="text"
+        placeholder="Address"
+        className="w-4/5"
         onChange={(e) => setAddress(e.target.value)}
         value={address}
       />
 
-      <label>setEmail:</label>
+      <label>Email :</label>
       <input
         type="text"
+        placeholder="Email"
+        className="w-4/5"
         onChange={(e) => setEmail(e.target.value)}
         value={email}
       />
 
-      <label>setPhone :</label>
+      <label>Phone :</label>
       <input
         type="text"
+        placeholder="Phone"
+        className="w-4/5"
         onChange={(e) => setPhone(e.target.value)}
         value={phone}
       />
 
-      <label>setRegistered_products :</label>
+      <label>Registered product :</label>
       <input
         type="text"
+        placeholder="Registered product"
+        className="w-4/5"
         onChange={(e) => setRegistered_products(e.target.value)}
         value={registered_products}
       />
 
-      <label>setRating :</label>
+      <label>Rating :</label>
       <input
-        type="text"
+        type="number"
+        placeholder="Rating"
+        className="w-4/5"
         onChange={(e) => setRating(e.target.value)}
         value={rating}
       />
@@ -98,8 +112,11 @@ const SupplierUpdate = () => {
         // onChange={(e) => setCred_id("12345678901234567890abcd")}
         value={cred_id}
       />
-
-      <button>Update Supplier</button>
+      <center>
+        <button className="m-2 inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+          Update Supplier
+        </button>
+      </center>
       {/* {error && <div className="error"></div>} */}
     </form>
   )

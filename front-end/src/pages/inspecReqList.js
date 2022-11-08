@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import '../styles/supplierList.css'
 // import SupplierView from '../components/supplier/supplierView'
 import InspecReqViews from '../components/supplier/inspecReqView'
+import Navbar from '../components/supplier/Navbar'
+import SupplierNavbar from '../components/supplier/supplierNavbar'
 // import SupplierAddForm from "../components/supplierAddForm";
 
 const InspecReqList = () => {
@@ -39,6 +41,8 @@ const InspecReqList = () => {
 
   return (
     <div className="home">
+      <Navbar />
+      <SupplierNavbar />
       <div className="supplierList">
         {inspecReqList &&
           inspecReqList.map((inspecRequest) => (

@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import Navbar from './Navbar'
-import SupplierNavbar from './supplierNavbar'
+import { Link, Navigate } from 'react-router-dom'
 
 const SupplierAddForm = () => {
   const [business_name, setBusiness_name] = useState('')
@@ -58,52 +56,64 @@ const SupplierAddForm = () => {
 
   return (
     <div className="content-center">
-      <Navbar />
-      <SupplierNavbar />
       <form
-        className="container bg-gray-200 rounded-xl shadow border p-8 m-2 w-3/5 content-center m-auto"
+        className="container bg-gray-200 rounded-xl shadow border p-8 m-10 w-11/12"
         onSubmit={handleSubmit}
       >
-        <h2 className="title">Add a new Supplier</h2>
+        <h2 className="text-3xl text-green-500 text-center m-6">
+          Add a new Supplier
+        </h2>
 
-        <label>setBusiness_name :</label>
+        <label>Enter Business Name or Supplier Name :</label>
         <input
           type="text"
+          placeholder="Business Or Supplier Name"
+          className="w-4/5"
           onChange={(e) => setBusiness_name(e.target.value)}
           value={business_name}
         />
 
-        <label>setAddress :</label>
+        <label>Enter Address :</label>
         <input
           type="text"
+          placeholder="Address"
+          className="w-4/5"
           onChange={(e) => setAddress(e.target.value)}
           value={address}
         />
 
-        <label>setEmail:</label>
+        <label>Enter Email:</label>
         <input
           type="text"
+          placeholder="Email"
+          className="w-4/5"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
 
-        <label>setPhone :</label>
+        <label>Enter Phone Number :</label>
         <input
           type="text"
+          placeholder="Phone"
+          className="w-4/5"
           onChange={(e) => setPhone(e.target.value)}
           value={phone}
         />
 
-        <label>setRegistered_products :</label>
+        <label>Enter Registering product :</label>
         <input
           type="text"
+          placeholder="product"
+          className="w-4/5"
           onChange={(e) => setRegistered_products(e.target.value)}
           value={registered_products}
         />
 
-        <label>setRating :</label>
+        <label>Enter Supplier Rating :</label>
         <input
-          type="text"
+          type="number"
+          placeholder="Rating"
+          className="w-4/5"
           onChange={(e) => setRating(e.target.value)}
           value={rating}
         />
@@ -115,9 +125,20 @@ const SupplierAddForm = () => {
           // onChange={(e) => setCred_id("12345678901234567890abcd")}
           value={cred_id}
         />
-        <Link to="/supplierList">
-          <button>Add Supplier</button>
-        </Link>
+
+        <center>
+          <button
+            className="m-2 inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+            onClick={(e) => {
+              // Navigate('/supplierList')
+              window.location.href = 'http://localhost:3000/supplierList'
+              //console.log(e.target.value)
+            }}
+          >
+            Add Supplier
+          </button>
+        </center>
+
         {/* {error && <div className="error"></div>} */}
       </form>
     </div>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const supplierViews = ({ supplier }) => {
   return (
     <div className="container bg-gray-200 rounded-xl shadow border p-8 m-2">
-      <h2 className="text-xl capitalize">{supplier.business_name}</h2>
+      <h2 className="text-xl capitalize mr-5">{supplier.business_name}</h2>
       <h4>Rating : {supplier.rating}</h4>
 
       <Link to={`/supplierDetails/${supplier._id}`}>

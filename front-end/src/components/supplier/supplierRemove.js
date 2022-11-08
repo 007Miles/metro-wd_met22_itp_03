@@ -1,24 +1,24 @@
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import SupplierList from "../../pages/supplierList";
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import SupplierList from '../../pages/supplierList'
 
 const SupplierRemove = () => {
   //   const [supplier, setSupplier] = useState({});
 
-  const { id } = useParams();
+  const { id } = useParams()
 
   useEffect(() => {
     const deleteSupplier = async () => {
-      fetch("http://localhost:4000/api/supplier/deleteSupplier/" + id, {
-        method: "DELETE",
-      });
+      fetch('http://localhost:4000/api/supplier/deleteSupplier/' + id, {
+        method: 'DELETE',
+      })
       //   .then(() => setStatus("Delete successful"));
-    };
+    }
 
-    deleteSupplier();
-  }, []);
+    deleteSupplier()
+  }, [id])
   //
-  return <SupplierList />;
-};
+  return <SupplierList />
+}
 
-export default SupplierRemove;
+export default SupplierRemove

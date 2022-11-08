@@ -18,7 +18,6 @@ import SupplierUpdate from '../components/supplier/supplierUpdate'
 import SupMemberReqList from '../components/supplier/supMemberReqList'
 import MemberReqDetails from '../components/supplier/memberReqDetails'
 import InspecReqDetails from '../components/supplier/inspecReqDetails'
-import SuppliersList from '../pages/suppliersList'
 
 const IndexRoutes = () => {
   return (
@@ -28,7 +27,6 @@ const IndexRoutes = () => {
       <Route path="/axiostest" element={<Axiostest />} />
       <Route path="/delivery" element={<CraeteDelivery />} />
 
-      <Route path="/suppliersList" element={<SuppliersList />} />
       <Route path="/supplierList" element={<SupplierList />} />
       <Route path="/inspecReqList" element={<InspecReqList />} />
       <Route path="/supplierDetails/:id" element={<SupplierDetails />} />
