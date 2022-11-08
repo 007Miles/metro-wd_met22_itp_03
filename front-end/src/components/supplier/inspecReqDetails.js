@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import '../../styles/supplierList.css'
 const InspecReqDetails = () => {
@@ -8,22 +8,56 @@ const InspecReqDetails = () => {
 
   const { id } = useParams()
   console.log(id)
-  //
-  //   const fetchSupplier = async () => {
-  //     const response = await fetch(
-  //       `http://localhost:4000/api/supplier/viewSupplier/` + id
-  //     )
-  //     const json = await response.json()
-  //     if (response.ok) {
-  //       setSupplier(json.data)
+  //Set Status to Approved
+  const handleSubmitOk = async (e) => {
+    e.preventDefault()
 
-  //       // console.log("in response");
-  //       // console.log(json);
-  //     }
-  //   }
-  //   useEffect(() => {
-  //     fetchSupplier()
-  //   }, [])
+    const inspecReq = {
+      status: 'Approved',
+    }
+    console.log(inspecReq)
+    const response = await fetch(
+      'http://localhost:4000/api/supplyReq/putSupplyReq/' + id,
+      {
+        method: 'PUT',
+        body: JSON.stringify(inspecReq),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+    const json = await response.json()
+
+    if (!response.ok) {
+      // setError(json.error);
+      console.log(json)
+    }
+  }
+  //Set Status to Rejected
+  const handleSubmitNo = async (e) => {
+    e.preventDefault()
+
+    const inspecReq = {
+      status: 'Denied',
+    }
+    console.log(inspecReq)
+    const response = await fetch(
+      'http://localhost:4000/api/supplyReq/putSupplyReq/' + id,
+      {
+        method: 'PUT',
+        body: JSON.stringify(inspecReq),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+    const json = await response.json()
+
+    if (!response.ok) {
+      // setError(json.error);
+      console.log(json)
+    }
+  }
   //
   const fetchInspecReq = async () => {
     const response = await fetch(
@@ -42,65 +76,36 @@ const InspecReqDetails = () => {
   }, [])
   //
   return (
-    <div className="supplier-details">
-      <h2 className="title">Inspection Request Details</h2>
-      <h4>{inspecReq.description}</h4>
+    <div className="container bg-gray-200 rounded-xl shadow border p-8 m-10 w-11/12">
+      <h2 className="text-3xl text-blue-500 text-center m-5">
+        Inspection Request Details
+      </h2>
       <p>
-        <strong>Description : </strong>
-        {inspecReq.description}
+        <strong>Priority -</strong>
+        {inspecReq.priority}
       </p>
       <p>
-        <strong>Email : </strong>
-        {inspecReq.description}
+        <strong>Status -</strong>
+        {inspecReq.status}
       </p>
       <p>
-        <strong>phone : </strong>
+        <strong>Description -</strong>
         {inspecReq.description}
       </p>
-      <p>
-        <strong>registered_product : </strong>
-        {inspecReq.description}
-      </p>
-      <p>
-        <strong>Rating : </strong>
-        {inspecReq.description}
-      </p>
-      {/* <Link to={`/supplierRemove/${supplier._id}`}>
-        <button
-          className="view_btn"
-          value={supplier._id}
-          // onClick={(e) => {
-          //   console.log(e.target.value);
-          //   // <SupplierDetails key={supplier._id} supplier={supplier} />;
-          // }}
-        >
-          Delete Supplier
-        </button>
-      </Link>
-      <Link to={`/supplierUpdate/${supplier._id}`}>
-        <button
-          className="view_btn"
-          value={supplier._id}
-          onClick={(e) => {
-            console.log(e.target.value)
-            // <SupplierDetails key={supplier._id} supplier={supplier} />;
-          }}
-        >
-          Update Supplier
-        </button>
-      </Link>
-      <Link to={`/supplierMail/${supplier._id}`}>
-        <button
-          className="view_btn"
-          value={supplier._id}
-          onClick={(e) => {
-            console.log(e.target.value)
-            // <SupplierDetails key={supplier._id} supplier={supplier} />;
-          }}
-        >
-          Send Mail
-        </button>
-      </Link> */}
+      <button
+        className="m-2 inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+        value={inspecReq._id}
+        onClick={handleSubmitOk}
+      >
+        Accept Supply Drop
+      </button>
+      <button
+        className="m-2 inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+        value={inspecReq._id}
+        onClick={handleSubmitNo}
+      >
+        Reject Supply Drop
+      </button>
     </div>
   )
 }
