@@ -20,9 +20,13 @@ console.log("this is repo file and this object",addleave);
 }
 
   // get all leaves
-  export const getleaves = async () => {
+  export const getleaves = async (params) => {
     try{
-      const a = await Leavesubmission.find().sort({ createdAt: -1 })
+      let filter = {}
+      if(params.empId){
+        filter.Leavesubmission = {'$regex' : params.empId, '$options' : 'i'}
+      }
+      const a = await Leavesubmission.find(filter).sort({ createdAt: -1 })
       console.log(a)
       return a
     } catch (error){

@@ -21,7 +21,7 @@ export const createleave = asyncHandler(async (req, res) => {
 
 // get all leaves
 export const getleaves = asyncHandler(async(req, res) => {
-  const ans = await getAllLeaves()
+  const ans = await getAllLeaves(req.query)
   res.json(ans)
 })
 

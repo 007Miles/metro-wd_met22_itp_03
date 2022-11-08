@@ -29,8 +29,8 @@ export const createleaveform = async ({
 
 
 // get all the requests 
-export const getAllLeaves = async () => {
-  return await getleaves()
+export const getAllLeaves = async (params) => {
+  return await getleaves(params)
 }
 
 export const getleaveId = async (id) => {

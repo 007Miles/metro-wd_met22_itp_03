@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 // import Swal from 'sweetalert2'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Layout from '../../components/layout'
 // import Layout from '../../components/layout'
 // import Header from '../../components/layout/header'
@@ -43,7 +43,7 @@ export default function LeaveCreateForm() {
 
   return (
     <div className="Header">
-      <Layout/>
+      <Layout />
       <div className="container bg-gray-200 rounded-xl shadow border p-8 m-10">
         <h1 className="text-3xl">Leave Request Form</h1>
         <div className="mt-6 space-y-6">
@@ -135,12 +135,14 @@ export default function LeaveCreateForm() {
 
             <br></br>
             <div>
-              <button
-                onClick={Register}
-                className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              >
-                Submit
-              </button>
+              <Link to={`/viewAllLeaves `}>
+                <button
+                  onClick={Register}
+                  className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                >
+                  Submit
+                </button>
+              </Link>
             </div>
           </div>
         </div>

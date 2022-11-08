@@ -12,6 +12,7 @@ import LeaveUpdateForm from '../pages/sanjula/update-leave-page'
 import LeaveCreateForm from '../pages/sanjula//create-leave-page'
 import LeaveList from '../pages/sanjula/leave-list-page'
 import LeaveDelete from '../pages/sanjula/delete-leave-page'
+import Employeeprofile from '../pages/sanjula/employee-profile-paage'
 
 const IndexRoutes = () => {
   return (
@@ -28,6 +29,7 @@ const IndexRoutes = () => {
       <Route path="/ProductForm" element={<ProductForm />} />
       <Route path="/updateProduct/:id" element={<UpdateProduct />} />
 
+      <Route path="/Empprofile" element={<Employeeprofile />} />
       <Route path="/createLeave" element={<LeaveCreateForm />} />
       <Route path="/viewAllLeaves" element={<LeaveList />} />
       <Route path="/deleteLeave/:id" element={<LeaveDelete />} />
