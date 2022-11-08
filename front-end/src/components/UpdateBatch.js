@@ -65,10 +65,10 @@ export default function UpdateBatch() {
 
   return (
     <div>
-      <h3> Update Batch</h3>
       <form onSubmit={updateData}>
-        <div className="border-solid ml-2 mr-2 mb-10 border rounded-lg  border-indigo-700 ...">
-          <div className="grid md:grid-cols-2 md:gap-4">
+        <div className="container bg-green-200 rounded-xl shadow border p-8 m-10">
+          <h3 className="text-3xl"> Update Batch</h3>
+          <div className="grid md:grid-cols-2 md:gap-4 mt-6 ">
             <div className="relative z-0 mb-4 w-full group">
               <div className="py-3 px-10">
                 <label>Product Name</label>
@@ -185,7 +185,7 @@ export default function UpdateBatch() {
             <div className="py-3 px-10">
               <button
                 type="submit"
-                className="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                className="group relative flex w-full justify-center text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
               >
                 Edit Batch
               </button>

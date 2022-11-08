@@ -11,7 +11,7 @@ const Batch = () => {
   const [q, setQ] = useState('')
 
   useEffect(() => {
-    axios.get('http://localhost:4000/api/batch/getAllBatch/').then((res) => {
+    axios.get('http://localhost:4001/api/batch/getAllBatch/').then((res) => {
       console.log(res)
       setBatches(res.data.data)
     })
@@ -21,7 +21,7 @@ const Batch = () => {
   const handleDeleteClick = (event) => {
     console.log(event)
     fetch(
-      'http://localhost:4000/api/batch/deleteABatch/' + event.target.value,
+      'http://localhost:4001/api/batch/deleteABatch/' + event.target.value,
       {
         method: 'DELETE',
       }
@@ -56,7 +56,6 @@ const Batch = () => {
                 <th scope="col">Supplier Name</th>
                 <th scope="col">Buy Price</th>
                 <th scope="col">Sell Price</th>
-                <th scope="col">Status</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>

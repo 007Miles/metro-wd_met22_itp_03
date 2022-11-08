@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
+import moment from 'moment'
 
 const ReadOnlyRowBatch = ({ batch, handleDeleteClick }) => {
   return (
@@ -30,35 +31,6 @@ const ReadOnlyRowBatch = ({ batch, handleDeleteClick }) => {
       </td>
       <td className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
         {batch.sell_price}
-      </td>
-      <td>
-        {(() => {
-          if (batch.quantity <= 300) {
-            return (
-              <div
-                style={{
-                  backgroundColor: 'red',
-                  color: 'white',
-                  textAlign: 'center',
-                }}
-              >
-                Low
-              </div>
-            )
-          } else {
-            return (
-              <div
-                style={{
-                  backgroundColor: 'Green',
-                  color: 'white',
-                  textAlign: 'center',
-                }}
-              >
-                Available
-              </div>
-            )
-          }
-        })()}
       </td>
       <td>
         <Link to={`/UpdateBatch/${batch._id}`}>

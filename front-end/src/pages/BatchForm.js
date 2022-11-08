@@ -27,7 +27,7 @@ const BatchForm = () => {
       sell_price,
     }
     const response = await fetch(
-      'http://localhost:4000/api/batch/createABatch/',
+      'http://localhost:4001/api/batch/createABatch/',
       {
         method: 'POST',
         body: JSON.stringify(batch),
@@ -58,15 +58,13 @@ const BatchForm = () => {
   }
   return (
     <div>
-      <h3> Add Batch</h3>
-
       <form onSubmit={handleSubmit}>
-        <div className="border-solid ml-2 mr-2 mb-10 border rounded-lg  border-indigo-700 ...">
-          <div className="grid md:grid-cols-2 md:gap-4">
-            <div className="relative z-0 mb-4 w-full group">
+        <div className="container bg-green-200 rounded-xl shadow border p-8 m-10">
+          <h1 className="text-3xl">Add a batch</h1>
+          <div className="grid md:grid-cols-2 md:gap-4 mt-6 ">
+            <div className="relative z-0 mb-4 w-full group ">
               <div className="py-3 px-10">
                 <label>Product Name</label>
-
                 <input
                   type="text"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -75,6 +73,7 @@ const BatchForm = () => {
                 />
               </div>
             </div>
+
             <div className="relative z-0 mb-4 w-full group">
               <div className="py-3 px-6">
                 <label>Warehouse</label>
@@ -112,6 +111,7 @@ const BatchForm = () => {
               </div>
             </div>
           </div>
+
           <div className="grid md:grid-cols-2 md:gap-4">
             <div className="relative z-0 mb-4 w-full group">
               <div className="py-3 px-10">
@@ -176,7 +176,7 @@ const BatchForm = () => {
           </div>
           <div className="relative z-0 mb-4 w-full group">
             <div className="py-3 px-10">
-              <button className="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+              <button className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                 {' '}
                 Add Batch
               </button>
