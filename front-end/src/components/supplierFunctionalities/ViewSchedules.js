@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { Link, Navigate } from 'react-router-dom'
+import React, { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { useReactToPrint } from 'react-to-print'
+import { render } from '@testing-library/react'
 
 export default function ViewSchedules() {
   const [supplierID, setSupplierID] = useState('')
@@ -29,7 +31,7 @@ export default function ViewSchedules() {
       .then((response) => {
         let json = response.data.data
         setSupplierID(json.supplierID)
-        setSupplierName(json.setSupplierName)
+        setSupplierName(json.supplier_name)
         setProduct(json.product)
         setQuantity(json.quantity)
         setPrice(json.price)

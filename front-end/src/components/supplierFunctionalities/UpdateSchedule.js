@@ -70,7 +70,7 @@ export default function UpdateSchedule() {
       .get(`http://localhost:3000/api/schedules/${idFromButtonClick}`)
       .then((response) => {
         let json = response.data.data
-        setSupplierName(json.setSupplierName)
+        setSupplierName(json.supplier_name)
         setSupplierID(json.supplierID)
         setProduct(json.product)
         setQuantity(json.quantity)
