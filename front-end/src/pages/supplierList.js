@@ -95,7 +95,7 @@ const SupplierList = () => {
                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                             {i + 1}
                           </td>
-                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                          <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap capitalize">
                             {supplierList.business_name}
                           </td>
                           <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
@@ -121,7 +121,7 @@ const SupplierList = () => {
                                 >
                                   <button
                                     type="button"
-                                    className="inline-block px-6 py-2 border-2 border-blue-400 text-blue-400 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                                    className="m-2 inline-block px-6 py-2 border-2 border-blue-400 text-blue-400 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                                     value={supplierList._id}
                                     onClick={(e) => {
                                       console.log(e.target.value)
@@ -137,7 +137,7 @@ const SupplierList = () => {
                                 >
                                   <button
                                     type="button"
-                                    className="inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                                    className="m-2 inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                                     value={supplierList._id}
                                     onClick={(e) => {
                                       console.log(e.target.value)
@@ -153,7 +153,7 @@ const SupplierList = () => {
                                 >
                                   <button
                                     type="button"
-                                    className="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                                    className="m-2 inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                                     value={supplierList._id}
                                     onClick={(e) => {
                                       window.location.reload()

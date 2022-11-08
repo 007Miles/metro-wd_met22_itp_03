@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 const SupplierUpdate = () => {
   const [business_name, setBusiness_name] = useState('')
-  const [cred_id, setCred_id] = useState('')
+  //const [cred_id, setCred_id] = useState('')
   const [address, setAddress] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
@@ -16,7 +16,6 @@ const SupplierUpdate = () => {
 
     const supplier = {
       business_name,
-      cred_id,
       address,
       email,
       phone,
@@ -55,7 +54,7 @@ const SupplierUpdate = () => {
       <input
         type="text"
         placeholder="name"
-        className="w-4/5"
+        className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
         onChange={(e) => setBusiness_name(e.target.value)}
         value={business_name}
       />
@@ -64,7 +63,7 @@ const SupplierUpdate = () => {
       <input
         type="text"
         placeholder="Address"
-        className="w-4/5"
+        className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
         onChange={(e) => setAddress(e.target.value)}
         value={address}
       />
@@ -73,7 +72,7 @@ const SupplierUpdate = () => {
       <input
         type="text"
         placeholder="Email"
-        className="w-4/5"
+        className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
         onChange={(e) => setEmail(e.target.value)}
         value={email}
       />
@@ -82,7 +81,7 @@ const SupplierUpdate = () => {
       <input
         type="text"
         placeholder="Phone"
-        className="w-4/5"
+        className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
         onChange={(e) => setPhone(e.target.value)}
         value={phone}
       />
@@ -91,7 +90,7 @@ const SupplierUpdate = () => {
       <input
         type="text"
         placeholder="Registered product"
-        className="w-4/5"
+        className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
         onChange={(e) => setRegistered_products(e.target.value)}
         value={registered_products}
       />
@@ -100,20 +99,20 @@ const SupplierUpdate = () => {
       <input
         type="number"
         placeholder="Rating"
-        className="w-4/5"
+        className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
         onChange={(e) => setRating(e.target.value)}
         value={rating}
       />
 
-      <label>setCred_id :</label>
-      <input
-        type="text"
-        onChange={(e) => setCred_id(e.target.value)}
-        // onChange={(e) => setCred_id("12345678901234567890abcd")}
-        value={cred_id}
-      />
       <center>
-        <button className="m-2 inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+        <button
+          className="m-2 inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+          onClick={(e) => {
+            // Navigate('/supplierList')
+            window.location.href = 'http://localhost:3000/supplierList'
+            //console.log(e.target.value)
+          }}
+        >
           Update Supplier
         </button>
       </center>

@@ -66,50 +66,54 @@ const SupplierMail = () => {
 
   return (
     <div className="container bg-gray-200 rounded-xl shadow border p-8 m-10 w-11/12">
-      <form onSubmit={handleSubmit}>
-        <h2 className="text-4xl text-blue-500 text-center">Send Mail</h2>
-        <h4 className="text-3xl text-blue-500 capitalize p-3">
-          {supplier.business_name}
-        </h4>
-        <p className="p-2">
-          <strong>Address : </strong>
-          {supplier.address}
-        </p>
-        <p className="p-2">
-          <strong>Email : </strong>
-          {supplier.email}
-        </p>
-        <p className="p-2">
-          <strong>Phone : </strong>
-          {supplier.phone}
-        </p>
-        <p className="p-2">
-          <strong>Registered product : </strong>
-          {supplier.registered_products}
-        </p>
-        <p className="p-2">
-          <strong>Rating : </strong>
-          {supplier.rating}
-        </p>
-        <label className="p-2">Description :</label>
-        <input
-          type="text"
-          onChange={(e) => setDescription(e.target.value)}
-          value={description}
-        />
-        <center>
-          <button
-            className="m-2 inline-block px-6 py-2 border-2 border-yellow-500 text-yellow-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-            onClick={(e) => {
-              alert('Mail Send To Supplier', supplier.business_name)
-              // <SupplierDetails key={supplier._id} supplier={supplier} />;
-            }}
-          >
-            Send Mail
-          </button>
-        </center>
-        {/* {error && <div className="error"></div>} */}
-      </form>
+      <div className="container bg-white rounded-xl shadow border p-8 m-10 w-10/12">
+        <form onSubmit={handleSubmit}>
+          <h2 className="text-4xl text-blue-500 text-center">Send Mail</h2>
+          <h4 className="text-3xl text-blue-500 capitalize p-3">
+            {supplier.business_name}
+          </h4>
+          <p className="p-2">
+            <strong>Address : </strong>
+            {supplier.address}
+          </p>
+          <p className="p-2">
+            <strong>Email : </strong>
+            {supplier.email}
+          </p>
+          <p className="p-2">
+            <strong>Phone : </strong>
+            {supplier.phone}
+          </p>
+          <p className="p-2">
+            <strong>Registered product : </strong>
+            {supplier.registered_products}
+          </p>
+          <p className="p-2">
+            <strong>Rating : </strong>
+            {supplier.rating}
+          </p>
+          {/* <label className="p-2">Description :</label> */}
+          <input
+            type="text"
+            placeholder="Enter The Massage"
+            className="w-4/5 p-2 mt-2 mb-5 rounded box-border bg-gray-200"
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+          />
+          <center>
+            <button
+              className="m-2 inline-block px-6 py-2 border-2 border-yellow-500 text-yellow-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+              onClick={(e) => {
+                alert('Mail Send To Supplier', supplier.business_name)
+                // <SupplierDetails key={supplier._id} supplier={supplier} />;
+              }}
+            >
+              Send Mail
+            </button>
+          </center>
+          {/* {error && <div className="error"></div>} */}
+        </form>
+      </div>
     </div>
   )
 }

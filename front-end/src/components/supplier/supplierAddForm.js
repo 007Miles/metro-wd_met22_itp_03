@@ -68,7 +68,7 @@ const SupplierAddForm = () => {
         <input
           type="text"
           placeholder="Business Or Supplier Name"
-          className="w-4/5"
+          className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
           onChange={(e) => setBusiness_name(e.target.value)}
           value={business_name}
         />
@@ -77,7 +77,7 @@ const SupplierAddForm = () => {
         <input
           type="text"
           placeholder="Address"
-          className="w-4/5"
+          className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
           onChange={(e) => setAddress(e.target.value)}
           value={address}
         />
@@ -86,7 +86,7 @@ const SupplierAddForm = () => {
         <input
           type="text"
           placeholder="Email"
-          className="w-4/5"
+          className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
@@ -95,7 +95,7 @@ const SupplierAddForm = () => {
         <input
           type="text"
           placeholder="Phone"
-          className="w-4/5"
+          className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
           onChange={(e) => setPhone(e.target.value)}
           value={phone}
         />
@@ -104,7 +104,7 @@ const SupplierAddForm = () => {
         <input
           type="text"
           placeholder="product"
-          className="w-4/5"
+          className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
           onChange={(e) => setRegistered_products(e.target.value)}
           value={registered_products}
         />
@@ -113,7 +113,7 @@ const SupplierAddForm = () => {
         <input
           type="number"
           placeholder="Rating"
-          className="w-4/5"
+          className="w-4/5 p-2 mt-2 mb-5 rounded box-border"
           onChange={(e) => setRating(e.target.value)}
           value={rating}
         />
