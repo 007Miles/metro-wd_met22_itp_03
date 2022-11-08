@@ -21,24 +21,36 @@ app.use('/api', router)
 
 connectDB()
 
-// app.use((err, req, res, next) => {
-//   if (isCelebrateError(err)) {
-//     for (const [key, value] of err.details.entries()) {
-//       return makeResponse({
-//         res,
-//         status: 422,
-//         message: value.details[0].message,
-//       })
-//     }
-//   } else if (err.expose) {
-//     return makeResponse({ res, status: err.status, message: err.message })
-//   } else
-//     return makeResponse({
-//       res,
-//       status: 500,
-//       message: 'Internal server error',
-//     })
-// })
+// error responses
+app.use((err, req, res, next) => {
+  if (err.expose) {
+    // for exposable (mainly bad request) erros
+    return makeResponse({ res, status: err.status, message: err.message })
+  } else if (err.name == 'TokenExpiredError') {
+    // JWT token expired
+    return makeResponse({ res, status: 401, message: 'Access token expired' })
+  } else if (isCelebrateError(err)) {
+    // validation errors
+    for (const [key, value] of err.details.entries()) {
+      return makeResponse({
+        res,
+        status: 422,
+        message: value.details[0].message,
+      })
+    }
+  } else if (err.name == 'MongoServerError' && err.code === 11000) {
+    // for duplicate unique keys when inserting to db
+    const key = Object.keys(err.keyValue)[0]
+    return makeResponse({
+      res,
+      status: 400,
+      message: `The ${key} ${err.keyValue[key]} is already taken`,
+    })
+  } else {
+    // default error response
+    return makeResponse({ res, status: 500, message: 'Internal server error' })
+  }
+})
 
 const port = process.env.PORT || 3000
 
