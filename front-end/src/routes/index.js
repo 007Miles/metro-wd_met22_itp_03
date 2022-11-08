@@ -4,6 +4,11 @@ import Login from '../pages/login'
 import About from '../pages/about'
 import Axiostest from '../pages/axiostest'
 import CraeteDelivery from '../pages/delivery'
+import ScheduleSupply from '../pages/scheduleSupply'
+import ViewSchedule from '../pages/viewSchedules'
+import UpdateSchedules from '../pages/updateSchedule'
+import CancelSchedules from '../pages/cancelSchedules'
+import SupplierMembershipRequest from '../pages/supplierMembershipRequest'
 import UpdateBatch from '../components/UpdateBatch.js'
 import Batch from '../pages/Batch.js'
 import BatchForm from '../pages/BatchForm.js'
@@ -56,6 +61,11 @@ const IndexRoutes = () => {
 
       <Route path="/supSchduleList" element={<SupScheduleList />} />
 
+      <Route path="/scheduleSupply" element={<ScheduleSupply />} />
+      <Route path="/Viewschedules" element={<ViewSchedule />} />
+      <Route path="/Updateschedule" element={<UpdateSchedules />} />
+      <Route path="/Cancelschedule" element={<CancelSchedules />} />
+      <Route path="/SupMemRequest" element={<SupplierMembershipRequest />} />
       <Route path="/Batch" element={<Batch />} />
       <Route path="/batchForm" element={<BatchForm />} />
       <Route path="/UpdateBatch/:id" element={<UpdateBatch />} />

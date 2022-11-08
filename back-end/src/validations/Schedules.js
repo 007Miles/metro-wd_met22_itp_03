@@ -13,5 +13,5 @@ export const createScheduleSchema = {
   date: Joi.date().required(),
   dayOfTheWeek: Joi.string(),
   dayOfTheMonth: Joi.number(),
-  time: Joi.date().required(),
+  // time: Joi.date().required(),
 }

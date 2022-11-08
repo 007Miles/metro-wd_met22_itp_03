@@ -2,11 +2,11 @@ import mongoose from 'mongoose'
 
 const supplierMembershipSchema = mongoose.Schema(
   {
-    cred_id: {
-      type: String,
-      required: true,
-      unique: true,
-    },
+    // cred_id: {
+    //   type: String,
+    //   required: true,
+    //   unique: true,
+    // },
     verified: {
       type: Boolean,
       required: false,
