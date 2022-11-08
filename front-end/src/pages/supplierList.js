@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import '../styles/supplierList.css'
 import SupplierView from '../components/supplier/supplierView'
 // import SupplierAddForm from "../components/supplierAddForm";
+import Navbar from '../components/supplier/Navbar'
+import SupplierNavbar from '../components/supplier/supplierNavbar'
 
 const SupplierList = () => {
   const [supplierList, setSupplierList] = useState(null)
@@ -22,6 +24,8 @@ const SupplierList = () => {
 
   return (
     <div className="home">
+      <Navbar />
+      <SupplierNavbar />
       <div className="supplierList">
         {supplierList &&
           supplierList.map((supplier, i) => (

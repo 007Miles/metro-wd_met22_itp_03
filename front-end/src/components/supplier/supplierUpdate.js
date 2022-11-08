@@ -43,7 +43,10 @@ const SupplierUpdate = () => {
   }
 
   return (
-    <form className="create" onSubmit={handleSubmit}>
+    <form
+      className="container bg-gray-200 rounded-xl shadow border p-8 m-2 w-3/5 content-center"
+      onSubmit={handleSubmit}
+    >
       <h2 className="title">Update Supplier Details</h2>
 
       <label>setBusiness_name :</label>
