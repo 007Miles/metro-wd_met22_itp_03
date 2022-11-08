@@ -112,27 +112,27 @@ const MemberReqDetails = () => {
           Membership Request Details
         </h2>
         <div className="container bg-white rounded-xl shadow border p-8 m-10 w-10/12">
-          <p>
+          <p className="p-2">
             <strong>Business Name Or Supplier Name -</strong>
             {memberReq.business_name}
           </p>
-          <p>
+          <p className="p-2">
             <strong>Status -</strong>
             {String(memberReq.verified)}
           </p>
-          <p>
+          <p className="p-2">
             <strong>Email -</strong>
             {memberReq.email}
           </p>
-          <p>
+          <p className="p-2">
             <strong>Phone -</strong>
             {memberReq.phone}
           </p>
-          <p>
+          <p className="p-2">
             <strong>Address -</strong>
             {memberReq.address}
           </p>
-          <p>
+          <p className="p-2">
             <strong>Registering Product -</strong>
             {memberReq.registered_products}
           </p>
