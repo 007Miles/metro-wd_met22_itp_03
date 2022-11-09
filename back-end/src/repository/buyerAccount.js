@@ -25,7 +25,7 @@ export const insertCredentialDetails = async (credDetails) => {
   try {
     const cred = new Credential({
       user_id: credDetails.buyerID,
-      role: 'buyer',
+      // Role: 'buyer',
       username: credDetails.username,
       password: credDetails.password,
     })

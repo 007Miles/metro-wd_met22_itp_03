@@ -1,12 +1,18 @@
-import Layout from '../components/layout'
-
+import Header from '../components/layout/header'
 import BuyerAccountView from '../components/buyerAccount/buyerAccountView'
+import SideNavBar from '../components/buyerAccount/sideNavbar'
+import Footer from '../components/layout/footer'
 
 const BuyerAccount = () => {
   return (
-    <Layout>
-      <BuyerAccountView />
-    </Layout>
+    <div>
+      <Header />
+      <div className="container flex">
+        <SideNavBar />
+        <BuyerAccountView />
+      </div>
+      <Footer />
+    </div>
   )
 }
 

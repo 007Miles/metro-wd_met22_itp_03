@@ -5,6 +5,7 @@ import {
   getleaveId,
   updateLeaveById,
   deleteLeaveById,
+  getAllLeaves,
 } from '../services/leave.js'
 
 export const createleave = asyncHandler(async (req, res) => {
@@ -17,6 +18,13 @@ export const createleave = asyncHandler(async (req, res) => {
     message: 'New Leave request has been created',
   })
 })
+
+// get all leaves
+export const getleaves = asyncHandler(async(req, res) => {
+  const ans = await getAllLeaves()
+  res.json(ans)
+})
+
 
 export const getleave = asyncHandler(async (req, res) => {
   const ans = await getleaveId(req.params.id)
@@ -47,3 +55,5 @@ export const deleteleave = asyncHandler(async (req, res) => {
     message: 'Deleted Leave request',
   })
 })
+
+

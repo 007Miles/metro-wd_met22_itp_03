@@ -2,16 +2,20 @@ import mongoose from 'mongoose'
 
 const roleSchema = mongoose.Schema(
   {
-    role: {
-      type: String,
-      required: true,
-    },
     empId: {
       type: String,
       require: true,
       unique: true,
     },
-    hrsPerDay: {
+    empName: {
+      type: String,
+      require: true,
+    },
+    role: {
+      type: String,
+      required: true,
+    },
+    otHrs: {
       type: Number,
       required: true,
     },
@@ -19,11 +23,11 @@ const roleSchema = mongoose.Schema(
       type: String,
       require: true,
     },
-    deductRate: {
+    basicSalary: {
       type: String,
       require: true,
     },
-    basicSalary: {
+    netSalary: {
       type: String,
       require: true,
     },
