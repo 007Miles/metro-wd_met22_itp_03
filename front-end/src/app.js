@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import IndexRoutes from './routes'
 
-const App = () => {
+function App() {
   return (
     <div className="App">
       <ToastContainer />

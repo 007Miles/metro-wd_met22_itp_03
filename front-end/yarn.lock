@@ -7745,6 +7745,7 @@ react-to-print@^2.14.8:
   integrity sha512-5MkSF3rLdxF9gmcSA6PdqTq9IFh7XkpYiJGP15OW+7hVr0+bpjLvi+kAIAuVjyV5/pv4GI3GuhVBQ0/hq94EZg==
   dependencies:
     prop-types "^15.8.1"
+
 react-toastify@^9.0.8:
   version "9.1.1"
   resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-9.1.1.tgz#9280caea4a13dc1739c350d90660a630807bf10b"
@@ -8621,7 +8622,7 @@ tailwindcss@^3.0.2:
     quick-lru "^5.1.1"
     resolve "^1.22.1"
 
-tailwindcss@^3.0.7:
+tailwindcss@^3.0.7, tailwindcss@^3.2.1:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.2.2.tgz#705f78cec8f4de2feb52abdb7a8a056e67f2d736"
   integrity sha512-c2GtSdqg+harR4QeoTmex0Ngfg8IIHNeLQH5yr2B9uZbZR1Xt1rYbjWOWTcj3YLTZhrmZnPowoQDbSRFyZHQ5Q==
