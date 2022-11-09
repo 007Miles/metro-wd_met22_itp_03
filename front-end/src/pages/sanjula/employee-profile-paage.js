@@ -129,28 +129,31 @@ const Employeeprofile = () => {
   return (
     <div className="Headder">
       <Layout />
-      <div className="body" class="">
-        <br></br>
-        <br></br>
-        <h1>Employee profile</h1>
-        <br></br>
-        <div class="">
-          <Link to={`/createLeave `}>
-            <button className="inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
-              Create Leave Request
-            </button>
-          </Link>
+
+      <center>
+        <div className="body" class="">
+          <br></br>
+          <br></br>
+          <h1>Employee profile</h1>
+          <br></br>
+          <div class="">
+            <Link to={`/createLeave `}>
+              <button className="inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                Create Leave Request
+              </button>
+            </Link>
+          </div>
+          <br></br>
+          <br></br>
+          <div>
+            <Link to={`/viewAllLeaves `}>
+              <button className="inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                View all Leave Requests
+              </button>
+            </Link>
+          </div>
         </div>
-        <br></br>
-        <br></br>
-        <div>
-          <Link to={`/viewAllLeaves `}>
-            <button className="inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
-              View all Leave Requests
-            </button>
-          </Link>
-        </div>
-      </div>
+      </center>
     </div>
   )
 }
