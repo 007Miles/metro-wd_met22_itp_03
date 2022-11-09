@@ -18,7 +18,7 @@ const SupplierAddForm = () => {
 
     const supplier = {
       business_name,
-      cred_id,
+      cred_id: '123456789012345678901234',
       address,
       email,
       phone,
@@ -120,13 +120,13 @@ const SupplierAddForm = () => {
           value={rating}
         />
 
-        <label>setCred_id :</label>
+        {/* <label>setCred_id :</label>
         <input
           type="text"
           onChange={(e) => setCred_id(e.target.value)}
           // onChange={(e) => setCred_id("12345678901234567890abcd")}
           value={cred_id}
-        />
+        /> */}
 
         <center>
           <button

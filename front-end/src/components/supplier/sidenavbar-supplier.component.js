@@ -43,9 +43,9 @@ const SideNavbar = () => {
     },
 
     {
-      title: 'Report',
+      title: 'Schedules',
       icon: <TbReport />,
-      src: 'report',
+      src: '../supScheduleList',
     },
   ]
 
