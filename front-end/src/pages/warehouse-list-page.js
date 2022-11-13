@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useReactToPrint } from 'react-to-print'
 
 const WarehouseList = () => {
   const [Warehouses, setWarehouse] = useState([])
@@ -19,9 +20,17 @@ const WarehouseList = () => {
 
   }, []);
 
+  const componentRef = useRef()
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  })
+
   return (
-    <div className="container bg-green-200 rounded-xl shadow border p-8 m-10">
-      <h1 className="text-3xl">Welcome to Warehouse Department</h1>
+    <div className="container bg-green-200 rounded-xl shadow border p-8 m-10" ref={componentRef}>
+      <div  className="flex">
+        <h1 className="text-3xl">Welcome to Warehouse Department</h1>
+      </div>
+
       <div className="mt-6 space-y-6">
         <div className="-space-y-px rounded-md shadow-sm">
 
@@ -79,8 +88,6 @@ const WarehouseList = () => {
                             <div class="flex space-x-2 justify-center">
                               <div>
 
-                                <button type="button" class="inline-block px-6 py-2 border-2 border-blue-400 text-blue-400 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
-                                  View </button>
 
                                 {/* Edit Button */}
                                 <Link to={`../updateWarehouse/${warehouse._id}`}>
@@ -108,22 +115,20 @@ const WarehouseList = () => {
                             </div>
                           </td>
                         </tr>
-
-
                       ))}
-
-
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
+      <div>
+      </div>
+        <button onClick={handlePrint} className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+        Print Warehouse</button>                              
     </div>
-
 
   )
 }

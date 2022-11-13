@@ -22,7 +22,32 @@ const EmployeSalaryList = () => {
 
   return (
     <div className="container bg-green-200 rounded-xl shadow border p-8 m-10">
+
+    <div  className="flex">
       <h1 className="text-3xl">Welcome to Employee Salary Department</h1>
+      <div class="flex ml-60 justify-center">
+        <div class="mb-3 xl:w-96">
+          <div class="input-group relative flex flex-wrap items-stretch w-full mb-4">
+          <div class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+            <div class="flex space-x-2 justify-center">
+              <Link to={`../setSalary`}>
+              <button type="button" class="inline-block px-10 py-3.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+                  // value={salary._id}
+                  onClick={(e) => {
+                    console.log(e.target.value);
+                  }}
+                  >
+                  Calculate Salary </button>
+             </Link>
+            </div>
+          </div>
+          
+          </div>
+        </div>
+      </div> 
+    </div> 
+
+
       <div className="mt-6 space-y-6">
         <div className="-space-y-px rounded-md shadow-sm">
 
@@ -50,9 +75,6 @@ const EmployeSalaryList = () => {
                         </th>                 
                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                           Net Salary
-                        </th>
-                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                          Actions
                         </th>
                       </tr>
                     </thead>
@@ -82,24 +104,7 @@ const EmployeSalaryList = () => {
                             {salary.netSalary}
                           </td>
 
-                          <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                            <div class="flex space-x-2 justify-center">
-                              <div>
-
-                                {/* Edit Button */}
-                                <Link to={`../setSalary/${salary._id}`}>
-                                  <button type="button" class="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
-                                    value={salary._id}
-                                    onClick={(e) => {
-                                      console.log(e.target.value);
-                                    }}
-                                  >
-                                    Calculate Salary </button>
-                                </Link>
-
-                              </div>
-                            </div>
-                          </td>
+                          
                         </tr>
 
 

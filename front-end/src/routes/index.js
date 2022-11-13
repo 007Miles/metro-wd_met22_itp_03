@@ -4,7 +4,7 @@ import Login from '../pages/login'
 import About from '../pages/about'
 import Axiostest from '../pages/axiostest'
 import CraeteDelivery from '../pages/delivery'
-import Home from '../pages/home'
+import EmployeeRouterHome from '../pages/employee-router-home'
 import ProductList from '../pages/ProductList.js'
 import UpdateProduct from '../components/UpdateProduct.js'
 import ProductForm from '../pages/ProductForm.js'
@@ -21,7 +21,7 @@ const IndexRoutes = () => {
       <Route path="/axiostest" element={<Axiostest />} />
       <Route path="/delivery" element={<CraeteDelivery />} />
 
-      <Route path="/empHome/*" element={<Home />} />
+      <Route path="/empHome/*" element={<EmployeeRouterHome />} />
 
       <Route path="/ProductList" element={<ProductList />} />
       <Route path="/ProductForm" element={<ProductForm />} />

@@ -3,20 +3,23 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Header from '../components/layout/header'
 import SideNavbar from '../components/sidenavbar-employee.component'
-import EmployeeHome from '../pages/employee-home'
-import EmployeeRegistrationForm from '../pages/create-employee-page'
-import EmployeeUpdateForm from '../pages/update-employee-page'
-import EmployeeList from '../pages/employee-list-page'
-import EmployeeDelete from '../pages/delete-employee-page'
-import WarehouseRegistrationForm from '../pages/create-warehouse-page'
-import WarehouseList from '../pages/warehouse-list-page'
+import EmployeeHome from './employee-home'
+import EmployeeRegistrationForm from './create-employee-page'
+import EmployeeUpdateForm from './update-employee-page'
+import EmployeeList from './employee-list-page'
+import EmployeeDelete from './delete-employee-page'
+import WarehouseRegistrationForm from './create-warehouse-page'
+import WarehouseList from './warehouse-list-page'
 import WarehouseUpdateForm from './update-warehouse-page'
 import WarehouseDelete from './delete-warehouse-page'
 import EmployeeSalary from './employee-salary'
-import EmployeeAttendance from '../pages/employee-attendance'
+import EmployeeAttendance from './employee-attendance'
 import EmployeSalaryList from './employee-salary-list'
+import EmployeeDetails from './employee-details'
+import EmployeeCalendar from './employee-calendar'
+import EmployeeReport from './employee-report'
 
-const home = () => {
+const EmployeeRouterHome = () => {
   return (
     <div>
       <Header />
@@ -36,10 +39,13 @@ const home = () => {
           <Route path="/setSalary" element={<EmployeeSalary />}></Route>
           <Route path="/attendance" element={<EmployeeAttendance />}></Route>
           <Route path="/viewAllSalary" element={<EmployeSalaryList />}></Route>
+          <Route path="/viewEmployeeDetails" element={<EmployeeDetails />}></Route>
+          <Route path="/calendar" element={<EmployeeCalendar />}></Route>
+          <Route path="/report" element={<EmployeeReport />}></Route>
         </Routes>
       </div>
     </div>
   )
 }
 
-export default home
+export default EmployeeRouterHome

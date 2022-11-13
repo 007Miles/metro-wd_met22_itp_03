@@ -59,7 +59,7 @@ const EmployeeAttendance = () => {
 
   const setCheckOut = (id) => {
     const data = {
-      checkOut: new Date("2022-11-06T02:46:18.744+00:00"),
+      checkOut: new Date("2022-11-09T19:00:45.000+00:00"),
     }
 
     axios

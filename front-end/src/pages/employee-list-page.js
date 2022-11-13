@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import EmployeePopover from '../components/employee-popover'
 
 const EmployeeList = () => {
   const [employees, setEmployee] = useState([])
   const [searchName, setSearchName] = useState("")
+  const [currentEmp, setCurrentEmp] = useState({flag: true})
+
+
+  
+
 
   useEffect(() => {
     const fetchEmployee = async () => {
@@ -92,6 +98,7 @@ const EmployeeList = () => {
                       </tr>
                     </thead>
 
+                    < EmployeePopover currentEmp={currentEmp} />
 
                     <tbody>
                       {employees.map((employee, i) => (
@@ -120,8 +127,19 @@ const EmployeeList = () => {
                             <div class="flex space-x-2 justify-center">
                               <div>
 
-                                <button type="button" class="inline-block px-6 py-2 border-2 border-blue-400 text-blue-400 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                             
+
+                                {/* View Button */}
+                              
+                                <button type="button" class="inline-block px-6 py-2 border-2 border-blue-400 text-blue-400 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                                  value={employee._id}
+                                  onClick={(e) => {
+                                    console.log(e.target.value);
+                                    setCurrentEmp(employee)
+                                  }}
+                                >
                                   View </button>
+                            
 
                                 {/* Edit Button */}
                                 <Link to={`../updateEmployee/${employee._id}`}>
