@@ -34,7 +34,7 @@ const SideNavBar = () => {
               !open && 'scale-0'
             }`}
           >
-            Designer
+            Buyer
           </h1>
         </div>
         <ul className="pt-6">
